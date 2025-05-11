@@ -15,6 +15,7 @@ import {
   TooltipTrigger,
 } from "@/app/components/ui/tooltip";
 import { cn } from "@/lib/utils";
+import ShinyText from "./components/reactbits/ShinyText";
 
 const XIcon = () => (
   <svg
@@ -111,7 +112,15 @@ const DATA = {
 export default function Page() {
   return (
     <>
-      <div className="flex flex-row justify-center items-center gap-10 mt-10">
+      <div className="w-screen h-[64px] bg-black shadow-2xl flex items-center justify-start">
+        <ShinyText 
+          text="Personal Portfolio" 
+          disabled={false} 
+          speed={5} 
+          className="custom-class ml-4" 
+        />
+      </div>
+      <div className="flex  flex-row justify-center items-center gap-10 mt-54">
         <SplitText
           text="Welcome, My Honored Guests!"
           className="text-4xl text-black font-bold tracking-tighter"
@@ -133,62 +142,73 @@ export default function Page() {
           scale={1.1}
           threshold={0.2}
         >
-          <Image src="https://raw.githubusercontent.com/akiraraihaan/self-sources/refs/heads/main/WA98638.jpg" alt="logo" width={256} height={256} className="rounded-full h-[256px] w-[256px] object-cover" />
+          <Image src="https://raw.githubusercontent.com/akiraraihaan/self-sources/refs/heads/main/WA98638.jpg" alt="logo" width={256} height={256} className="rounded-full h-[256px] w-[256px] object-cover shadow-2xl" />
         </AnimatedContent>
       </div>
       
       {/* Dock Navigation */}
-      <div className="fixed bottom-8 left-0 right-0 flex justify-center">
-        <TooltipProvider>
-          <Dock>
-            {DATA.navbar.map((item) => (
-              <DockIcon key={item.label}>
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <Link
-                      href={item.href}
-                      aria-label={item.label}
-                      className={cn(
-                        buttonVariants({ variant: "ghost", size: "icon" }),
-                        "size-12 rounded-full"
-                      )}
-                    >
-                      <item.icon className="size-4" />
-                    </Link>
-                  </TooltipTrigger>
-                  <TooltipContent>
-                    <p>{item.label}</p>
-                  </TooltipContent>
-                </Tooltip>
-              </DockIcon>
-            ))}
-            <Separator orientation="vertical" className="h-8" />
-            {Object.entries(DATA.contact.social).map(([name, social]) => (
-              <DockIcon key={name}>
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <Link
-                      href={social.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={social.name}
-                      className={cn(
-                        buttonVariants({ variant: "ghost", size: "icon" }),
-                        "size-12 rounded-full"
-                      )}
-                    >
-                      <social.icon className="size-4" />
-                    </Link>
-                  </TooltipTrigger>
-                  <TooltipContent>
-                    <p>{name}</p>
-                  </TooltipContent>
-                </Tooltip>
-              </DockIcon>
-            ))}
-          </Dock>
-        </TooltipProvider>
-      </div>
+      <AnimatedContent
+        distance={250}
+        direction="vertical"
+        reverse={true}
+        config={{ tension: 80, friction: 20 }}
+        initialOpacity={0.2}
+        animateOpacity
+        scale={1.1}
+        threshold={0.2}
+      >        
+        <div className="fixed bottom-98 left-0 right-0 flex justify-center">
+          <TooltipProvider>
+            <Dock direction="top">
+              {DATA.navbar.map((item) => (
+                <DockIcon key={item.label}>
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <Link
+                        href={item.href}
+                        aria-label={item.label}
+                        className={cn(
+                          buttonVariants({ variant: "ghost", size: "icon" }),
+                          "size-12 rounded-full"
+                        )}
+                      >
+                        <item.icon className="size-4" />
+                      </Link>
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      <p>{item.label}</p>
+                    </TooltipContent>
+                  </Tooltip>
+                </DockIcon>
+              ))}
+              <Separator orientation="vertical" className="h-8" />
+              {Object.entries(DATA.contact.social).map(([name, social]) => (
+                <DockIcon key={name}>
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <Link
+                        href={social.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={social.name}
+                        className={cn(
+                          buttonVariants({ variant: "ghost", size: "icon" }),
+                          "size-12 rounded-full"
+                        )}
+                      >
+                        <social.icon className="size-4" />
+                      </Link>
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      <p>{name}</p>
+                    </TooltipContent>
+                  </Tooltip>
+                </DockIcon>
+              ))}
+            </Dock>
+          </TooltipProvider>
+        </div>
+      </AnimatedContent>
     
       <ScrollFloat
         animationDuration={1}

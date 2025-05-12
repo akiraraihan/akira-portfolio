@@ -112,14 +112,85 @@ const DATA = {
 export default function Page() {
   return (
     <>
-      <div className="w-screen h-[64px] bg-black shadow-2xl flex items-center justify-start">
-        <ShinyText 
-          text="Personal Portfolio" 
-          disabled={false} 
-          speed={5} 
-          className="custom-class ml-4" 
-        />
+      <div className="relative">
+        {/* header bar */}
+        <div className="sticky top-0 w-screen h-[64px] bg-black shadow-2xl flex items-center justify-start">
+          <ShinyText 
+            text="Personal Portfolio" 
+            disabled={false}
+            speed={5}
+            className="custom-class ml-4" 
+          />
+        </div>
+
+        <div className="sticky top-0 pt-16">
+          {/* Dock Navigation */}
+          <AnimatedContent
+            distance={250}
+            direction="vertical"
+            reverse={true}
+            config={{ tension: 80, friction: 20 }}
+            initialOpacity={0.2}
+            animateOpacity
+            scale={1.1}
+            threshold={0.2}
+          >        
+            <div className="relative flex justify-center">
+              <TooltipProvider>
+                <Dock direction="top" className="sticky bottom-32 top-32">
+                  {DATA.navbar.map((item) => (
+                    <DockIcon key={item.label}>
+                      <Tooltip>
+                        <TooltipTrigger asChild>
+                          <Link
+                            href={item.href}
+                            aria-label={item.label}
+                            className={cn(
+                              buttonVariants({ variant: "ghost", size: "icon" }),
+                              "size-12 rounded-full"
+                            )}
+                          >
+                            <item.icon className="size-4" />
+                          </Link>
+                        </TooltipTrigger>
+                        <TooltipContent>
+                          <p>{item.label}</p>
+                        </TooltipContent>
+                      </Tooltip>
+                    </DockIcon>
+                  ))}
+                  <Separator orientation="vertical" className="h-8" />
+                  {Object.entries(DATA.contact.social).map(([name, social]) => (
+                    <DockIcon key={name}>
+                      <Tooltip>
+                        <TooltipTrigger asChild>
+                          <Link
+                            href={social.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label={social.name}
+                            className={cn(
+                              buttonVariants({ variant: "ghost", size: "icon" }),
+                              "size-12 rounded-full"
+                            )}
+                          >
+                            <social.icon className="size-4" />
+                          </Link>
+                        </TooltipTrigger>
+                        <TooltipContent>
+                          <p>{name}</p>
+                        </TooltipContent>
+                      </Tooltip>
+                    </DockIcon>
+                  ))}
+                </Dock>
+              </TooltipProvider>
+            </div>
+          </AnimatedContent>
+        </div>
       </div>
+
+      {/* hero sec */}
       <div className="flex  flex-row justify-center items-center gap-10 mt-54">
         <SplitText
           text="Welcome, My Honored Guests!"
@@ -146,69 +217,6 @@ export default function Page() {
         </AnimatedContent>
       </div>
       
-      {/* Dock Navigation */}
-      <AnimatedContent
-        distance={250}
-        direction="vertical"
-        reverse={true}
-        config={{ tension: 80, friction: 20 }}
-        initialOpacity={0.2}
-        animateOpacity
-        scale={1.1}
-        threshold={0.2}
-      >        
-        <div className="fixed bottom-98 left-0 right-0 flex justify-center">
-          <TooltipProvider>
-            <Dock direction="top">
-              {DATA.navbar.map((item) => (
-                <DockIcon key={item.label}>
-                  <Tooltip>
-                    <TooltipTrigger asChild>
-                      <Link
-                        href={item.href}
-                        aria-label={item.label}
-                        className={cn(
-                          buttonVariants({ variant: "ghost", size: "icon" }),
-                          "size-12 rounded-full"
-                        )}
-                      >
-                        <item.icon className="size-4" />
-                      </Link>
-                    </TooltipTrigger>
-                    <TooltipContent>
-                      <p>{item.label}</p>
-                    </TooltipContent>
-                  </Tooltip>
-                </DockIcon>
-              ))}
-              <Separator orientation="vertical" className="h-8" />
-              {Object.entries(DATA.contact.social).map(([name, social]) => (
-                <DockIcon key={name}>
-                  <Tooltip>
-                    <TooltipTrigger asChild>
-                      <Link
-                        href={social.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label={social.name}
-                        className={cn(
-                          buttonVariants({ variant: "ghost", size: "icon" }),
-                          "size-12 rounded-full"
-                        )}
-                      >
-                        <social.icon className="size-4" />
-                      </Link>
-                    </TooltipTrigger>
-                    <TooltipContent>
-                      <p>{name}</p>
-                    </TooltipContent>
-                  </Tooltip>
-                </DockIcon>
-              ))}
-            </Dock>
-          </TooltipProvider>
-        </div>
-      </AnimatedContent>
     
       <ScrollFloat
         animationDuration={1}
@@ -216,7 +224,7 @@ export default function Page() {
         scrollStart='center bottom+=50%'
         scrollEnd='bottom bottom-=40%'
         stagger={0.03}
-        textClassName="font-extrabold tracking-tighter"
+        textClassName="font-extrabold tracking-tighter mt-[1000px]"
       >
         reactbits
       </ScrollFloat>

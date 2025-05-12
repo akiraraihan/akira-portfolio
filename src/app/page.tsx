@@ -99,12 +99,12 @@ const DATA = {
       },
       LinkedIn: {
         name: "LinkedIn",
-        url: "https://linkedin.com/",
+        url: "https://www.linkedin.com/in/raihan-akira-r-6a76b6294/",
         icon: LinkedInIcon,
       },
       X: {
         name: "X",
-        url: "https://twitter.com/yourusername",
+        url: "https://x.com/calmotionz",
         icon: XIcon,
       },
       Instagram: {
@@ -121,7 +121,7 @@ export default function Page() {
     <>
       <div className="relative">
         {/* header bar */}
-        <div className="sticky top-0 w-full h-[64px] bg-black shadow-md flex flex-row items-center justify-between px-8">
+        <div className="sticky top-0 w-full h-[64px] bg-black shadow-md flex flex-row items-center justify-between px-4 sm:px-8 z-50">
           <div>
             <ShinyText 
               text="Personal Portfolio" 
@@ -140,68 +140,135 @@ export default function Page() {
       </div>
 
       {/* hero sec */}
-      <div className="relative flex justify-center mt-16 h-[300px]">
-        <div className="absolute left-[20%] top-1/2 transform -translate-y-1/2">
-          <div className="inline-flex items-center">
-            <SplitText
-              text="Welcome, My Honored"
-              className="text-4xl text-black font-bold tracking-tighter"
-              delay={150}
-              animationFrom={{ opacity: 0, transform: 'translate3d(0,50px,0)' }}
-              animationTo={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
-              easing="easeOutCubic"
+      <div className="relative flex justify-center mt-8 sm:mt-12 md:mt-16 h-[400px] sm:h-[350px] md:h-[300px]">
+        <div className="block sm:hidden w-full px-4">
+          {/* Mobile layout */}
+          <div className="flex flex-col items-center">
+            <div className="flex flex-col items-center mb-6">
+              <div className="inline-flex items-center flex-wrap justify-center">
+                <SplitText
+                  text="Welcome, My Honored"
+                  className="text-2xl sm:text-3xl text-black font-bold tracking-tighter"
+                  delay={150}
+                  animationFrom={{ opacity: 0, transform: 'translate3d(0,50px,0)' }}
+                  animationTo={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
+                  easing="easeOutCubic"
+                  threshold={0.2}
+                  rootMargin="-50px"
+                  onLetterAnimationComplete={handleAnimationComplete}
+                />
+                <RotatingText
+                  texts={['Guests!', 'Visitors!', 'Friends!', 'Viewers!']}
+                  mainClassName="text-2xl sm:text-3xl text-white font-bold tracking-tighter px-2 bg-black overflow-hidden py-0.5 justify-center rounded-lg ml-1"
+                  staggerFrom={"last"}
+                  initial={{ y: "-100%" }}  
+                  animate={{ y: 0 }}
+                  exit={{ y: "-120%" }}
+                  staggerDuration={0.025}
+                  splitLevelClassName="overflow-hidden pb-0.5"
+                  transition={{ type: "spring", damping: 30, stiffness: 400 }}
+                  rotationInterval={3000}
+                />
+              </div>
+            </div>
+            
+            <AnimatedContent
+              distance={250}
+              direction="horizontal"
+              reverse={false}
+              config={{ tension: 80, friction: 20 }}
+              initialOpacity={0.2}
+              animateOpacity
+              scale={1.1}
               threshold={0.2}
-              rootMargin="-50px"
-              onLetterAnimationComplete={handleAnimationComplete}
-            />
-            <RotatingText
-              texts={['Guests!', 'Visitors!', 'Friends!', 'Viewers!']}
-              mainClassName="text-4xl text-white font-bold tracking-tighter px-2 bg-black overflow-hidden py-0.5 justify-center rounded-lg ml-1"
-              staggerFrom={"last"}
-              initial={{ y: "-100%" }}  
-              animate={{ y: 0 }}
-              exit={{ y: "-120%" }}
-              staggerDuration={0.025}
-              splitLevelClassName="overflow-hidden pb-0.5"
-              transition={{ type: "spring", damping: 30, stiffness: 400 }}
-              rotationInterval={3000}
-            />
+            >
+              <Image 
+                src="https://raw.githubusercontent.com/akiraraihaan/self-sources/refs/heads/main/WA98638.jpg" 
+                alt="logo" 
+                width={180} 
+                height={180} 
+                priority
+                className="rounded-full h-[180px] w-[180px] object-cover border-4 border-black" 
+              />
+            </AnimatedContent>
+            
+            <div className="mt-6 w-full px-4">
+              <BlurText
+                text="&emsp;I'm Raihan Akira Rahmaputra. A computer science student with a lifelong passion for technology and innovation. From leading national-scale digital events to developing real-world systems and competing in design and AI challenges — I thrive in the intersection between creativity, logic, and leadership. I aspire to grow into a tech leader who not only builds solutions, but also empowers others to build with purpose."
+                delay={150}
+                animateBy="words"
+                direction="top"
+                onAnimationComplete={handleAnimationComplete2}
+                className="text-sm mb-8 text-gray-700 text-balance"
+              />
+            </div>
           </div>
-          <div className="mt-6 max-w-[600px]">
-          <BlurText
-            text="&emsp;I'm Raihan Akira Rahmaputra. A computer science student with a lifelong passion for technology and innovation. From leading national-scale digital events to developing real-world systems and competing in design and AI challenges — I thrive in the intersection between creativity, logic, and leadership. I aspire to grow into a tech leader who not only builds solutions, but also empowers others to build with purpose."
-            delay={150}
-            animateBy="words"
-            direction="top"
-            onAnimationComplete={handleAnimationComplete2}
-            className="text-md mb-8 text-gray-700 text-balance"
-          />
+        </div>
+        
+        {/* Tablet and Desktop Layout - similar to original */}
+        <div className="hidden sm:block">
+          <div className="absolute left-[20%] top-1/2 transform -translate-y-1/2">
+            <div className="inline-flex items-center">
+              <SplitText
+                text="Welcome, My Honored"
+                className="text-3xl md:text-4xl text-black font-bold tracking-tighter"
+                delay={150}
+                animationFrom={{ opacity: 0, transform: 'translate3d(0,50px,0)' }}
+                animationTo={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
+                easing="easeOutCubic"
+                threshold={0.2}
+                rootMargin="-50px"
+                onLetterAnimationComplete={handleAnimationComplete}
+              />
+              <RotatingText
+                texts={['Guests!', 'Visitors!', 'Friends!', 'Viewers!']}
+                mainClassName="text-3xl md:text-4xl text-white font-bold tracking-tighter px-2 bg-black overflow-hidden py-0.5 justify-center rounded-lg ml-1"
+                staggerFrom={"last"}
+                initial={{ y: "-100%" }}  
+                animate={{ y: 0 }}
+                exit={{ y: "-120%" }}
+                staggerDuration={0.025}
+                splitLevelClassName="overflow-hidden pb-0.5"
+                transition={{ type: "spring", damping: 30, stiffness: 400 }}
+                rotationInterval={3000}
+              />
+            </div>
+            <div className="mt-6 max-w-[600px]">
+              <BlurText
+                text="&emsp;I'm Raihan Akira Rahmaputra. A computer science student with a lifelong passion for technology and innovation. From leading national-scale digital events to developing real-world systems and competing in design and AI challenges — I thrive in the intersection between creativity, logic, and leadership. I aspire to grow into a tech leader who not only builds solutions, but also empowers others to build with purpose."
+                delay={150}
+                animateBy="words"
+                direction="top"
+                onAnimationComplete={handleAnimationComplete2}
+                className="text-md mb-8 text-gray-700 text-balance"
+              />
+            </div>
           </div>
-        </div>         
-        <div className="absolute right-[20%] top-1/2 transform -translate-y-1/2">
-          <AnimatedContent
-            distance={250}
-            direction="horizontal"
-            reverse={false}
-            config={{ tension: 80, friction: 20 }}
-            initialOpacity={0.2}
-            animateOpacity
-            scale={1.1}
-            threshold={0.2}
-          >
-            <Image 
-              src="https://raw.githubusercontent.com/akiraraihaan/self-sources/refs/heads/main/WA98638.jpg" 
-              alt="logo" 
-              width={256} 
-              height={256} 
-              priority
-              className="rounded-full h-[256px] w-[256px] object-cover border-4 border-black" 
-            />
-          </AnimatedContent>
+          <div className="absolute right-[20%] top-1/2 transform -translate-y-1/2">
+            <AnimatedContent
+              distance={250}
+              direction="horizontal"
+              reverse={false}
+              config={{ tension: 80, friction: 20 }}
+              initialOpacity={0.2}
+              animateOpacity
+              scale={1.1}
+              threshold={0.2}
+            >
+              <Image 
+                src="https://raw.githubusercontent.com/akiraraihaan/self-sources/refs/heads/main/WA98638.jpg" 
+                alt="logo" 
+                width={256} 
+                height={256} 
+                priority
+                className="rounded-full h-[220px] w-[220px] md:h-[256px] md:w-[256px] object-cover border-4 border-black" 
+              />
+            </AnimatedContent>
+          </div>
         </div>
       </div>
 
-      <div className="sticky top-0 z-10 mt-24">
+      <div className="sticky top-0 z-10 mt-12 sm:mt-16 md:mt-24">
         {/* Dock Navigation */}
         <AnimatedContent
           distance={250}
@@ -225,7 +292,7 @@ export default function Page() {
                           aria-label={item.label}
                           className={cn(
                             buttonVariants({ variant: "ghost", size: "icon" }),
-                            "size-12 rounded-full"
+                            "size-10 sm:size-12 rounded-full"
                           )}
                         >
                           <item.icon className="size-4" />
@@ -237,7 +304,7 @@ export default function Page() {
                     </Tooltip>
                   </DockIcon>
                 ))}
-                <Separator orientation="vertical" className="h-8" />
+                <Separator orientation="vertical" className="h-6 sm:h-8" />
                 {Object.entries(DATA.contact.social).map(([name, social]) => (
                   <DockIcon key={name}>
                     <Tooltip>
@@ -249,7 +316,7 @@ export default function Page() {
                           aria-label={social.name}
                           className={cn(
                             buttonVariants({ variant: "ghost", size: "icon" }),
-                            "size-12 rounded-full"
+                            "size-10 sm:size-12 rounded-full"
                           )}
                         >
                           <social.icon className="size-4" />

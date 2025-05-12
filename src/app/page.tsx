@@ -18,6 +18,7 @@ import { cn } from "@/lib/utils";
 import ShinyText from "./components/reactbits/ShinyText";
 import CircularText from "./components/reactbits/CircularText";
 import RotatingText from "./components/reactbits/RotatingText";
+import BlurText from "./components/reactbits/BlurText";
 
 const XIcon = () => (
   <svg
@@ -76,6 +77,10 @@ const InstagramIcon = ({ className }: { className?: string }) => (
 
 const handleAnimationComplete = () => {
   console.log('All letters have animated!');
+};
+
+const handleAnimationComplete2 = () => {
+  console.log('Animation completed!');
 };
 
 const DATA = {
@@ -161,6 +166,16 @@ export default function Page() {
               transition={{ type: "spring", damping: 30, stiffness: 400 }}
               rotationInterval={3000}
             />
+          </div>
+          <div className="mt-6 max-w-[600px]">
+          <BlurText
+            text="&emsp;I'm Raihan Akira Rahmaputra. A computer science student with a lifelong passion for technology and innovation. From leading national-scale digital events to developing real-world systems and competing in design and AI challenges — I thrive in the intersection between creativity, logic, and leadership. I aspire to grow into a tech leader who not only builds solutions, but also empowers others to build with purpose."
+            delay={150}
+            animateBy="words"
+            direction="top"
+            onAnimationComplete={handleAnimationComplete2}
+            className="text-md mb-8 text-gray-700 text-balance"
+          />
           </div>
         </div>         
         <div className="absolute right-[20%] top-1/2 transform -translate-y-1/2">

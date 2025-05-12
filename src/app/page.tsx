@@ -16,6 +16,7 @@ import {
 } from "@/app/components/ui/tooltip";
 import { cn } from "@/lib/utils";
 import ShinyText from "./components/reactbits/ShinyText";
+import CircularText from "./components/reactbits/CircularText";
 
 const XIcon = () => (
   <svg
@@ -114,21 +115,26 @@ export default function Page() {
     <>
       <div className="relative">
         {/* header bar */}
-        <div className="sticky top-0 max-w-screen h-[64px] bg-black shadow-2xl flex items-center justify-start">
-          <ShinyText 
-            text="Personal Portfolio" 
-            disabled={false}
-            speed={5}
-            className="custom-class ml-4" 
-          />
+        <div className="sticky top-0 w-full h-[64px] bg-black shadow-2xl flex flex-row items-center justify-between px-8">
+          <div>
+            <ShinyText 
+              text="Personal Portfolio" 
+              disabled={false}
+              speed={5}
+            />
+          </div>
+          <div>
+            <CircularText
+              text="*EST*2025"
+              onHover="pause"
+              spinDuration={20}
+            />
+          </div>
         </div>
       </div>
-      
-
-
 
       {/* hero sec */}
-      <div className="flex  flex-row justify-center items-center gap-10 mt-54">
+      <div className="flex  flex-row justify-center items-center gap-10 mt-16">
         <SplitText
           text="Welcome, My Honored Guests!"
           className="text-4xl text-black font-bold tracking-tighter"
@@ -150,11 +156,11 @@ export default function Page() {
           scale={1.1}
           threshold={0.2}
         >
-          <Image src="https://raw.githubusercontent.com/akiraraihaan/self-sources/refs/heads/main/WA98638.jpg" alt="logo" width={256} height={256} className="rounded-full h-[256px] w-[256px] object-cover shadow-2xl" />
+          <Image src="https://raw.githubusercontent.com/akiraraihaan/self-sources/refs/heads/main/WA98638.jpg" alt="logo" width={256} height={256} className="rounded-full h-[256px] w-[256px] object-cover shadow-2xl border-4 border-black" />
         </AnimatedContent>
       </div>
 
-      <div className="sticky top-0 z-10">
+      <div className="sticky top-0 z-10 mt-24">
         {/* Dock Navigation */}
         <AnimatedContent
           distance={250}
@@ -227,7 +233,7 @@ export default function Page() {
         scrollStart='center bottom+=50%'
         scrollEnd='bottom bottom-=40%'
         stagger={0.03}
-        textClassName="font-extrabold tracking-tighter mt-[1000px]"
+        textClassName="font-extrabold tracking-tighter text-center"
       >
         reactbits
       </ScrollFloat>

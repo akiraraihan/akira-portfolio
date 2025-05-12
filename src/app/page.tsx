@@ -158,7 +158,7 @@ export default function Page() {
               texts={['Guests!', 'Visitors!', 'Friends!', 'Viewers!']}
               mainClassName="text-4xl text-white font-bold tracking-tighter px-2 bg-black overflow-hidden py-0.5 justify-center rounded-lg ml-1"
               staggerFrom={"last"}
-              initial={{ y: "100%" }}
+              initial={{ y: "-100%" }}  
               animate={{ y: 0 }}
               exit={{ y: "-120%" }}
               staggerDuration={0.025}
@@ -189,7 +189,14 @@ export default function Page() {
             scale={1.1}
             threshold={0.2}
           >
-            <Image src="https://raw.githubusercontent.com/akiraraihaan/self-sources/refs/heads/main/WA98638.jpg" alt="logo" width={256} height={256} className="rounded-full h-[256px] w-[256px] object-cover border-4 border-black" />
+            <Image 
+              src="https://raw.githubusercontent.com/akiraraihaan/self-sources/refs/heads/main/WA98638.jpg" 
+              alt="logo" 
+              width={256} 
+              height={256} 
+              priority
+              className="rounded-full h-[256px] w-[256px] object-cover border-4 border-black" 
+            />
           </AnimatedContent>
         </div>
       </div>

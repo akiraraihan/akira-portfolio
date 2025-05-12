@@ -112,9 +112,9 @@ const DATA = {
 export default function Page() {
   return (
     <>
-      <div>
+      <div className="relative">
         {/* header bar */}
-        <div className="sticky top-0 w-screen h-[64px] bg-black shadow-2xl flex items-center justify-start">
+        <div className="sticky top-0 max-w-screen h-[64px] bg-black shadow-2xl flex items-center justify-start">
           <ShinyText 
             text="Personal Portfolio" 
             disabled={false}
@@ -124,6 +124,36 @@ export default function Page() {
         </div>
       </div>
       
+
+
+
+      {/* hero sec */}
+      <div className="flex  flex-row justify-center items-center gap-10 mt-54">
+        <SplitText
+          text="Welcome, My Honored Guests!"
+          className="text-4xl text-black font-bold tracking-tighter"
+          delay={150}
+          animationFrom={{ opacity: 0, transform: 'translate3d(0,50px,0)' }}
+          animationTo={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
+          easing="easeOutCubic"
+          threshold={0.2}
+          rootMargin="-50px"
+          onLetterAnimationComplete={handleAnimationComplete}
+        />        
+        <AnimatedContent
+          distance={250}
+          direction="horizontal"
+          reverse={false}
+          config={{ tension: 80, friction: 20 }}
+          initialOpacity={0.2}
+          animateOpacity
+          scale={1.1}
+          threshold={0.2}
+        >
+          <Image src="https://raw.githubusercontent.com/akiraraihaan/self-sources/refs/heads/main/WA98638.jpg" alt="logo" width={256} height={256} className="rounded-full h-[256px] w-[256px] object-cover shadow-2xl" />
+        </AnimatedContent>
+      </div>
+
       <div className="sticky top-0 z-10">
         {/* Dock Navigation */}
         <AnimatedContent
@@ -188,35 +218,7 @@ export default function Page() {
             </TooltipProvider>
           </div>
         </AnimatedContent>
-      </div>
-
-
-      {/* hero sec */}
-      <div className="flex  flex-row justify-center items-center gap-10 mt-54">
-        <SplitText
-          text="Welcome, My Honored Guests!"
-          className="text-4xl text-black font-bold tracking-tighter"
-          delay={150}
-          animationFrom={{ opacity: 0, transform: 'translate3d(0,50px,0)' }}
-          animationTo={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
-          easing="easeOutCubic"
-          threshold={0.2}
-          rootMargin="-50px"
-          onLetterAnimationComplete={handleAnimationComplete}
-        />        
-        <AnimatedContent
-          distance={250}
-          direction="horizontal"
-          reverse={false}
-          config={{ tension: 80, friction: 20 }}
-          initialOpacity={0.2}
-          animateOpacity
-          scale={1.1}
-          threshold={0.2}
-        >
-          <Image src="https://raw.githubusercontent.com/akiraraihaan/self-sources/refs/heads/main/WA98638.jpg" alt="logo" width={256} height={256} className="rounded-full h-[256px] w-[256px] object-cover shadow-2xl" />
-        </AnimatedContent>
-      </div>
+      </div>      
       
     
       <ScrollFloat

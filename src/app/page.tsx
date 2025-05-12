@@ -116,7 +116,7 @@ export default function Page() {
     <>
       <div className="relative">
         {/* header bar */}
-        <div className="sticky top-0 w-full h-[64px] bg-black shadow-2xl flex flex-row items-center justify-between px-8">
+        <div className="sticky top-0 w-full h-[64px] bg-black shadow-md flex flex-row items-center justify-between px-8">
           <div>
             <ShinyText 
               text="Personal Portfolio" 
@@ -135,44 +135,48 @@ export default function Page() {
       </div>
 
       {/* hero sec */}
-      <div className="flex flex-row justify-center items-center gap-10 mt-16">
-        <div className="inline-flex items-center">
-          <SplitText
-            text="Welcome, My Honored"
-            className="text-4xl text-black font-bold tracking-tighter"
-            delay={150}
-            animationFrom={{ opacity: 0, transform: 'translate3d(0,50px,0)' }}
-            animationTo={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
-            easing="easeOutCubic"
+      <div className="relative flex justify-center mt-16 h-[300px]">
+        <div className="absolute left-[20%] top-1/2 transform -translate-y-1/2">
+          <div className="inline-flex items-center">
+            <SplitText
+              text="Welcome, My Honored"
+              className="text-4xl text-black font-bold tracking-tighter"
+              delay={150}
+              animationFrom={{ opacity: 0, transform: 'translate3d(0,50px,0)' }}
+              animationTo={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
+              easing="easeOutCubic"
+              threshold={0.2}
+              rootMargin="-50px"
+              onLetterAnimationComplete={handleAnimationComplete}
+            />
+            <RotatingText
+              texts={['Guests!', 'Visitors!', 'Friends!', 'Viewers!']}
+              mainClassName="text-4xl text-white font-bold tracking-tighter px-2 bg-black overflow-hidden py-0.5 justify-center rounded-lg ml-1"
+              staggerFrom={"last"}
+              initial={{ y: "100%" }}
+              animate={{ y: 0 }}
+              exit={{ y: "-120%" }}
+              staggerDuration={0.025}
+              splitLevelClassName="overflow-hidden pb-0.5"
+              transition={{ type: "spring", damping: 30, stiffness: 400 }}
+              rotationInterval={3000}
+            />
+          </div>
+        </div>         
+        <div className="absolute right-[20%] top-1/2 transform -translate-y-1/2">
+          <AnimatedContent
+            distance={250}
+            direction="horizontal"
+            reverse={false}
+            config={{ tension: 80, friction: 20 }}
+            initialOpacity={0.2}
+            animateOpacity
+            scale={1.1}
             threshold={0.2}
-            rootMargin="-50px"
-            onLetterAnimationComplete={handleAnimationComplete}
-          />
-          <RotatingText
-            texts={['Guests!', 'Visitors!', 'Friends!', 'Viewers!']}
-            mainClassName="text-4xl text-white font-bold tracking-tighter px-2 bg-black overflow-hidden py-0.5 justify-center rounded-lg ml-1"
-            staggerFrom={"last"}
-            initial={{ y: "100%" }}
-            animate={{ y: 0 }}
-            exit={{ y: "-120%" }}
-            staggerDuration={0.025}
-            splitLevelClassName="overflow-hidden pb-0.5"
-            transition={{ type: "spring", damping: 30, stiffness: 400 }}
-            rotationInterval={2000}
-          />
-        </div>          
-        <AnimatedContent
-          distance={250}
-          direction="horizontal"
-          reverse={false}
-          config={{ tension: 80, friction: 20 }}
-          initialOpacity={0.2}
-          animateOpacity
-          scale={1.1}
-          threshold={0.2}
-        >
-          <Image src="https://raw.githubusercontent.com/akiraraihaan/self-sources/refs/heads/main/WA98638.jpg" alt="logo" width={256} height={256} className="rounded-full h-[256px] w-[256px] object-cover shadow-2xl border-4 border-black" />
-        </AnimatedContent>
+          >
+            <Image src="https://raw.githubusercontent.com/akiraraihaan/self-sources/refs/heads/main/WA98638.jpg" alt="logo" width={256} height={256} className="rounded-full h-[256px] w-[256px] object-cover border-4 border-black" />
+          </AnimatedContent>
+        </div>
       </div>
 
       <div className="sticky top-0 z-10 mt-24">

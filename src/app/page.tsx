@@ -17,6 +17,7 @@ import {
 import { cn } from "@/lib/utils";
 import ShinyText from "./components/reactbits/ShinyText";
 import CircularText from "./components/reactbits/CircularText";
+import RotatingText from "./components/reactbits/RotatingText";
 
 const XIcon = () => (
   <svg
@@ -134,18 +135,32 @@ export default function Page() {
       </div>
 
       {/* hero sec */}
-      <div className="flex  flex-row justify-center items-center gap-10 mt-16">
-        <SplitText
-          text="Welcome, My Honored Guests!"
-          className="text-4xl text-black font-bold tracking-tighter"
-          delay={150}
-          animationFrom={{ opacity: 0, transform: 'translate3d(0,50px,0)' }}
-          animationTo={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
-          easing="easeOutCubic"
-          threshold={0.2}
-          rootMargin="-50px"
-          onLetterAnimationComplete={handleAnimationComplete}
-        />        
+      <div className="flex flex-row justify-center items-center gap-10 mt-16">
+        <div className="inline-flex items-center">
+          <SplitText
+            text="Welcome, My Honored"
+            className="text-4xl text-black font-bold tracking-tighter"
+            delay={150}
+            animationFrom={{ opacity: 0, transform: 'translate3d(0,50px,0)' }}
+            animationTo={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
+            easing="easeOutCubic"
+            threshold={0.2}
+            rootMargin="-50px"
+            onLetterAnimationComplete={handleAnimationComplete}
+          />
+          <RotatingText
+            texts={['Guests!', 'Visitors!', 'Friends!', 'Viewers!']}
+            mainClassName="text-4xl text-white font-bold tracking-tighter px-2 bg-black overflow-hidden py-0.5 justify-center rounded-lg ml-1"
+            staggerFrom={"last"}
+            initial={{ y: "100%" }}
+            animate={{ y: 0 }}
+            exit={{ y: "-120%" }}
+            staggerDuration={0.025}
+            splitLevelClassName="overflow-hidden pb-0.5"
+            transition={{ type: "spring", damping: 30, stiffness: 400 }}
+            rotationInterval={2000}
+          />
+        </div>          
         <AnimatedContent
           distance={250}
           direction="horizontal"

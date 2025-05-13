@@ -407,17 +407,25 @@ export default function Page() {
         </AnimatedContent>
       </div>      
       
-    
-      <ScrollFloat
-        animationDuration={1}
-        ease='back.inOut(2)'
-        scrollStart='center bottom+=50%'
-        scrollEnd='bottom bottom-=40%'
-        stagger={0.03}
-        textClassName="font-extrabold tracking-tighter text-center"
-      >
-        reactbits
-      </ScrollFloat>
+      <div className="relative mt-20 mb-40 flex flex-col items-center">
+        <ScrollFloat
+          animationDuration={1}
+          ease="back.inOut(2)"
+          scrollStart="center bottom+=50%"
+          scrollEnd="bottom bottom-=40%"
+          stagger={0.03}
+          textClassName="font-extrabold tracking-tighter text-center text-4xl md:text-5xl lg:text-6xl mb-6"
+        >
+          Reactbits
+        </ScrollFloat>
+        
+        <div className="max-w-3xl mx-auto px-4 text-center mb-[1000px]">
+          <p className="text-lg mb-8 text-gray-700">
+            Serangkaian komponen React yang dibuat dengan sentuhan animasi yang unik.
+            Komponen-komponen ini dapat digunakan untuk membuat tampilan web yang lebih interaktif dan menarik.
+          </p>
+        </div>
+      </div>
     </>
   );
 }

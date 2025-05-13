@@ -1,7 +1,8 @@
 "use client"
 import Image from "next/image";
 import Link from "next/link";
-import { Home, User, Briefcase, Mail } from "lucide-react";
+import { Home, User, Briefcase, Mail, Menu, X as XIconLucide } from "lucide-react";
+import { useState, useEffect } from "react";
 import ScrollFloat from "./components/reactbits/ScrollFloat";
 import SplitText from "./components/reactbits/SplitText";
 import AnimatedContent from "./components/reactbits/AnimatedContent";
@@ -117,6 +118,24 @@ const DATA = {
 };
 
 export default function Page() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
+  };
+
+  // Prevent scrolling when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [mobileMenuOpen]);
+
   return (
     <>
       <div className="relative">
@@ -139,9 +158,63 @@ export default function Page() {
         </div>
       </div>
 
+      {/* Mobile Menu Button - visible only on small screens */}
+      <div className="fixed bottom-4 right-4 z-50 sm:hidden">
+        <button 
+          onClick={toggleMobileMenu}
+          className="bg-black text-white p-3 rounded-full shadow-lg"
+          aria-label="Toggle menu"
+        >
+          {mobileMenuOpen ? <XIconLucide size={24} /> : <Menu size={24} />}
+        </button>
+        
+        {/* Mobile Menu as a small modal with animation */}
+        <div 
+          className={`absolute bottom-16 right-0 bg-white rounded-lg shadow-xl w-64 overflow-hidden transition-all duration-300 ease-in-out transform ${
+            mobileMenuOpen ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none"
+          }`}
+          style={{
+            transformOrigin: 'bottom right',
+            maxHeight: mobileMenuOpen ? '80vh' : '0'
+          }}
+        >
+          <div className="flex flex-col">
+            {DATA.navbar.map((item) => (
+              <Link
+                key={item.label}
+                href={item.href}
+                className="flex items-center space-x-3 p-4 hover:bg-gray-100 border-b border-gray-100"
+                onClick={toggleMobileMenu}
+              >
+                <item.icon className="size-5" />
+                <span className="font-medium">{item.label}</span>
+              </Link>
+            ))}
+            <div className="p-4">
+              <p className="text-sm text-gray-500 mb-2">Connect with me:</p>
+              <div className="flex flex-wrap gap-2">
+                {Object.entries(DATA.contact.social).map(([name, social]) => (
+                  <Link
+                    key={name}
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={social.name}
+                    className="p-2 hover:bg-gray-100 rounded-full"
+                    onClick={toggleMobileMenu}
+                  >
+                    <social.icon className="size-5" />
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* hero sec */}
-      <div className="relative flex justify-center mt-8 sm:mt-12 md:mt-16 h-[400px] sm:h-[350px] md:h-[300px]">
-        <div className="block sm:hidden w-full px-4">
+      <div className="relative flex justify-center mt-8 sm:mt-12 md:mt-16 h-auto min-h-[500px] sm:h-[350px] md:h-[300px]">
+        <div className="block sm:hidden w-full px-4 overflow-hidden">
           {/* Mobile layout */}
           <div className="flex flex-col items-center">
             <div className="flex flex-col items-center mb-6">
@@ -192,14 +265,14 @@ export default function Page() {
               />
             </AnimatedContent>
             
-            <div className="mt-6 w-full px-4">
+            <div className="mt-6 w-full px-4 max-w-full">
               <BlurText
                 text="&emsp;I'm Raihan Akira Rahmaputra. A computer science student with a lifelong passion for technology and innovation. From leading national-scale digital events to developing real-world systems and competing in design and AI challenges — I thrive in the intersection between creativity, logic, and leadership. I aspire to grow into a tech leader who not only builds solutions, but also empowers others to build with purpose."
                 delay={150}
                 animateBy="words"
                 direction="top"
                 onAnimationComplete={handleAnimationComplete2}
-                className="text-sm mb-8 text-gray-700 text-balance"
+                className="text-sm mb-20 text-gray-700 text-balance"
               />
             </div>
           </div>
@@ -268,8 +341,8 @@ export default function Page() {
         </div>
       </div>
 
-      <div className="sticky top-0 z-10 mt-12 sm:mt-16 md:mt-24">
-        {/* Dock Navigation */}
+      {/* Desktop Dock Navigation - hidden on small screens */}
+      <div className="sticky top-0 z-10 mt-4 sm:mt-8 md:mt-12 hidden sm:block">
         <AnimatedContent
           distance={250}
           direction="vertical"

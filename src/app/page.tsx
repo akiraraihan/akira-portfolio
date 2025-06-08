@@ -421,25 +421,18 @@ export default function Page() {
         </ScrollFloat>
         
         <div className="w-full relative mt-2 sm:mt-4 mb-[500px] sm:mb-[800px] px-4">
-          {/* Improved clip-path with better mobile responsiveness */}
-          <div className="w-full bg-black text-white relative overflow-hidden shadow-xl rounded-4xl" 
-               style={{
-                 clipPath: "polygon(0 8%, 25% 2%, 50% 8%, 75% 2%, 100% 8%, 100% 100%, 0 100%)",
-                 paddingTop: "80px",
-                 paddingBottom: "60px"
-               }}>
-            <div className="absolute inset-0" style={{
-              clipPath: "polygon(0 8%, 25% 2%, 50% 8%, 75% 2%, 100% 8%, 100% 100%, 0 100%)"
-            }}>
+          {/* Simple rounded card design with Aurora */}
+          <div className="w-full bg-black text-white relative overflow-hidden shadow-xl rounded-3xl">
+            <div className="absolute inset-0 opacity-55">
               <Aurora
                 colorStops={["#97FFA4", "#83DDCB", "#67AEFF"]}
-                blend={0.5}
-                amplitude={1.0}
-                speed={0.5}
+                blend={0.3}
+                amplitude={0.8}
+                speed={0.4}
               />
             </div>
-            <div className="max-w-4xl mx-auto px-4 relative z-10">
-              <p className="text-lg mt-18 mb-12 text-gray-300 text-center">
+            <div className="max-w-4xl mx-auto px-4 relative z-10 pt-12 pb-16 sm:pt-16 sm:pb-20">
+              <p className="text-lg mt-2 mb-12 text-gray-300 text-center">
                 My journey through organizations, experiences, and professional growth
               </p>
               

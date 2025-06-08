@@ -504,19 +504,15 @@ export default function Page() {
           {/* Data Science & AI */}
           <Marquee reverse pauseOnHover className="[--duration:32s] mb-3">
             <div className="mx-3 flex items-center space-x-3 bg-white border border-gray-200 rounded-lg px-4 py-3 shadow-sm hover:shadow-md transition-shadow">
-              <img src="https://svgl.app/library/numpy.svg" alt="NumPy" className="w-6 h-6" />
+              <img src="https://img.icons8.com/?size=100&id=aR9CXyMagKIS&format=png&color=000000" alt="NumPy" className="w-6 h-6" />
               <span className="text-blue-600 font-semibold">NumPy</span>
             </div>
             <div className="mx-3 flex items-center space-x-3 bg-white border border-gray-200 rounded-lg px-4 py-3 shadow-sm hover:shadow-md transition-shadow">
-              <div className="w-6 h-6 bg-blue-800 rounded flex items-center justify-center">
-                <span className="text-white text-xs font-bold">P</span>
-              </div>
+              <img src="https://img.icons8.com/?size=100&id=xSkewUSqtErH&format=png&color=000000" alt="Pandas" className="w-6 h-6" />
               <span className="text-blue-800 font-semibold">Pandas</span>
             </div>
             <div className="mx-3 flex items-center space-x-3 bg-white border border-gray-200 rounded-lg px-4 py-3 shadow-sm hover:shadow-md transition-shadow">
-              <div className="w-6 h-6 bg-green-600 rounded flex items-center justify-center">
-                <span className="text-white text-xs font-bold">M</span>
-              </div>
+              <img src="https://img.icons8.com/?size=100&id=TkX1totjFmAD&format=png&color=000000" alt="Matplotlib" className="w-6 h-6" />
               <span className="text-green-600 font-semibold">Matplotlib</span>
             </div>
             <div className="mx-3 flex items-center space-x-3 bg-white border border-gray-200 rounded-lg px-4 py-3 shadow-sm hover:shadow-md transition-shadow">

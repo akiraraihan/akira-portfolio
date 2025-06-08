@@ -20,6 +20,7 @@ import ShinyText from "./components/reactbits/ShinyText";
 import CircularText from "./components/reactbits/CircularText";
 import RotatingText from "./components/reactbits/RotatingText";
 import BlurText from "./components/reactbits/BlurText";
+import Aurora from './components/reactbits/Aurora';
 
 const XIcon = () => (
   <svg
@@ -138,9 +139,9 @@ export default function Page() {
 
   return (
     <>
-      <div className="relative">
+      <div className="relative mx-2 my-3">
         {/* header bar */}
-        <div className="sticky top-0 w-full h-[64px] bg-black shadow-md flex flex-row items-center justify-between px-4 sm:px-8 z-50">
+        <div className="sticky top-0 w-full h-[64px] bg-black shadow-md flex flex-row items-center justify-between px-4 sm:px-8 z-50 rounded-3xl">
           <div>
             <ShinyText 
               text="Personal Portfolio" 
@@ -213,7 +214,7 @@ export default function Page() {
       </div>
 
       {/* hero sec */}
-      <div className="relative flex justify-center mt-8 sm:mt-12 md:mt-16 h-auto min-h-[500px] sm:h-[350px] md:h-[300px]">
+      <div className="relative flex justify-center mt-2 sm:mt-4 md:mt-8 h-auto min-h-[500px] sm:h-[350px] md:h-[300px]">
         <div className="block sm:hidden w-full px-4 overflow-hidden">
           {/* Mobile layout */}
           <div className="flex flex-col items-center">
@@ -334,7 +335,7 @@ export default function Page() {
                 width={256} 
                 height={256} 
                 priority
-                className="rounded-full h-[220px] w-[220px] md:h-[256px] md:w-[256px] object-cover border-4 border-black" 
+                className="rounded-[80px] shadow-2xl h-[220px] w-[220px] md:h-[256px] md:w-[256px] object-cover" 
               />
             </AnimatedContent>
           </div>
@@ -342,7 +343,7 @@ export default function Page() {
       </div>
 
       {/* Desktop Dock Navigation - hidden on small screens */}
-      <div className="sticky top-0 z-10 mt-4 sm:mt-8 md:mt-12 hidden sm:block">
+      <div className="sticky top-0 z-10 mt-2 sm:mt-4 md:mt-8 hidden sm:block">
         <AnimatedContent
           distance={250}
           direction="vertical"
@@ -407,7 +408,7 @@ export default function Page() {
         </AnimatedContent>
       </div>      
       
-      <div className="relative mt-20 mb-40 flex flex-col items-center">
+      <div className="relative mt-12 sm:mt-20 mb-20 sm:mb-40 flex flex-col items-center">
         <ScrollFloat
           animationDuration={1}
           ease="back.inOut(2)"
@@ -416,14 +417,34 @@ export default function Page() {
           stagger={0.03}
           textClassName="font-extrabold tracking-tighter text-center text-4xl md:text-5xl lg:text-6xl mb-6"
         >
-          Reactbits
+          Experiences
         </ScrollFloat>
         
-        <div className="max-w-3xl mx-auto px-4 text-center mb-[1000px]">
-          <p className="text-lg mb-8 text-gray-700">
-            Serangkaian komponen React yang dibuat dengan sentuhan animasi yang unik.
-            Komponen-komponen ini dapat digunakan untuk membuat tampilan web yang lebih interaktif dan menarik.
-          </p>
+        <div className="w-full relative mt-2 sm:mt-4 mb-[500px] sm:mb-[800px] px-4">
+          {/* Metode clip-path yang lebih sederhana untuk membuat bentuk gelombang */}
+          <div className="w-full bg-black text-white relative overflow-hidden shadow-xl rounded-4xl" 
+               style={{
+                 clipPath: "polygon(0 10%, 20% 0, 50% 15%, 70% 0, 100% 10%, 100% 100%, 0 100%)",
+                 paddingTop: "100px",
+                 paddingBottom: "60px"
+               }}>
+            <div className="absolute inset-0" style={{
+              clipPath: "polygon(0 10%, 20% 0, 50% 15%, 70% 0, 100% 10%, 100% 100%, 0 100%)"
+            }}>
+              <Aurora
+                colorStops={["#97FFA4", "#83DDCB", "#67AEFF"]}
+                blend={0.5}
+                amplitude={1.0}
+                speed={0.5}
+              />
+            </div>
+            <div className="max-w-3xl mx-auto px-4 relative z-10">
+              <p className="text-lg mt-18 mb-8 text-gray-300 text-center">
+                Serangkaian komponen React yang dibuat dengan sentuhan animasi yang unik.
+                Komponen-komponen ini dapat digunakan untuk membuat tampilan web yang lebih interaktif dan menarik.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </>

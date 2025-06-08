@@ -417,45 +417,143 @@ export default function Page() {
         </div>
         
         <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
-          <Marquee pauseOnHover className="[--duration:20s] mb-4">
-            <div className="mx-4 flex items-center space-x-2 bg-white border border-gray-200 rounded-lg px-4 py-2 shadow-sm">
-              <span className="text-blue-600 font-semibold">React</span>
+          {/* Core Programming Languages */}
+          <Marquee pauseOnHover className="[--duration:30s] mb-3">
+            <div className="mx-3 flex items-center space-x-3 bg-white border border-gray-200 rounded-lg px-4 py-3 shadow-sm hover:shadow-md transition-shadow">
+              <img src="https://svgl.app/library/python.svg" alt="Python" className="w-6 h-6" />
+              <span className="text-blue-600 font-semibold">Python</span>
             </div>
-            <div className="mx-4 flex items-center space-x-2 bg-white border border-gray-200 rounded-lg px-4 py-2 shadow-sm">
-              <span className="text-blue-500 font-semibold">TypeScript</span>
+            <div className="mx-3 flex items-center space-x-3 bg-white border border-gray-200 rounded-lg px-4 py-3 shadow-sm hover:shadow-md transition-shadow">
+              <img src="https://svgl.app/library/javascript.svg" alt="JavaScript" className="w-6 h-6" />
+              <span className="text-yellow-500 font-semibold">JavaScript</span>
             </div>
-            <div className="mx-4 flex items-center space-x-2 bg-white border border-gray-200 rounded-lg px-4 py-2 shadow-sm">
-              <span className="text-black font-semibold">Next.js</span>
+            <div className="mx-3 flex items-center space-x-3 bg-white border border-gray-200 rounded-lg px-4 py-3 shadow-sm hover:shadow-md transition-shadow">
+              <img src="https://svgl.app/library/java.svg" alt="Java" className="w-6 h-6" />
+              <span className="text-red-600 font-semibold">Java</span>
             </div>
-            <div className="mx-4 flex items-center space-x-2 bg-white border border-gray-200 rounded-lg px-4 py-2 shadow-sm">
-              <span className="text-cyan-500 font-semibold">Tailwind CSS</span>
+            <div className="mx-3 flex items-center space-x-3 bg-white border border-gray-200 rounded-lg px-4 py-3 shadow-sm hover:shadow-md transition-shadow">
+              <img src="https://svgl.app/library/c-plusplus.svg" alt="C++" className="w-6 h-6" />
+              <span className="text-blue-700 font-semibold">C++</span>
             </div>
-            <div className="mx-4 flex items-center space-x-2 bg-white border border-gray-200 rounded-lg px-4 py-2 shadow-sm">
-              <span className="text-green-600 font-semibold">Node.js</span>
+            <div className="mx-3 flex items-center space-x-3 bg-white border border-gray-200 rounded-lg px-4 py-3 shadow-sm hover:shadow-md transition-shadow">
+              <img src="https://svgl.app/library/php.svg" alt="PHP" className="w-6 h-6" />
+              <span className="text-purple-600 font-semibold">PHP</span>
             </div>
-            <div className="mx-4 flex items-center space-x-2 bg-white border border-gray-200 rounded-lg px-4 py-2 shadow-sm">
-              <span className="text-purple-600 font-semibold">Python</span>
+            <div className="mx-3 flex items-center space-x-3 bg-white border border-gray-200 rounded-lg px-4 py-3 shadow-sm hover:shadow-md transition-shadow">
+              <img src="https://svgl.app/library/dart.svg" alt="Dart" className="w-6 h-6" />
+              <span className="text-blue-500 font-semibold">Dart</span>
+            </div>
+            <div className="mx-3 flex items-center space-x-3 bg-white border border-gray-200 rounded-lg px-4 py-3 shadow-sm hover:shadow-md transition-shadow">
+              <img src="https://svgl.app/library/powershell.svg" alt="PowerShell" className="w-6 h-6" />
+              <span className="text-blue-600 font-semibold">PowerShell</span>
             </div>
           </Marquee>
           
-          <Marquee reverse pauseOnHover className="[--duration:25s]">
-            <div className="mx-4 flex items-center space-x-2 bg-white border border-gray-200 rounded-lg px-4 py-2 shadow-sm">
-              <span className="text-orange-500 font-semibold">JavaScript</span>
+          {/* Web Development */}
+          <Marquee reverse pauseOnHover className="[--duration:35s] mb-3">
+            <div className="mx-3 flex items-center space-x-3 bg-white border border-gray-200 rounded-lg px-4 py-3 shadow-sm hover:shadow-md transition-shadow">
+              <img src="https://svgl.app/library/html5.svg" alt="HTML5" className="w-6 h-6" />
+              <span className="text-orange-600 font-semibold">HTML5</span>
             </div>
-            <div className="mx-4 flex items-center space-x-2 bg-white border border-gray-200 rounded-lg px-4 py-2 shadow-sm">
-              <span className="text-gray-800 font-semibold">PostgreSQL</span>
+            <div className="mx-3 flex items-center space-x-3 bg-white border border-gray-200 rounded-lg px-4 py-3 shadow-sm hover:shadow-md transition-shadow">
+              <img src="https://svgl.app/library/css.svg" alt="CSS" className="w-6 h-6" />
+              <span className="text-blue-600 font-semibold">CSS</span>
             </div>
-            <div className="mx-4 flex items-center space-x-2 bg-white border border-gray-200 rounded-lg px-4 py-2 shadow-sm">
-              <span className="text-green-500 font-semibold">MongoDB</span>
+            <div className="mx-3 flex items-center space-x-3 bg-white border border-gray-200 rounded-lg px-4 py-3 shadow-sm hover:shadow-md transition-shadow">
+              <img src="https://svgl.app/library/react_light.svg" alt="React" className="w-6 h-6" />
+              <span className="text-blue-500 font-semibold">React</span>
             </div>
-            <div className="mx-4 flex items-center space-x-2 bg-white border border-gray-200 rounded-lg px-4 py-2 shadow-sm">
-              <span className="text-red-600 font-semibold">Redis</span>
+            <div className="mx-3 flex items-center space-x-3 bg-white border border-gray-200 rounded-lg px-4 py-3 shadow-sm hover:shadow-md transition-shadow">
+              <img src="https://svgl.app/library/nextjs_icon_dark.svg" alt="Next.js" className="w-6 h-6" />
+              <span className="text-gray-900 font-semibold">Next.js</span>
             </div>
-            <div className="mx-4 flex items-center space-x-2 bg-white border border-gray-200 rounded-lg px-4 py-2 shadow-sm">
-              <span className="text-gray-900 font-semibold">Docker</span>
+            <div className="mx-3 flex items-center space-x-3 bg-white border border-gray-200 rounded-lg px-4 py-3 shadow-sm hover:shadow-md transition-shadow">
+              <img src="https://svgl.app/library/tailwindcss.svg" alt="Tailwind CSS" className="w-6 h-6" />
+              <span className="text-teal-500 font-semibold">Tailwind CSS</span>
             </div>
-            <div className="mx-4 flex items-center space-x-2 bg-white border border-gray-200 rounded-lg px-4 py-2 shadow-sm">
-              <span className="text-orange-400 font-semibold">AWS</span>
+            <div className="mx-3 flex items-center space-x-3 bg-white border border-gray-200 rounded-lg px-4 py-3 shadow-sm hover:shadow-md transition-shadow">
+              <img src="https://svgl.app/library/bootstrap.svg" alt="Bootstrap" className="w-6 h-6" />
+              <span className="text-purple-600 font-semibold">Bootstrap</span>
+            </div>
+          </Marquee>
+          
+          {/* Backend & Databases */}
+          <Marquee pauseOnHover className="[--duration:28s] mb-3">
+            <div className="mx-3 flex items-center space-x-3 bg-white border border-gray-200 rounded-lg px-4 py-3 shadow-sm hover:shadow-md transition-shadow">
+              <img src="https://svgl.app/library/nodejs.svg" alt="Node.js" className="w-6 h-6" />
+              <span className="text-green-600 font-semibold">Node.js</span>
+            </div>
+            <div className="mx-3 flex items-center space-x-3 bg-white border border-gray-200 rounded-lg px-4 py-3 shadow-sm hover:shadow-md transition-shadow">
+              <img src="https://svgl.app/library/laravel.svg" alt="Laravel" className="w-6 h-6" />
+              <span className="text-red-500 font-semibold">Laravel</span>
+            </div>
+            <div className="mx-3 flex items-center space-x-3 bg-white border border-gray-200 rounded-lg px-4 py-3 shadow-sm hover:shadow-md transition-shadow">
+              <img src="https://svgl.app/library/mysql.svg" alt="MySQL" className="w-6 h-6" />
+              <span className="text-blue-600 font-semibold">MySQL</span>
+            </div>
+            <div className="mx-3 flex items-center space-x-3 bg-white border border-gray-200 rounded-lg px-4 py-3 shadow-sm hover:shadow-md transition-shadow">
+              <img src="https://svgl.app/library/postgresql.svg" alt="PostgreSQL" className="w-6 h-6" />
+              <span className="text-blue-700 font-semibold">PostgreSQL</span>
+            </div>
+            <div className="mx-3 flex items-center space-x-3 bg-white border border-gray-200 rounded-lg px-4 py-3 shadow-sm hover:shadow-md transition-shadow">
+              <img src="https://svgl.app/library/mongodb.svg" alt="MongoDB" className="w-6 h-6" />
+              <span className="text-green-600 font-semibold">MongoDB</span>
+            </div>
+          </Marquee>
+          
+          {/* Data Science & AI */}
+          <Marquee reverse pauseOnHover className="[--duration:32s] mb-3">
+            <div className="mx-3 flex items-center space-x-3 bg-white border border-gray-200 rounded-lg px-4 py-3 shadow-sm hover:shadow-md transition-shadow">
+              <img src="https://svgl.app/library/numpy.svg" alt="NumPy" className="w-6 h-6" />
+              <span className="text-blue-600 font-semibold">NumPy</span>
+            </div>
+            <div className="mx-3 flex items-center space-x-3 bg-white border border-gray-200 rounded-lg px-4 py-3 shadow-sm hover:shadow-md transition-shadow">
+              <div className="w-6 h-6 bg-blue-800 rounded flex items-center justify-center">
+                <span className="text-white text-xs font-bold">P</span>
+              </div>
+              <span className="text-blue-800 font-semibold">Pandas</span>
+            </div>
+            <div className="mx-3 flex items-center space-x-3 bg-white border border-gray-200 rounded-lg px-4 py-3 shadow-sm hover:shadow-md transition-shadow">
+              <div className="w-6 h-6 bg-green-600 rounded flex items-center justify-center">
+                <span className="text-white text-xs font-bold">M</span>
+              </div>
+              <span className="text-green-600 font-semibold">Matplotlib</span>
+            </div>
+            <div className="mx-3 flex items-center space-x-3 bg-white border border-gray-200 rounded-lg px-4 py-3 shadow-sm hover:shadow-md transition-shadow">
+              <img src="https://svgl.app/library/tensorflow.svg" alt="TensorFlow" className="w-6 h-6" />
+              <span className="text-orange-600 font-semibold">TensorFlow</span>
+            </div>
+            <div className="mx-3 flex items-center space-x-3 bg-white border border-gray-200 rounded-lg px-4 py-3 shadow-sm hover:shadow-md transition-shadow">
+              <div className="w-6 h-6 bg-blue-700 rounded flex items-center justify-center">
+                <span className="text-white text-xs font-bold">CV</span>
+              </div>
+              <span className="text-blue-700 font-semibold">OpenCV</span>
+            </div>
+          </Marquee>
+          
+          {/* Tools & Design */}
+          <Marquee pauseOnHover className="[--duration:25s]">
+            <div className="mx-3 flex items-center space-x-3 bg-white border border-gray-200 rounded-lg px-4 py-3 shadow-sm hover:shadow-md transition-shadow">
+              <img src="https://svgl.app/library/git.svg" alt="Git" className="w-6 h-6" />
+              <span className="text-orange-600 font-semibold">Git</span>
+            </div>
+            <div className="mx-3 flex items-center space-x-3 bg-white border border-gray-200 rounded-lg px-4 py-3 shadow-sm hover:shadow-md transition-shadow">
+              <svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-6 h-6">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8C0 11.54 2.29 14.53 5.47 15.59C5.87 15.66 6.02 15.42 6.02 15.21C6.02 15.02 6.01 14.39 6.01 13.72C4 14.09 3.48 13.23 3.32 12.78C3.23 12.55 2.84 11.84 2.5 11.65C2.22 11.5 1.82 11.13 2.49 11.12C3.12 11.11 3.57 11.7 3.72 11.94C4.44 13.15 5.59 12.81 6.05 12.6C6.12 12.08 6.33 11.73 6.56 11.53C4.78 11.33 2.92 10.64 2.92 7.58C2.92 6.71 3.23 5.99 3.74 5.43C3.66 5.23 3.38 4.41 3.82 3.31C3.82 3.31 4.49 3.1 6.02 4.13C6.66 3.95 7.34 3.86 8.02 3.86C8.7 3.86 9.38 3.95 10.02 4.13C11.55 3.09 12.22 3.31 12.22 3.31C12.66 4.41 12.38 5.23 12.3 5.43C12.81 5.99 13.12 6.7 13.12 7.58C13.12 10.65 11.25 11.33 9.47 11.53C9.76 11.78 10.01 12.26 10.01 13.01C10.01 14.08 10 14.94 10 15.21C10 15.42 10.15 15.67 10.55 15.59C13.71 14.53 16 11.53 16 8C16 3.58 12.42 0 8 0Z" transform="scale(64)" fill="#1B1F23"/>
+              </svg>
+              <span className="text-gray-900 font-semibold">GitHub</span>
+            </div>
+            <div className="mx-3 flex items-center space-x-3 bg-white border border-gray-200 rounded-lg px-4 py-3 shadow-sm hover:shadow-md transition-shadow">
+              <img src="https://svgl.app/library/figma.svg" alt="Figma" className="w-6 h-6" />
+              <span className="text-purple-600 font-semibold">Figma</span>
+            </div>
+            <div className="mx-3 flex items-center space-x-3 bg-white border border-gray-200 rounded-lg px-4 py-3 shadow-sm hover:shadow-md transition-shadow">
+              <img src="https://svgl.app/library/photoshop.svg" alt="Photoshop" className="w-6 h-6" />
+              <span className="text-blue-600 font-semibold">Photoshop</span>
+            </div>
+            <div className="mx-3 flex items-center space-x-3 bg-white border border-gray-200 rounded-lg px-4 py-3 shadow-sm hover:shadow-md transition-shadow">
+              <img src="https://svgl.app/library/notion.svg" alt="Notion" className="w-6 h-6" />
+              <span className="text-gray-800 font-semibold">Notion</span>
             </div>
           </Marquee>
           

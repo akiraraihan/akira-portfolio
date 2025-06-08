@@ -343,7 +343,7 @@ export default function Page() {
       </div>
 
       {/* Desktop Dock Navigation - hidden on small screens */}
-      <div className="sticky top-0 z-10 mt-2 sm:mt-4 md:mt-8 hidden sm:block">
+      <div className="sticky top-0 z-20 mt-2 sm:mt-4 md:mt-8 hidden sm:block">
         <AnimatedContent
           distance={250}
           direction="vertical"
@@ -408,7 +408,7 @@ export default function Page() {
         </AnimatedContent>
       </div>      
       
-      <div className="relative mt-12 sm:mt-20 mb-20 sm:mb-40 flex flex-col items-center">
+      <div className="relative mt-4 sm:mt-20 mb-20 sm:mb-40 flex flex-col items-center">
         <ScrollFloat
           animationDuration={1}
           ease="back.inOut(2)"
@@ -423,7 +423,8 @@ export default function Page() {
         <div className="w-full relative mt-2 sm:mt-4 mb-[500px] sm:mb-[800px] px-4">
           {/* Simple rounded card design with Aurora */}
           <div className="w-full bg-black text-white relative overflow-hidden shadow-xl rounded-3xl">
-            <div className="absolute inset-0 opacity-55">
+            {/* Aurora effect with responsive opacity */}
+            <div className="absolute inset-0 opacity-30 sm:opacity-55">
               <Aurora
                 colorStops={["#97FFA4", "#83DDCB", "#67AEFF"]}
                 blend={0.3}
@@ -432,7 +433,7 @@ export default function Page() {
               />
             </div>
             <div className="max-w-4xl mx-auto px-4 relative z-10 pt-12 pb-16 sm:pt-16 sm:pb-20">
-              <p className="text-lg mt-2 mb-12 text-gray-300 text-center">
+              <p className="text-lg mt-2 mb-12 text-white text-center">
                 My journey through organizations, experiences, and professional growth
               </p>
               

@@ -552,6 +552,10 @@ export default function Page() {
               <img src="https://svgl.app/library/groq.svg" alt="Groq" className="w-6 h-6" />
               <span className="text-orange-700 font-semibold">Groq</span>
             </div>
+            <div className="mx-3 flex items-center space-x-3 bg-white border border-gray-200 rounded-lg px-4 py-3 shadow-sm hover:shadow-md transition-shadow">
+              <img src="https://svgl.app/library/gemini.svg" alt="Gemini" className="w-6 h-6" />
+              <span className="text-blue-500 font-semibold">Gemini</span>
+            </div>
           </Marquee>
           
           {/* Tools & Design */}
@@ -581,6 +585,22 @@ export default function Page() {
             <div className="mx-3 flex items-center space-x-3 bg-white border border-gray-200 rounded-lg px-4 py-3 shadow-sm hover:shadow-md transition-shadow">
               <img src="https://svgl.app/library/notion.svg" alt="Notion" className="w-6 h-6" />
               <span className="text-gray-800 font-semibold">Notion</span>
+            </div>
+            <div className="mx-3 flex items-center space-x-3 bg-white border border-gray-200 rounded-lg px-4 py-3 shadow-sm hover:shadow-md transition-shadow">
+              <img src="https://svgl.app/library/vscode.svg" alt="VS Code" className="w-6 h-6" />
+              <span className="text-blue-600 font-semibold">VS Code</span>
+            </div>
+            <div className="mx-3 flex items-center space-x-3 bg-white border border-gray-200 rounded-lg px-4 py-3 shadow-sm hover:shadow-md transition-shadow">
+              <img src="https://svgl.app/library/firebase.svg" alt="Firebase" className="w-6 h-6" />
+              <span className="text-orange-500 font-semibold">Firebase</span>
+            </div>
+            <div className="mx-3 flex items-center space-x-3 bg-white border border-gray-200 rounded-lg px-4 py-3 shadow-sm hover:shadow-md transition-shadow">
+              <img src="https://svgl.app/library/framer.svg" alt="Framer" className="w-6 h-6" />
+              <span className="text-purple-600 font-semibold">Framer</span>
+            </div>
+            <div className="mx-3 flex items-center space-x-3 bg-white border border-gray-200 rounded-lg px-4 py-3 shadow-sm hover:shadow-md transition-shadow">
+              <img src="https://svgl.app/library/wordpress.svg" alt="WordPress" className="w-6 h-6" />
+              <span className="text-blue-800 font-semibold">WordPress</span>
             </div>
           </Marquee>
           

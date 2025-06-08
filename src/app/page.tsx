@@ -417,19 +417,19 @@ export default function Page() {
           stagger={0.03}
           textClassName="font-extrabold tracking-tighter text-center text-4xl md:text-5xl lg:text-6xl mb-6"
         >
-          Experiences
+          Orgz and Experiences
         </ScrollFloat>
         
         <div className="w-full relative mt-2 sm:mt-4 mb-[500px] sm:mb-[800px] px-4">
-          {/* Metode clip-path yang lebih sederhana untuk membuat bentuk gelombang */}
+          {/* Improved clip-path with better mobile responsiveness */}
           <div className="w-full bg-black text-white relative overflow-hidden shadow-xl rounded-4xl" 
                style={{
-                 clipPath: "polygon(0 10%, 20% 0, 50% 15%, 70% 0, 100% 10%, 100% 100%, 0 100%)",
-                 paddingTop: "100px",
+                 clipPath: "polygon(0 8%, 25% 2%, 50% 8%, 75% 2%, 100% 8%, 100% 100%, 0 100%)",
+                 paddingTop: "80px",
                  paddingBottom: "60px"
                }}>
             <div className="absolute inset-0" style={{
-              clipPath: "polygon(0 10%, 20% 0, 50% 15%, 70% 0, 100% 10%, 100% 100%, 0 100%)"
+              clipPath: "polygon(0 8%, 25% 2%, 50% 8%, 75% 2%, 100% 8%, 100% 100%, 0 100%)"
             }}>
               <Aurora
                 colorStops={["#97FFA4", "#83DDCB", "#67AEFF"]}
@@ -438,11 +438,186 @@ export default function Page() {
                 speed={0.5}
               />
             </div>
-            <div className="max-w-3xl mx-auto px-4 relative z-10">
-              <p className="text-lg mt-18 mb-8 text-gray-300 text-center">
-                Serangkaian komponen React yang dibuat dengan sentuhan animasi yang unik.
-                Komponen-komponen ini dapat digunakan untuk membuat tampilan web yang lebih interaktif dan menarik.
+            <div className="max-w-4xl mx-auto px-4 relative z-10">
+              <p className="text-lg mt-18 mb-12 text-gray-300 text-center">
+                My journey through organizations, experiences, and professional growth
               </p>
+              
+              {/* Timeline Container */}
+              <div className="relative">
+                {/* Main Timeline Line */}
+                <div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-gradient-to-b from-[#97FFA4] via-[#83DDCB] to-[#67AEFF] hidden md:block"></div>
+                
+                {/* Mobile Timeline Line */}
+                <div className="absolute left-8 w-0.5 h-full bg-gradient-to-b from-[#97FFA4] via-[#83DDCB] to-[#67AEFF] md:hidden"></div>
+                
+                {/* Timeline Items */}
+                <div className="space-y-12">
+                  {/* Timeline Item 1 - Right side on desktop */}
+                  <div className="relative flex flex-col md:flex-row items-center">
+                    {/* Mobile Layout */}
+                    <div className="md:hidden w-full pl-16">
+                      <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
+                        <div className="flex items-center gap-2 mb-2">
+                          <span className="bg-gradient-to-r from-[#97FFA4] to-[#83DDCB] text-black px-3 py-1 rounded-full text-sm font-semibold">
+                            Jan 2024 - Present
+                          </span>
+                        </div>
+                        <h3 className="text-lg font-bold text-[#97FFA4] mb-1">Computer Science Student</h3>
+                        <p className="text-[#83DDCB] font-medium mb-2">Universitas Pertamina</p>
+                        <p className="text-gray-300 text-sm">
+                          Pursuing Bachelor's degree in Computer Science with focus on software development, 
+                          AI technologies, and system design. Active in various tech competitions and projects.
+                        </p>
+                      </div>
+                    </div>
+                    
+                    {/* Desktop Layout - Right Side */}
+                    <div className="hidden md:flex md:w-1/2"></div>
+                    <div className="hidden md:flex md:w-1/2 md:justify-start md:pl-8">
+                      <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20 max-w-sm">
+                        <div className="flex items-center gap-2 mb-3">
+                          <span className="bg-gradient-to-r from-[#97FFA4] to-[#83DDCB] text-black px-3 py-1 rounded-full text-sm font-semibold">
+                            Jan 2024 - Present
+                          </span>
+                        </div>
+                        <h3 className="text-xl font-bold text-[#97FFA4] mb-1">Computer Science Student</h3>
+                        <p className="text-[#83DDCB] font-medium mb-3">Universitas Pertamina</p>
+                        <p className="text-gray-300 text-sm">
+                          Pursuing Bachelor's degree in Computer Science with focus on software development, 
+                          AI technologies, and system design. Active in various tech competitions and projects.
+                        </p>
+                      </div>
+                    </div>
+                    
+                    {/* Timeline Dot */}
+                    <div className="absolute left-6 md:left-1/2 md:transform md:-translate-x-1/2 w-4 h-4 bg-[#97FFA4] rounded-full border-4 border-black shadow-lg"></div>
+                  </div>
+
+                  {/* Timeline Item 2 - Left side on desktop */}
+                  <div className="relative flex flex-col md:flex-row items-center">
+                    {/* Mobile Layout */}
+                    <div className="md:hidden w-full pl-16">
+                      <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
+                        <div className="flex items-center gap-2 mb-2">
+                          <span className="bg-gradient-to-r from-[#83DDCB] to-[#67AEFF] text-black px-3 py-1 rounded-full text-sm font-semibold">
+                            Mar 2024 - Dec 2024
+                          </span>
+                        </div>
+                        <h3 className="text-lg font-bold text-[#83DDCB] mb-1">Event Organizer & Tech Lead</h3>
+                        <p className="text-[#67AEFF] font-medium mb-2">National Digital Events</p>
+                        <p className="text-gray-300 text-sm">
+                          Led national-scale digital events, coordinating teams and implementing tech solutions. 
+                          Managed event platforms and participant engagement systems.
+                        </p>
+                      </div>
+                    </div>
+                    
+                    {/* Desktop Layout - Left Side */}
+                    <div className="hidden md:flex md:w-1/2 md:justify-end md:pr-8">
+                      <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20 max-w-sm">
+                        <div className="flex items-center gap-2 mb-3">
+                          <span className="bg-gradient-to-r from-[#83DDCB] to-[#67AEFF] text-black px-3 py-1 rounded-full text-sm font-semibold">
+                            Mar 2024 - Dec 2024
+                          </span>
+                        </div>
+                        <h3 className="text-xl font-bold text-[#83DDCB] mb-1">Event Organizer & Tech Lead</h3>
+                        <p className="text-[#67AEFF] font-medium mb-3">National Digital Events</p>
+                        <p className="text-gray-300 text-sm">
+                          Led national-scale digital events, coordinating teams and implementing tech solutions. 
+                          Managed event platforms and participant engagement systems.
+                        </p>
+                      </div>
+                    </div>
+                    <div className="hidden md:flex md:w-1/2"></div>
+                    
+                    {/* Timeline Dot */}
+                    <div className="absolute left-6 md:left-1/2 md:transform md:-translate-x-1/2 w-4 h-4 bg-[#83DDCB] rounded-full border-4 border-black shadow-lg"></div>
+                  </div>
+
+                  {/* Timeline Item 3 - Right side on desktop */}
+                  <div className="relative flex flex-col md:flex-row items-center">
+                    {/* Mobile Layout */}
+                    <div className="md:hidden w-full pl-16">
+                      <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
+                        <div className="flex items-center gap-2 mb-2">
+                          <span className="bg-gradient-to-r from-[#67AEFF] to-[#97FFA4] text-black px-3 py-1 rounded-full text-sm font-semibold">
+                            2023 - 2024
+                          </span>
+                        </div>
+                        <h3 className="text-lg font-bold text-[#67AEFF] mb-1">Design & AI Competitor</h3>
+                        <p className="text-[#97FFA4] font-medium mb-2">Various Competitions</p>
+                        <p className="text-gray-300 text-sm">
+                          Participated in design and AI challenges, developing innovative solutions and 
+                          competing at national level competitions. Focus on UI/UX and machine learning projects.
+                        </p>
+                      </div>
+                    </div>
+                    
+                    {/* Desktop Layout - Right Side */}
+                    <div className="hidden md:flex md:w-1/2"></div>
+                    <div className="hidden md:flex md:w-1/2 md:justify-start md:pl-8">
+                      <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20 max-w-sm">
+                        <div className="flex items-center gap-2 mb-3">
+                          <span className="bg-gradient-to-r from-[#67AEFF] to-[#97FFA4] text-black px-3 py-1 rounded-full text-sm font-semibold">
+                            2023 - 2024
+                          </span>
+                        </div>
+                        <h3 className="text-xl font-bold text-[#67AEFF] mb-1">Design & AI Competitor</h3>
+                        <p className="text-[#97FFA4] font-medium mb-3">Various Competitions</p>
+                        <p className="text-gray-300 text-sm">
+                          Participated in design and AI challenges, developing innovative solutions and 
+                          competing at national level competitions. Focus on UI/UX and machine learning projects.
+                        </p>
+                      </div>
+                    </div>
+                    
+                    {/* Timeline Dot */}
+                    <div className="absolute left-6 md:left-1/2 md:transform md:-translate-x-1/2 w-4 h-4 bg-[#67AEFF] rounded-full border-4 border-black shadow-lg"></div>
+                  </div>
+
+                  {/* Timeline Item 4 - Left side on desktop */}
+                  <div className="relative flex flex-col md:flex-row items-center">
+                    {/* Mobile Layout */}
+                    <div className="md:hidden w-full pl-16">
+                      <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
+                        <div className="flex items-center gap-2 mb-2">
+                          <span className="bg-gradient-to-r from-[#97FFA4] to-[#67AEFF] text-black px-3 py-1 rounded-full text-sm font-semibold">
+                            2022 - 2023
+                          </span>
+                        </div>
+                        <h3 className="text-lg font-bold text-[#97FFA4] mb-1">Systems Developer</h3>
+                        <p className="text-[#83DDCB] font-medium mb-2">Real-world Projects</p>
+                        <p className="text-gray-300 text-sm">
+                          Developed real-world systems and applications, focusing on practical solutions 
+                          for businesses and organizations. Experience with full-stack development.
+                        </p>
+                      </div>
+                    </div>
+                    
+                    {/* Desktop Layout - Left Side */}
+                    <div className="hidden md:flex md:w-1/2 md:justify-end md:pr-8">
+                      <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20 max-w-sm">
+                        <div className="flex items-center gap-2 mb-3">
+                          <span className="bg-gradient-to-r from-[#97FFA4] to-[#67AEFF] text-black px-3 py-1 rounded-full text-sm font-semibold">
+                            2022 - 2023
+                          </span>
+                        </div>
+                        <h3 className="text-xl font-bold text-[#97FFA4] mb-1">Systems Developer</h3>
+                        <p className="text-[#83DDCB] font-medium mb-3">Real-world Projects</p>
+                        <p className="text-gray-300 text-sm">
+                          Developed real-world systems and applications, focusing on practical solutions 
+                          for businesses and organizations. Experience with full-stack development.
+                        </p>
+                      </div>
+                    </div>
+                    <div className="hidden md:flex md:w-1/2"></div>
+                    
+                    {/* Timeline Dot */}
+                    <div className="absolute left-6 md:left-1/2 md:transform md:-translate-x-1/2 w-4 h-4 bg-[#83DDCB] rounded-full border-4 border-black shadow-lg"></div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

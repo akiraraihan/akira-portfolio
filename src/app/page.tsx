@@ -21,6 +21,7 @@ import CircularText from "./components/reactbits/CircularText";
 import RotatingText from "./components/reactbits/RotatingText";
 import BlurText from "./components/reactbits/BlurText";
 import Aurora from './components/reactbits/Aurora';
+import { Marquee } from "@/components/magicui/marquee";
 
 const XIcon = () => (
   <svg
@@ -407,6 +408,62 @@ export default function Page() {
           </div>
         </AnimatedContent>
       </div>      
+      
+      {/* Skills Marquee Section */}
+      <div className="relative mt-8 sm:mt-12 mb-8 overflow-hidden">
+        <div className="text-center mb-8">
+          <h2 className="text-2xl sm:text-3xl font-bold text-black mb-2">Tech Stack & Skills</h2>
+          <p className="text-gray-600 text-sm sm:text-base">Technologies I work with</p>
+        </div>
+        
+        <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
+          <Marquee pauseOnHover className="[--duration:20s] mb-4">
+            <div className="mx-4 flex items-center space-x-2 bg-white border border-gray-200 rounded-lg px-4 py-2 shadow-sm">
+              <span className="text-blue-600 font-semibold">React</span>
+            </div>
+            <div className="mx-4 flex items-center space-x-2 bg-white border border-gray-200 rounded-lg px-4 py-2 shadow-sm">
+              <span className="text-blue-500 font-semibold">TypeScript</span>
+            </div>
+            <div className="mx-4 flex items-center space-x-2 bg-white border border-gray-200 rounded-lg px-4 py-2 shadow-sm">
+              <span className="text-black font-semibold">Next.js</span>
+            </div>
+            <div className="mx-4 flex items-center space-x-2 bg-white border border-gray-200 rounded-lg px-4 py-2 shadow-sm">
+              <span className="text-cyan-500 font-semibold">Tailwind CSS</span>
+            </div>
+            <div className="mx-4 flex items-center space-x-2 bg-white border border-gray-200 rounded-lg px-4 py-2 shadow-sm">
+              <span className="text-green-600 font-semibold">Node.js</span>
+            </div>
+            <div className="mx-4 flex items-center space-x-2 bg-white border border-gray-200 rounded-lg px-4 py-2 shadow-sm">
+              <span className="text-purple-600 font-semibold">Python</span>
+            </div>
+          </Marquee>
+          
+          <Marquee reverse pauseOnHover className="[--duration:25s]">
+            <div className="mx-4 flex items-center space-x-2 bg-white border border-gray-200 rounded-lg px-4 py-2 shadow-sm">
+              <span className="text-orange-500 font-semibold">JavaScript</span>
+            </div>
+            <div className="mx-4 flex items-center space-x-2 bg-white border border-gray-200 rounded-lg px-4 py-2 shadow-sm">
+              <span className="text-gray-800 font-semibold">PostgreSQL</span>
+            </div>
+            <div className="mx-4 flex items-center space-x-2 bg-white border border-gray-200 rounded-lg px-4 py-2 shadow-sm">
+              <span className="text-green-500 font-semibold">MongoDB</span>
+            </div>
+            <div className="mx-4 flex items-center space-x-2 bg-white border border-gray-200 rounded-lg px-4 py-2 shadow-sm">
+              <span className="text-red-600 font-semibold">Redis</span>
+            </div>
+            <div className="mx-4 flex items-center space-x-2 bg-white border border-gray-200 rounded-lg px-4 py-2 shadow-sm">
+              <span className="text-gray-900 font-semibold">Docker</span>
+            </div>
+            <div className="mx-4 flex items-center space-x-2 bg-white border border-gray-200 rounded-lg px-4 py-2 shadow-sm">
+              <span className="text-orange-400 font-semibold">AWS</span>
+            </div>
+          </Marquee>
+          
+          {/* Gradient overlays */}
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-white"></div>
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-white"></div>
+        </div>
+      </div>
       
       <div className="relative mt-4 sm:mt-20 mb-20 sm:mb-40 flex flex-col items-center">
         <ScrollFloat

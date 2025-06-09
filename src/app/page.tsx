@@ -428,6 +428,10 @@ export default function Page() {
               <span className="text-yellow-500 font-semibold">JavaScript</span>
             </div>
             <div className="mx-3 flex items-center space-x-3 bg-white border border-gray-200 rounded-lg px-4 py-3 shadow-sm hover:shadow-md transition-shadow">
+              <img src="https://svgl.app/library/typescript.svg" alt="TypeScript" className="w-6 h-6" />
+              <span className="text-blue-600 font-semibold">TypeScript</span>
+            </div>
+            <div className="mx-3 flex items-center space-x-3 bg-white border border-gray-200 rounded-lg px-4 py-3 shadow-sm hover:shadow-md transition-shadow">
               <img src="https://svgl.app/library/java.svg" alt="Java" className="w-6 h-6" />
               <span className="text-red-600 font-semibold">Java</span>
             </div>

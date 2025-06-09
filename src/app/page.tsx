@@ -412,12 +412,12 @@ export default function Page() {
       {/* Skills Marquee Section */}
       <div className="relative mt-8 sm:mt-12 mb-8 overflow-hidden">
         <div className="text-center mb-8">
-          <h2 className="text-2xl sm:text-3xl font-bold text-black mb-2">Tech Stack & Skills</h2>
-          <p className="text-gray-600 text-sm sm:text-base">Technologies I work with</p>
+          <h2 className="text-2xl sm:text-3xl font-bold text-black mb-2 tracking-tighter">Tech Stack & Tools</h2>
+          <p className="text-gray-600 text-sm sm:text-base">I work with</p>
         </div>
         <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
           {/* Single Row Marquee for All Skills */}
-          <Marquee pauseOnHover className="[--duration:90s] mb-2">
+          <Marquee pauseOnHover className="[--duration:180s] mb-2">
             {/* Core Programming Languages */}
             <div className="mx-1.5 flex items-center space-x-2 bg-white border border-gray-200 rounded-lg px-2 py-1.5 shadow-sm hover:shadow-md transition-shadow">
               <img src="https://svgl.app/library/python.svg" alt="Python" className="w-4 h-4" />

@@ -144,7 +144,7 @@ export default function Page() {
     <>
       <div className="relative mx-2 my-3">
         {/* header bar */}
-        <div className="sticky top-0 w-full h-[64px] bg-black shadow-md flex flex-row items-center justify-between px-4 sm:px-8 z-50 rounded-3xl">
+        <div className="sticky top-0 w-full h-[64px] bg-black flex flex-row items-center justify-between px-4 sm:px-8 z-50 rounded-3xl">
           <div>
             <ShinyText 
               text="Personal Portfolio" 
@@ -174,7 +174,7 @@ export default function Page() {
         
         {/* Mobile Menu as a small modal with animation */}
         <div 
-          className={`absolute bottom-16 right-0 bg-white rounded-lg shadow-xl w-64 overflow-hidden transition-all duration-300 ease-in-out transform ${
+          className={`absolute bottom-16 right-0 bg-[#F8F8FF] rounded-lg shadow-xl w-64 overflow-hidden transition-all duration-300 ease-in-out transform ${
             mobileMenuOpen ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none"
           }`}
           style={{

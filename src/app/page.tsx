@@ -681,98 +681,121 @@ export default function Page() {
         </div>
       </div>
       {/* Certification Section */}
-      <div className="relative w-full max-w-6xl mx-auto px-4 mb-24">
+      <div className="relative w-full max-w-7xl mx-auto px-4 mb-24">
         <div className="bg-white rounded-3xl shadow-xl py-12 px-4 sm:px-8">
           <h2 className="text-2xl sm:text-3xl font-bold text-black mb-6 text-center tracking-tighter">Licenses & Certifications</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             {/* Sertifikat 1 */}
-            <div className="flex flex-col items-center bg-gray-50 rounded-2xl p-6 border border-gray-100 shadow-sm">
+            <div className="flex flex-col items-center bg-gray-50 rounded-2xl p-6 border border-gray-100 shadow-sm h-full">
               <div className="w-20 h-20 mb-4 bg-gray-200 rounded-xl flex items-center justify-center overflow-hidden">
-                {/* Ganti src badge di sini */}
                 <img src="/badge-iot-hardware.png" alt="Badge IoT Hardware" className="w-full h-full object-contain" />
               </div>
-              <h3 className="font-semibold text-lg text-center mb-1">Internet of Things (IoT) - Hardware (Gold)</h3>
-              <p className="text-gray-500 text-sm mb-1">Skilvul</p>
-              <p className="text-gray-400 text-xs mb-1">Issued Jul 2024 · Expires Jul 2026</p>
-              <p className="text-gray-400 text-xs mb-3">Credential ID HauI9sNWR5-xTMS1S9yLRQ</p>
-              <a href="#" target="_blank" rel="noopener noreferrer" className="inline-block px-4 py-1.5 rounded-lg bg-black text-white text-xs font-semibold hover:bg-gray-800 transition">Show Credential</a>
+              <div className="flex flex-col flex-grow w-full">
+                <h3 className="font-semibold text-lg text-center mb-1 min-h-[48px]">Internet of Things (IoT) - Hardware (Gold)</h3>
+                <p className="text-gray-500 text-sm mb-1 text-center">Skilvul</p>
+                <p className="text-gray-400 text-xs mb-1 text-center">Issued Jul 2024 · Expires Jul 2026</p>
+                <p className="text-gray-400 text-xs mb-3 text-center">Credential ID HauI9sNWR5-xTMS1S9yLRQ</p>
+                <div className="flex-grow" />
+                <a href="#" target="_blank" rel="noopener noreferrer" className="inline-block px-4 py-1.5 rounded-lg bg-black text-white text-xs font-semibold hover:bg-gray-800 transition w-full text-center mt-auto mb-1.5">Show Credential</a>
+              </div>
             </div>
             {/* Sertifikat 2 */}
-            <div className="flex flex-col items-center bg-gray-50 rounded-2xl p-6 border border-gray-100 shadow-sm">
+            <div className="flex flex-col items-center bg-gray-50 rounded-2xl p-6 border border-gray-100 shadow-sm h-full">
               <div className="w-20 h-20 mb-4 bg-gray-200 rounded-xl flex items-center justify-center overflow-hidden">
                 <img src="/badge-iot-software.png" alt="Badge IoT Software" className="w-full h-full object-contain" />
               </div>
-              <h3 className="font-semibold text-lg text-center mb-1">Internet of Things (IoT) - Software and Platforms (Gold)</h3>
-              <p className="text-gray-500 text-sm mb-1">Skilvul</p>
-              <p className="text-gray-400 text-xs mb-1">Issued Jul 2024 · Expires Jul 2026</p>
-              <p className="text-gray-400 text-xs mb-3">Credential ID lcqZMuGzRfu9v3zQ50Qx-g</p>
-              <a href="#" target="_blank" rel="noopener noreferrer" className="inline-block px-4 py-1.5 rounded-lg bg-black text-white text-xs font-semibold hover:bg-gray-800 transition">Show Credential</a>
+              <div className="flex flex-col flex-grow w-full">
+                <h3 className="font-semibold text-lg text-center mb-1 min-h-[48px]">Internet of Things (IoT) - Software and Platforms (Gold)</h3>
+                <p className="text-gray-500 text-sm mb-1 text-center">Skilvul</p>
+                <p className="text-gray-400 text-xs mb-1 text-center">Issued Jul 2024 · Expires Jul 2026</p>
+                <p className="text-gray-400 text-xs mb-3 text-center">Credential ID lcqZMuGzRfu9v3zQ50Qx-g</p>
+                <div className="flex-grow" />
+                <a href="#" target="_blank" rel="noopener noreferrer" className="inline-block px-4 py-1.5 rounded-lg bg-black text-white text-xs font-semibold hover:bg-gray-800 transition w-full text-center mt-auto mb-1.5">Show Credential</a>
+              </div>
             </div>
             {/* Sertifikat 3 */}
-            <div className="flex flex-col items-center bg-gray-50 rounded-2xl p-6 border border-gray-100 shadow-sm">
+            <div className="flex flex-col items-center bg-gray-50 rounded-2xl p-6 border border-gray-100 shadow-sm h-full">
               <div className="w-20 h-20 mb-4 bg-gray-200 rounded-xl flex items-center justify-center overflow-hidden">
                 <img src="/badge-iot-project.png" alt="Badge IoT Project" className="w-full h-full object-contain" />
               </div>
-              <h3 className="font-semibold text-lg text-center mb-1">Internet of Things (IoT) Project - Building Health Monitoring System (Gold)</h3>
-              <p className="text-gray-500 text-sm mb-1">Skilvul</p>
-              <p className="text-gray-400 text-xs mb-1">Issued Jul 2024 · Expires Jul 2026</p>
-              <p className="text-gray-400 text-xs mb-3">Credential ID HauI9sNWR5-xTMS1S9yLRQ</p>
-              <a href="#" target="_blank" rel="noopener noreferrer" className="inline-block px-4 py-1.5 rounded-lg bg-black text-white text-xs font-semibold hover:bg-gray-800 transition">Show Credential</a>
+              <div className="flex flex-col flex-grow w-full">
+                <h3 className="font-semibold text-lg text-center mb-1 min-h-[48px]">Internet of Things (IoT) Project - Building Health Monitoring System (Gold)</h3>
+                <p className="text-gray-500 text-sm mb-1 text-center">Skilvul</p>
+                <p className="text-gray-400 text-xs mb-1 text-center">Issued Jul 2024 · Expires Jul 2026</p>
+                <p className="text-gray-400 text-xs mb-3 text-center">Credential ID HauI9sNWR5-xTMS1S9yLRQ</p>
+                <div className="flex-grow" />
+                <a href="#" target="_blank" rel="noopener noreferrer" className="inline-block px-4 py-1.5 rounded-lg bg-black text-white text-xs font-semibold hover:bg-gray-800 transition w-full text-center mt-auto mb-1.5">Show Credential</a>
+              </div>
             </div>
             {/* Sertifikat 4 */}
-            <div className="flex flex-col items-center bg-gray-50 rounded-2xl p-6 border border-gray-100 shadow-sm">
+            <div className="flex flex-col items-center bg-gray-50 rounded-2xl p-6 border border-gray-100 shadow-sm h-full">
               <div className="w-20 h-20 mb-4 bg-gray-200 rounded-xl flex items-center justify-center overflow-hidden">
                 <img src="/badge-esp32.png" alt="Badge ESP32" className="w-full h-full object-contain" />
               </div>
-              <h3 className="font-semibold text-lg text-center mb-1">IoT Development with ESP32 (Gold)</h3>
-              <p className="text-gray-500 text-sm mb-1">Skilvul</p>
-              <p className="text-gray-400 text-xs mb-1">Issued Jul 2024 · Expires Jul 2026</p>
-              <p className="text-gray-400 text-xs mb-3">Credential ID 9nCwzkSnSbS1Ou4CREIXqw</p>
-              <a href="#" target="_blank" rel="noopener noreferrer" className="inline-block px-4 py-1.5 rounded-lg bg-black text-white text-xs font-semibold hover:bg-gray-800 transition">Show Credential</a>
+              <div className="flex flex-col flex-grow w-full">
+                <h3 className="font-semibold text-lg text-center mb-1 min-h-[48px]">IoT Development with ESP32 (Gold)</h3>
+                <p className="text-gray-500 text-sm mb-1 text-center">Skilvul</p>
+                <p className="text-gray-400 text-xs mb-1 text-center">Issued Jul 2024 · Expires Jul 2026</p>
+                <p className="text-gray-400 text-xs mb-3 text-center">Credential ID 9nCwzkSnSbS1Ou4CREIXqw</p>
+                <div className="flex-grow" />
+                <a href="#" target="_blank" rel="noopener noreferrer" className="inline-block px-4 py-1.5 rounded-lg bg-black text-white text-xs font-semibold hover:bg-gray-800 transition w-full text-center mt-auto mb-1.5">Show Credential</a>
+              </div>
             </div>
             {/* Sertifikat 5 */}
-            <div className="flex flex-col items-center bg-gray-50 rounded-2xl p-6 border border-gray-100 shadow-sm">
+            <div className="flex flex-col items-center bg-gray-50 rounded-2xl p-6 border border-gray-100 shadow-sm h-full">
               <div className="w-20 h-20 mb-4 bg-gray-200 rounded-xl flex items-center justify-center overflow-hidden">
                 <img src="/badge-iot-fundamental.png" alt="Badge IoT Fundamental" className="w-full h-full object-contain" />
               </div>
-              <h3 className="font-semibold text-lg text-center mb-1">Internet of Things (IoT) - Fundamentals (Gold)</h3>
-              <p className="text-gray-500 text-sm mb-1">Skilvul</p>
-              <p className="text-gray-400 text-xs mb-1">Issued Apr 2024 · Expires Apr 2026</p>
-              <p className="text-gray-400 text-xs mb-3">Credential ID URCNVBe3Tf6N5QhpHltJyw</p>
-              <a href="#" target="_blank" rel="noopener noreferrer" className="inline-block px-4 py-1.5 rounded-lg bg-black text-white text-xs font-semibold hover:bg-gray-800 transition">Show Credential</a>
+              <div className="flex flex-col flex-grow w-full">
+                <h3 className="font-semibold text-lg text-center mb-1 min-h-[48px]">Internet of Things (IoT) - Fundamentals (Gold)</h3>
+                <p className="text-gray-500 text-sm mb-1 text-center">Skilvul</p>
+                <p className="text-gray-400 text-xs mb-1 text-center">Issued Apr 2024 · Expires Apr 2026</p>
+                <p className="text-gray-400 text-xs mb-3 text-center">Credential ID URCNVBe3Tf6N5QhpHltJyw</p>
+                <div className="flex-grow" />
+                <a href="#" target="_blank" rel="noopener noreferrer" className="inline-block px-4 py-1.5 rounded-lg bg-black text-white text-xs font-semibold hover:bg-gray-800 transition w-full text-center mt-auto mb-1.5">Show Credential</a>
+              </div>
             </div>
             {/* Sertifikat 6 */}
-            <div className="flex flex-col items-center bg-gray-50 rounded-2xl p-6 border border-gray-100 shadow-sm">
+            <div className="flex flex-col items-center bg-gray-50 rounded-2xl p-6 border border-gray-100 shadow-sm h-full">
               <div className="w-20 h-20 mb-4 bg-gray-200 rounded-xl flex items-center justify-center overflow-hidden">
                 <img src="/badge-algopy.png" alt="Badge Algo Python" className="w-full h-full object-contain" />
               </div>
-              <h3 className="font-semibold text-lg text-center mb-1">Algorithm & Data Structures with Python (Gold)</h3>
-              <p className="text-gray-500 text-sm mb-1">Skilvul</p>
-              <p className="text-gray-400 text-xs mb-1">Issued Mar 2024 · Expires Mar 2026</p>
-              <p className="text-gray-400 text-xs mb-3">Credential ID VeaBDw2ATxuXqmU1Eh_ksw</p>
-              <a href="#" target="_blank" rel="noopener noreferrer" className="inline-block px-4 py-1.5 rounded-lg bg-black text-white text-xs font-semibold hover:bg-gray-800 transition">Show Credential</a>
+              <div className="flex flex-col flex-grow w-full">
+                <h3 className="font-semibold text-lg text-center mb-1 min-h-[48px]">Algorithm & Data Structures with Python (Gold)</h3>
+                <p className="text-gray-500 text-sm mb-1 text-center">Skilvul</p>
+                <p className="text-gray-400 text-xs mb-1 text-center">Issued Mar 2024 · Expires Mar 2026</p>
+                <p className="text-gray-400 text-xs mb-3 text-center">Credential ID VeaBDw2ATxuXqmU1Eh_ksw</p>
+                <div className="flex-grow" />
+                <a href="#" target="_blank" rel="noopener noreferrer" className="inline-block px-4 py-1.5 rounded-lg bg-black text-white text-xs font-semibold hover:bg-gray-800 transition w-full text-center mt-auto mb-1.5">Show Credential</a>
+              </div>
             </div>
             {/* Sertifikat 7 */}
-            <div className="flex flex-col items-center bg-gray-50 rounded-2xl p-6 border border-gray-100 shadow-sm">
+            <div className="flex flex-col items-center bg-gray-50 rounded-2xl p-6 border border-gray-100 shadow-sm h-full">
               <div className="w-20 h-20 mb-4 bg-gray-200 rounded-xl flex items-center justify-center overflow-hidden">
                 <img src="/badge-py-dasar.png" alt="Badge Python Dasar" className="w-full h-full object-contain" />
               </div>
-              <h3 className="font-semibold text-lg text-center mb-1">Python Dasar (Gold)</h3>
-              <p className="text-gray-500 text-sm mb-1">Skilvul</p>
-              <p className="text-gray-400 text-xs mb-1">Issued Mar 2024 · Expires Mar 2026</p>
-              <p className="text-gray-400 text-xs mb-3">Credential ID hlO0oJqHSvqThwLi_mgN0Q</p>
-              <a href="#" target="_blank" rel="noopener noreferrer" className="inline-block px-4 py-1.5 rounded-lg bg-black text-white text-xs font-semibold hover:bg-gray-800 transition">Show Credential</a>
+              <div className="flex flex-col flex-grow w-full">
+                <h3 className="font-semibold text-lg text-center mb-1 min-h-[48px]">Python Dasar (Gold)</h3>
+                <p className="text-gray-500 text-sm mb-1 text-center">Skilvul</p>
+                <p className="text-gray-400 text-xs mb-1 text-center">Issued Mar 2024 · Expires Mar 2026</p>
+                <p className="text-gray-400 text-xs mb-3 text-center">Credential ID hlO0oJqHSvqThwLi_mgN0Q</p>
+                <div className="flex-grow" />
+                <a href="#" target="_blank" rel="noopener noreferrer" className="inline-block px-4 py-1.5 rounded-lg bg-black text-white text-xs font-semibold hover:bg-gray-800 transition w-full text-center mt-auto mb-1.5">Show Credential</a>
+              </div>
             </div>
             {/* Sertifikat 8 */}
-            <div className="flex flex-col items-center bg-gray-50 rounded-2xl p-6 border border-gray-100 shadow-sm">
+            <div className="flex flex-col items-center bg-gray-50 rounded-2xl p-6 border border-gray-100 shadow-sm h-full">
               <div className="w-20 h-20 mb-4 bg-gray-200 rounded-xl flex items-center justify-center overflow-hidden">
                 <img src="/badge-py-lanjutan.png" alt="Badge Python Lanjutan" className="w-full h-full object-contain" />
               </div>
-              <h3 className="font-semibold text-lg text-center mb-1">Python Lanjutan (Gold)</h3>
-              <p className="text-gray-500 text-sm mb-1">Skilvul</p>
-              <p className="text-gray-400 text-xs mb-1">Issued Mar 2024 · Expires Mar 2026</p>
-              <p className="text-gray-400 text-xs mb-3">Credential ID 2K-EC9L7QcyOlK4nxI19Bw</p>
-              <a href="#" target="_blank" rel="noopener noreferrer" className="inline-block px-4 py-1.5 rounded-lg bg-black text-white text-xs font-semibold hover:bg-gray-800 transition">Show Credential</a>
+              <div className="flex flex-col flex-grow w-full">
+                <h3 className="font-semibold text-lg text-center mb-1 min-h-[48px]">Python Lanjutan (Gold)</h3>
+                <p className="text-gray-500 text-sm mb-1 text-center">Skilvul</p>
+                <p className="text-gray-400 text-xs mb-1 text-center">Issued Mar 2024 · Expires Mar 2026</p>
+                <p className="text-gray-400 text-xs mb-3 text-center">Credential ID 2K-EC9L7QcyOlK4nxI19Bw</p>
+                <div className="flex-grow" />
+                <a href="#" target="_blank" rel="noopener noreferrer" className="inline-block px-4 py-1.5 rounded-lg bg-black text-white text-xs font-semibold hover:bg-gray-800 transition w-full text-center mt-auto mb-1.5">Show Credential</a>
+              </div>
             </div>
           </div>
         </div>

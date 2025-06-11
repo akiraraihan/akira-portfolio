@@ -464,175 +464,251 @@ export default function Page() {
               <div className="relative">
                 {/* Main Timeline Line */}
                 <div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-gradient-to-b from-[#97FFA4] via-[#83DDCB] to-[#67AEFF] hidden md:block"></div>
-                
                 {/* Mobile Timeline Line */}
                 <div className="absolute left-8 w-0.5 h-full bg-gradient-to-b from-[#97FFA4] via-[#83DDCB] to-[#67AEFF] md:hidden"></div>
-                
                 {/* Timeline Items */}
                 <div className="space-y-12">
-                  {/* Timeline Item 1 - Right side on desktop */}
+                  {/* Organizational Experiences */}
                   <div className="relative flex flex-col md:flex-row items-center">
-                    {/* Mobile Layout */}
                     <div className="md:hidden w-full pl-16">
-                      <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
+                      <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20 mb-4">
                         <div className="flex items-center gap-2 mb-2">
-                          <span className="bg-gradient-to-r from-[#97FFA4] to-[#83DDCB] text-black px-3 py-1 rounded-full text-sm font-semibold">
-                            Jan 2024 - Present
-                          </span>
+                          <span className="bg-gradient-to-r from-[#97FFA4] to-[#83DDCB] text-black px-3 py-1 rounded-full text-sm font-semibold">Aug 2020 – Aug 2021</span>
                         </div>
-                        <h3 className="text-lg font-bold text-[#97FFA4] mb-1">Computer Science Student</h3>
-                        <p className="text-[#83DDCB] font-medium mb-2">Universitas Pertamina</p>
-                        <p className="text-gray-300 text-sm">
-                          Pursuing Bachelor's degree in Computer Science with focus on software development, 
-                          AI technologies, and system design. Active in various tech competitions and projects.
-                        </p>
+                        <h3 className="text-lg font-bold text-[#97FFA4] mb-1">Vice President</h3>
+                        <p className="text-[#83DDCB] font-medium mb-2">Student Council (OSIS)</p>
+                        <p className="text-gray-300 text-sm">Leadership, event management, and student representation at school level.</p>
+                      </div>
+                      <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20 mb-4">
+                        <div className="flex items-center gap-2 mb-2">
+                          <span className="bg-gradient-to-r from-[#83DDCB] to-[#67AEFF] text-black px-3 py-1 rounded-full text-sm font-semibold">Dec 2023 – Dec 2024</span>
+                        </div>
+                        <h3 className="text-lg font-bold text-[#83DDCB] mb-1">Staff of Academy UP</h3>
+                        <p className="text-[#67AEFF] font-medium mb-2">Computer Science Student Association (HIMA)</p>
+                        <p className="text-gray-300 text-sm">Supporting academic programs and student development in computer science.</p>
+                      </div>
+                      <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20 mb-4">
+                        <div className="flex items-center gap-2 mb-2">
+                          <span className="bg-gradient-to-r from-[#67AEFF] to-[#97FFA4] text-black px-3 py-1 rounded-full text-sm font-semibold">Oct 2023 – Oct 2024</span>
+                        </div>
+                        <h3 className="text-lg font-bold text-[#67AEFF] mb-1">Project Leader</h3>
+                        <p className="text-[#97FFA4] font-medium mb-2">CITE UP 2024</p>
+                        <p className="text-gray-300 text-sm">Leading a major faculty-level project, managing teams and event execution.</p>
+                      </div>
+                      <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20 mb-4">
+                        <div className="flex items-center gap-2 mb-2">
+                          <span className="bg-gradient-to-r from-[#97FFA4] to-[#83DDCB] text-black px-3 py-1 rounded-full text-sm font-semibold">Oct 2023 – Feb 2024</span>
+                        </div>
+                        <h3 className="text-lg font-bold text-[#97FFA4] mb-1">Coordinator of Creative Team</h3>
+                        <p className="text-[#83DDCB] font-medium mb-2">MIRAI Islamic Festival</p>
+                        <p className="text-gray-300 text-sm">Handled creative content and visual design for a campus-scale event.</p>
+                      </div>
+                      <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20 mb-4">
+                        <div className="flex items-center gap-2 mb-2">
+                          <span className="bg-gradient-to-r from-[#83DDCB] to-[#67AEFF] text-black px-3 py-1 rounded-full text-sm font-semibold">Dec 2024 – Present</span>
+                        </div>
+                        <h3 className="text-lg font-bold text-[#83DDCB] mb-1">Vice President</h3>
+                        <p className="text-[#67AEFF] font-medium mb-2">Computer Science Student Association (HIMA)</p>
+                        <p className="text-gray-300 text-sm">Leadership and organizational management at the university level.</p>
                       </div>
                     </div>
-                    
-                    {/* Desktop Layout - Right Side */}
-                    <div className="hidden md:flex md:w-1/2"></div>
-                    <div className="hidden md:flex md:w-1/2 md:justify-start md:pl-8">
-                      <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20 max-w-sm">
+                    {/* Desktop Layout - Organizational Timeline (split left/right) */}
+                    <div className="hidden md:flex md:w-1/2 md:justify-end md:pr-8 flex-col gap-6">
+                      <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20 max-w-sm mb-4">
                         <div className="flex items-center gap-2 mb-3">
-                          <span className="bg-gradient-to-r from-[#97FFA4] to-[#83DDCB] text-black px-3 py-1 rounded-full text-sm font-semibold">
-                            Jan 2024 - Present
-                          </span>
+                          <span className="bg-gradient-to-r from-[#97FFA4] to-[#83DDCB] text-black px-3 py-1 rounded-full text-sm font-semibold">Aug 2020 – Aug 2021</span>
                         </div>
-                        <h3 className="text-xl font-bold text-[#97FFA4] mb-1">Computer Science Student</h3>
-                        <p className="text-[#83DDCB] font-medium mb-3">Universitas Pertamina</p>
-                        <p className="text-gray-300 text-sm">
-                          Pursuing Bachelor's degree in Computer Science with focus on software development, 
-                          AI technologies, and system design. Active in various tech competitions and projects.
-                        </p>
+                        <h3 className="text-xl font-bold text-[#97FFA4] mb-1">Vice President</h3>
+                        <p className="text-[#83DDCB] font-medium mb-3">Student Council (OSIS)</p>
+                        <p className="text-gray-300 text-sm">Leadership, event management, and student representation at school level.</p>
+                      </div>
+                      <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20 max-w-sm mb-4">
+                        <div className="flex items-center gap-2 mb-3">
+                          <span className="bg-gradient-to-r from-[#83DDCB] to-[#67AEFF] text-black px-3 py-1 rounded-full text-sm font-semibold">Dec 2023 – Dec 2024</span>
+                        </div>
+                        <h3 className="text-xl font-bold text-[#83DDCB] mb-1">Staff of Academy UP</h3>
+                        <p className="text-[#67AEFF] font-medium mb-3">Computer Science Student Association (HIMA)</p>
+                        <p className="text-gray-300 text-sm">Supporting academic programs and student development in computer science.</p>
+                      </div>
+                      <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20 max-w-sm mb-4">
+                        <div className="flex items-center gap-2 mb-3">
+                          <span className="bg-gradient-to-r from-[#67AEFF] to-[#97FFA4] text-black px-3 py-1 rounded-full text-sm font-semibold">Oct 2023 – Oct 2024</span>
+                        </div>
+                        <h3 className="text-xl font-bold text-[#67AEFF] mb-1">Project Leader</h3>
+                        <p className="text-[#97FFA4] font-medium mb-3">CITE UP 2024</p>
+                        <p className="text-gray-300 text-sm">Leading a major faculty-level project, managing teams and event execution.</p>
                       </div>
                     </div>
-                    
+                    <div className="hidden md:flex md:w-1/2 md:justify-start md:pl-8 flex-col gap-6">
+                      <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20 max-w-sm mb-4">
+                        <div className="flex items-center gap-2 mb-3">
+                          <span className="bg-gradient-to-r from-[#97FFA4] to-[#83DDCB] text-black px-3 py-1 rounded-full text-sm font-semibold">Oct 2023 – Feb 2024</span>
+                        </div>
+                        <h3 className="text-xl font-bold text-[#97FFA4] mb-1">Coordinator of Creative Team</h3>
+                        <p className="text-[#83DDCB] font-medium mb-3">MIRAI Islamic Festival</p>
+                        <p className="text-gray-300 text-sm">Handled creative content and visual design for a campus-scale event.</p>
+                      </div>
+                      <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20 max-w-sm mb-4">
+                        <div className="flex items-center gap-2 mb-3">
+                          <span className="bg-gradient-to-r from-[#83DDCB] to-[#67AEFF] text-black px-3 py-1 rounded-full text-sm font-semibold">Dec 2024 – Present</span>
+                        </div>
+                        <h3 className="text-xl font-bold text-[#83DDCB] mb-1">Vice President</h3>
+                        <p className="text-[#67AEFF] font-medium mb-3">Computer Science Student Association (HIMA)</p>
+                        <p className="text-gray-300 text-sm">Leadership and organizational management at the university level.</p>
+                      </div>
+                    </div>
                     {/* Timeline Dot */}
                     <div className="absolute left-6 md:left-1/2 md:transform md:-translate-x-1/2 w-4 h-4 bg-[#97FFA4] rounded-full border-4 border-black shadow-lg"></div>
                   </div>
 
-                  {/* Timeline Item 2 - Left side on desktop */}
+                  {/* Work Experiences */}
                   <div className="relative flex flex-col md:flex-row items-center">
-                    {/* Mobile Layout */}
                     <div className="md:hidden w-full pl-16">
-                      <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
+                      <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20 mb-4">
                         <div className="flex items-center gap-2 mb-2">
-                          <span className="bg-gradient-to-r from-[#83DDCB] to-[#67AEFF] text-black px-3 py-1 rounded-full text-sm font-semibold">
-                            Mar 2024 - Dec 2024
-                          </span>
+                          <span className="bg-gradient-to-r from-[#97FFA4] to-[#83DDCB] text-black px-3 py-1 rounded-full text-sm font-semibold">Jan 2023 – Apr 2023</span>
                         </div>
-                        <h3 className="text-lg font-bold text-[#83DDCB] mb-1">Event Organizer & Tech Lead</h3>
-                        <p className="text-[#67AEFF] font-medium mb-2">National Digital Events</p>
-                        <p className="text-gray-300 text-sm">
-                          Led national-scale digital events, coordinating teams and implementing tech solutions. 
-                          Managed event platforms and participant engagement systems.
-                        </p>
+                        <h3 className="text-lg font-bold text-[#97FFA4] mb-1">Practical Assistant for Basic Programming</h3>
+                        <p className="text-[#83DDCB] font-medium mb-2">Universitas Pertamina</p>
+                        <p className="text-gray-300 text-sm">Assisted students in learning basic programming concepts and practicals.</p>
                       </div>
-                    </div>
-                    
-                    {/* Desktop Layout - Left Side */}
-                    <div className="hidden md:flex md:w-1/2 md:justify-end md:pr-8">
-                      <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20 max-w-sm">
-                        <div className="flex items-center gap-2 mb-3">
-                          <span className="bg-gradient-to-r from-[#83DDCB] to-[#67AEFF] text-black px-3 py-1 rounded-full text-sm font-semibold">
-                            Mar 2024 - Dec 2024
-                          </span>
-                        </div>
-                        <h3 className="text-xl font-bold text-[#83DDCB] mb-1">Event Organizer & Tech Lead</h3>
-                        <p className="text-[#67AEFF] font-medium mb-3">National Digital Events</p>
-                        <p className="text-gray-300 text-sm">
-                          Led national-scale digital events, coordinating teams and implementing tech solutions. 
-                          Managed event platforms and participant engagement systems.
-                        </p>
-                      </div>
-                    </div>
-                    <div className="hidden md:flex md:w-1/2"></div>
-                    
-                    {/* Timeline Dot */}
-                    <div className="absolute left-6 md:left-1/2 md:transform md:-translate-x-1/2 w-4 h-4 bg-[#83DDCB] rounded-full border-4 border-black shadow-lg"></div>
-                  </div>
-
-                  {/* Timeline Item 3 - Right side on desktop */}
-                  <div className="relative flex flex-col md:flex-row items-center">
-                    {/* Mobile Layout */}
-                    <div className="md:hidden w-full pl-16">
-                      <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
+                      <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20 mb-4">
                         <div className="flex items-center gap-2 mb-2">
-                          <span className="bg-gradient-to-r from-[#67AEFF] to-[#97FFA4] text-black px-3 py-1 rounded-full text-sm font-semibold">
-                            2023 - 2024
-                          </span>
+                          <span className="bg-gradient-to-r from-[#83DDCB] to-[#67AEFF] text-black px-3 py-1 rounded-full text-sm font-semibold">Aug 2024 – Jan 2025</span>
                         </div>
-                        <h3 className="text-lg font-bold text-[#67AEFF] mb-1">Design & AI Competitor</h3>
-                        <p className="text-[#97FFA4] font-medium mb-2">Various Competitions</p>
-                        <p className="text-gray-300 text-sm">
-                          Participated in design and AI challenges, developing innovative solutions and 
-                          competing at national level competitions. Focus on UI/UX and machine learning projects.
-                        </p>
+                        <h3 className="text-lg font-bold text-[#83DDCB] mb-1">Practical Assistant for Data Structures and Algorithms</h3>
+                        <p className="text-[#67AEFF] font-medium mb-2">Universitas Pertamina</p>
+                        <p className="text-gray-300 text-sm">Guided students in understanding and implementing data structures and algorithms.</p>
+                      </div>
+                      <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20 mb-4">
+                        <div className="flex items-center gap-2 mb-2">
+                          <span className="bg-gradient-to-r from-[#67AEFF] to-[#97FFA4] text-black px-3 py-1 rounded-full text-sm font-semibold">Jul 2024 – Present</span>
+                        </div>
+                        <h3 className="text-lg font-bold text-[#67AEFF] mb-1">Intern Junior Developer</h3>
+                        <p className="text-[#97FFA4] font-medium mb-2">Academic Information System, Universitas Pertamina</p>
+                        <p className="text-gray-300 text-sm">Developing and maintaining academic information systems for the university.</p>
                       </div>
                     </div>
-                    
-                    {/* Desktop Layout - Right Side */}
-                    <div className="hidden md:flex md:w-1/2"></div>
-                    <div className="hidden md:flex md:w-1/2 md:justify-start md:pl-8">
-                      <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20 max-w-sm">
+                    {/* Desktop Layout - Work Timeline (split left/right) */}
+                    <div className="hidden md:flex md:w-1/2 md:justify-end md:pr-8 flex-col gap-6">
+                      <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20 max-w-sm mb-4">
                         <div className="flex items-center gap-2 mb-3">
-                          <span className="bg-gradient-to-r from-[#67AEFF] to-[#97FFA4] text-black px-3 py-1 rounded-full text-sm font-semibold">
-                            2023 - 2024
-                          </span>
+                          <span className="bg-gradient-to-r from-[#97FFA4] to-[#83DDCB] text-black px-3 py-1 rounded-full text-sm font-semibold">Jan 2023 – Apr 2023</span>
                         </div>
-                        <h3 className="text-xl font-bold text-[#67AEFF] mb-1">Design & AI Competitor</h3>
-                        <p className="text-[#97FFA4] font-medium mb-3">Various Competitions</p>
-                        <p className="text-gray-300 text-sm">
-                          Participated in design and AI challenges, developing innovative solutions and 
-                          competing at national level competitions. Focus on UI/UX and machine learning projects.
-                        </p>
+                        <h3 className="text-xl font-bold text-[#97FFA4] mb-1">Practical Assistant for Basic Programming</h3>
+                        <p className="text-[#83DDCB] font-medium mb-3">Universitas Pertamina</p>
+                        <p className="text-gray-300 text-sm">Assisted students in learning basic programming concepts and practicals.</p>
+                      </div>
+                      <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20 max-w-sm mb-4">
+                        <div className="flex items-center gap-2 mb-3">
+                          <span className="bg-gradient-to-r from-[#83DDCB] to-[#67AEFF] text-black px-3 py-1 rounded-full text-sm font-semibold">Aug 2024 – Jan 2025</span>
+                        </div>
+                        <h3 className="text-xl font-bold text-[#83DDCB] mb-1">Practical Assistant for Data Structures and Algorithms</h3>
+                        <p className="text-[#67AEFF] font-medium mb-3">Universitas Pertamina</p>
+                        <p className="text-gray-300 text-sm">Guided students in understanding and implementing data structures and algorithms.</p>
                       </div>
                     </div>
-                    
+                    <div className="hidden md:flex md:w-1/2 md:justify-start md:pl-8 flex-col gap-6">
+                      <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20 max-w-sm mb-4">
+                        <div className="flex items-center gap-2 mb-3">
+                          <span className="bg-gradient-to-r from-[#67AEFF] to-[#97FFA4] text-black px-3 py-1 rounded-full text-sm font-semibold">Jul 2024 – Present</span>
+                        </div>
+                        <h3 className="text-xl font-bold text-[#67AEFF] mb-1">Intern Junior Developer</h3>
+                        <p className="text-[#97FFA4] font-medium mb-3">Academic Information System, Universitas Pertamina</p>
+                        <p className="text-gray-300 text-sm">Developing and maintaining academic information systems for the university.</p>
+                      </div>
+                    </div>
                     {/* Timeline Dot */}
                     <div className="absolute left-6 md:left-1/2 md:transform md:-translate-x-1/2 w-4 h-4 bg-[#67AEFF] rounded-full border-4 border-black shadow-lg"></div>
                   </div>
 
-                  {/* Timeline Item 4 - Left side on desktop */}
+                  {/* Notable Projects & Achievements */}
                   <div className="relative flex flex-col md:flex-row items-center">
-                    {/* Mobile Layout */}
                     <div className="md:hidden w-full pl-16">
-                      <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
+                      <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20 mb-4">
                         <div className="flex items-center gap-2 mb-2">
-                          <span className="bg-gradient-to-r from-[#97FFA4] to-[#67AEFF] text-black px-3 py-1 rounded-full text-sm font-semibold">
-                            2022 - 2023
-                          </span>
+                          <span className="bg-gradient-to-r from-[#97FFA4] to-[#83DDCB] text-black px-3 py-1 rounded-full text-sm font-semibold">2024</span>
                         </div>
-                        <h3 className="text-lg font-bold text-[#97FFA4] mb-1">Systems Developer</h3>
-                        <p className="text-[#83DDCB] font-medium mb-2">Real-world Projects</p>
-                        <p className="text-gray-300 text-sm">
-                          Developed real-world systems and applications, focusing on practical solutions 
-                          for businesses and organizations. Experience with full-stack development.
-                        </p>
+                        <h3 className="text-lg font-bold text-[#97FFA4] mb-1">3rd Champion of Perisma 2024: MFQ</h3>
+                        <p className="text-gray-300 text-sm">Juara 3 dalam lomba MFQ (bidang keagamaan)</p>
+                      </div>
+                      <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20 mb-4">
+                        <div className="flex items-center gap-2 mb-2">
+                          <span className="bg-gradient-to-r from-[#83DDCB] to-[#67AEFF] text-black px-3 py-1 rounded-full text-sm font-semibold">2023/2024</span>
+                        </div>
+                        <h3 className="text-lg font-bold text-[#83DDCB] mb-1">Finalist of Samsung Innovation Campus: AI Innovation</h3>
+                        <p className="text-gray-300 text-sm">Masuk finalis dalam kompetisi teknologi berbasis AI</p>
+                      </div>
+                      <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20 mb-4">
+                        <div className="flex items-center gap-2 mb-2">
+                          <span className="bg-gradient-to-r from-[#67AEFF] to-[#97FFA4] text-black px-3 py-1 rounded-full text-sm font-semibold">2024</span>
+                        </div>
+                        <h3 className="text-lg font-bold text-[#67AEFF] mb-1">Semi-Finalist of X-Project 2024 "Informatics Championship"</h3>
+                        <p className="text-gray-300 text-sm">Lolos semifinal kompetisi UI/UX Design</p>
+                      </div>
+                      <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20 mb-4">
+                        <div className="flex items-center gap-2 mb-2">
+                          <span className="bg-gradient-to-r from-[#97FFA4] to-[#83DDCB] text-black px-3 py-1 rounded-full text-sm font-semibold">2024</span>
+                        </div>
+                        <h3 className="text-lg font-bold text-[#97FFA4] mb-1">CITE UP 2024 – Project Leader</h3>
+                        <p className="text-gray-300 text-sm">Memimpin proyek tingkat jurusan/fakultas yang signifikan</p>
+                      </div>
+                      <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20 mb-4">
+                        <div className="flex items-center gap-2 mb-2">
+                          <span className="bg-gradient-to-r from-[#83DDCB] to-[#67AEFF] text-black px-3 py-1 rounded-full text-sm font-semibold">2024</span>
+                        </div>
+                        <h3 className="text-lg font-bold text-[#83DDCB] mb-1">MIRAI Islamic Festival – Creative Coordinator</h3>
+                        <p className="text-gray-300 text-sm">Menangani visual dan konten kreatif pada event skala kampus</p>
                       </div>
                     </div>
-                    
-                    {/* Desktop Layout - Left Side */}
-                    <div className="hidden md:flex md:w-1/2 md:justify-end md:pr-8">
-                      <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20 max-w-sm">
+                    {/* Desktop Layout - Projects/Achievements Timeline (split left/right) */}
+                    <div className="hidden md:flex md:w-1/2 md:justify-end md:pr-8 flex-col gap-6">
+                      <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20 max-w-sm mb-4">
                         <div className="flex items-center gap-2 mb-3">
-                          <span className="bg-gradient-to-r from-[#97FFA4] to-[#67AEFF] text-black px-3 py-1 rounded-full text-sm font-semibold">
-                            2022 - 2023
-                          </span>
+                          <span className="bg-gradient-to-r from-[#97FFA4] to-[#83DDCB] text-black px-3 py-1 rounded-full text-sm font-semibold">2024</span>
                         </div>
-                        <h3 className="text-xl font-bold text-[#97FFA4] mb-1">Systems Developer</h3>
-                        <p className="text-[#83DDCB] font-medium mb-3">Real-world Projects</p>
-                        <p className="text-gray-300 text-sm">
-                          Developed real-world systems and applications, focusing on practical solutions 
-                          for businesses and organizations. Experience with full-stack development.
-                        </p>
+                        <h3 className="text-xl font-bold text-[#97FFA4] mb-1">3rd Champion of Perisma 2024: MFQ</h3>
+                        <p className="text-gray-300 text-sm">Juara 3 dalam lomba MFQ (bidang keagamaan)</p>
+                      </div>
+                      <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20 max-w-sm mb-4">
+                        <div className="flex items-center gap-2 mb-3">
+                          <span className="bg-gradient-to-r from-[#83DDCB] to-[#67AEFF] text-black px-3 py-1 rounded-full text-sm font-semibold">2023/2024</span>
+                        </div>
+                        <h3 className="text-xl font-bold text-[#83DDCB] mb-1">Finalist of Samsung Innovation Campus: AI Innovation</h3>
+                        <p className="text-gray-300 text-sm">Masuk finalis dalam kompetisi teknologi berbasis AI</p>
                       </div>
                     </div>
-                    <div className="hidden md:flex md:w-1/2"></div>
-                    
+                    <div className="hidden md:flex md:w-1/2 md:justify-start md:pl-8 flex-col gap-6">
+                      <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20 max-w-sm mb-4">
+                        <div className="flex items-center gap-2 mb-3">
+                          <span className="bg-gradient-to-r from-[#67AEFF] to-[#97FFA4] text-black px-3 py-1 rounded-full text-sm font-semibold">2024</span>
+                        </div>
+                        <h3 className="text-xl font-bold text-[#67AEFF] mb-1">Semi-Finalist of X-Project 2024 "Informatics Championship"</h3>
+                        <p className="text-gray-300 text-sm">Lolos semifinal kompetisi UI/UX Design</p>
+                      </div>
+                      <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20 max-w-sm mb-4">
+                        <div className="flex items-center gap-2 mb-3">
+                          <span className="bg-gradient-to-r from-[#97FFA4] to-[#83DDCB] text-black px-3 py-1 rounded-full text-sm font-semibold">2024</span>
+                        </div>
+                        <h3 className="text-xl font-bold text-[#97FFA4] mb-1">CITE UP 2024 – Project Leader</h3>
+                        <p className="text-gray-300 text-sm">Memimpin proyek tingkat jurusan/fakultas yang signifikan</p>
+                      </div>
+                      <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20 max-w-sm mb-4">
+                        <div className="flex items-center gap-2 mb-3">
+                          <span className="bg-gradient-to-r from-[#83DDCB] to-[#67AEFF] text-black px-3 py-1 rounded-full text-sm font-semibold">2024</span>
+                        </div>
+                        <h3 className="text-xl font-bold text-[#83DDCB] mb-1">MIRAI Islamic Festival – Creative Coordinator</h3>
+                        <p className="text-gray-300 text-sm">Menangani visual dan konten kreatif pada event skala kampus</p>
+                      </div>
+                    </div>
                     {/* Timeline Dot */}
                     <div className="absolute left-6 md:left-1/2 md:transform md:-translate-x-1/2 w-4 h-4 bg-[#83DDCB] rounded-full border-4 border-black shadow-lg"></div>
                   </div>
+                </div>
+                {/* Certifications Section Placeholder */}
+                <div className="mt-16">
+                  <h3 className="text-2xl font-bold text-center mb-4 text-[#97FFA4]">Certifications</h3>
+                  <p className="text-center text-gray-300">Sertifikat-sertifikat akan ditampilkan di sini (coming soon).</p>
                 </div>
               </div>
             </div>

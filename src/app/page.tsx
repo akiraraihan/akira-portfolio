@@ -608,7 +608,7 @@ export default function Page() {
                   </div>
                 </div>
                 {/* Section: Notable Projects & Achievements */}
-                <div className="mb-20">
+                <div className="mb-2">
                   <h3 className="text-xl sm:text-2xl font-bold text-[#83DDCB] mb-2 text-center">Notable Projects & Achievements</h3>
                   <p className="text-center text-gray-300 mb-8">Highlights and recognitions</p>
                   <div className="relative">
@@ -674,11 +674,6 @@ export default function Page() {
                       ))}
                     </div>
                   </div>
-                </div>
-                {/* Certifications Section Placeholder */}
-                <div className="mt-24">
-                  <h3 className="text-2xl font-bold text-center mb-4 text-[#97FFA4]">Certifications</h3>
-                  <p className="text-center text-gray-300">Certificates will be displayed here (coming soon).</p>
                 </div>
               </div>
             </div>

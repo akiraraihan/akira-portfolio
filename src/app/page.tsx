@@ -472,7 +472,7 @@ export default function Page() {
                     {/* Timeline Line */}
                     <div className="hidden md:block absolute left-1/2 top-0 -translate-x-1/2 w-0.5 h-full bg-gradient-to-b from-[#97FFA4] via-[#83DDCB] to-[#67AEFF] z-0"></div>
                     <div className="md:hidden absolute left-4 top-0 w-0.5 h-full bg-gradient-to-b from-[#97FFA4] via-[#83DDCB] to-[#67AEFF] z-0"></div>
-                    <div className="flex flex-col gap-12">
+                    <div className="flex flex-col">
                       {orgExperiences.map((exp, idx) => (
                         <div key={idx} className="relative flex md:grid md:grid-cols-3 md:items-center md:gap-4">
                           {/* Left card (desktop only, even idx) */}
@@ -528,7 +528,7 @@ export default function Page() {
                   <div className="relative">
                     <div className="hidden md:block absolute left-1/2 top-0 -translate-x-1/2 w-0.5 h-full bg-gradient-to-b from-[#97FFA4] via-[#83DDCB] to-[#67AEFF] z-0"></div>
                     <div className="md:hidden absolute left-4 top-0 w-0.5 h-full bg-gradient-to-b from-[#97FFA4] via-[#83DDCB] to-[#67AEFF] z-0"></div>
-                    <div className="flex flex-col gap-12">
+                    <div className="flex flex-col">
                       {workExperiences.map((exp, idx) => (
                         <div key={idx} className="relative flex md:grid md:grid-cols-3 md:items-center md:gap-4">
                           <div className={`hidden md:block ${idx % 2 === 0 ? '' : 'invisible'}`}>{idx % 2 === 0 && (
@@ -580,7 +580,7 @@ export default function Page() {
                   <div className="relative">
                     <div className="hidden md:block absolute left-1/2 top-0 -translate-x-1/2 w-0.5 h-full bg-gradient-to-b from-[#97FFA4] via-[#83DDCB] to-[#67AEFF] z-0"></div>
                     <div className="md:hidden absolute left-4 top-0 w-0.5 h-full bg-gradient-to-b from-[#97FFA4] via-[#83DDCB] to-[#67AEFF] z-0"></div>
-                    <div className="flex flex-col gap-12">
+                    <div className="flex flex-col">
                       {notableAchievements.map((exp, idx) => (
                         <div key={idx} className="relative flex md:grid md:grid-cols-3 md:items-center md:gap-4">
                           <div className={`hidden md:block ${idx % 2 === 0 ? '' : 'invisible'}`}>{idx % 2 === 0 && (

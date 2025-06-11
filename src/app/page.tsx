@@ -472,11 +472,12 @@ export default function Page() {
                     {/* Timeline Line */}
                     <div className="hidden md:block absolute left-1/2 top-0 -translate-x-1/2 w-0.5 h-full bg-gradient-to-b from-[#97FFA4] via-[#83DDCB] to-[#67AEFF] z-0"></div>
                     <div className="md:hidden absolute left-4 top-0 w-0.5 h-full bg-gradient-to-b from-[#97FFA4] via-[#83DDCB] to-[#67AEFF] z-0"></div>
-                    <div className="flex flex-col">
+                    {/* Desktop: 3-column grid */}
+                    <div className="hidden md:flex flex-col">
                       {orgExperiences.map((exp, idx) => (
-                        <div key={idx} className="relative flex md:grid md:grid-cols-3 md:items-center md:gap-4">
-                          {/* Left card (desktop only, even idx) */}
-                          <div className={`hidden md:flex items-center justify-end ${idx % 2 === 0 ? '' : 'invisible'}`} style={{ position: 'relative' }}>
+                        <div key={idx} className="relative grid grid-cols-3 items-center gap-4">
+                          {/* Left card (even idx) */}
+                          <div className={`flex items-center justify-end ${idx % 2 === 0 ? '' : 'invisible'}`} style={{ position: 'relative' }}>
                             {idx % 2 === 0 && (
                               <>
                                 <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20 max-w-sm w-full relative z-30">
@@ -492,12 +493,12 @@ export default function Page() {
                               </>
                             )}
                           </div>
-                          {/* Dot (center col desktop, left col mobile) */}
-                          <div className="flex flex-col items-center md:justify-center md:col-span-1 z-10">
+                          {/* Dot (center col) */}
+                          <div className="flex flex-col items-center justify-center col-span-1 z-10">
                             <div className={`w-4 h-4 bg-gradient-to-r ${exp.color} rounded-full border-4 border-black shadow-lg relative animate-pulse-timeline`}></div>
                           </div>
-                          {/* Right card (desktop only, odd idx) */}
-                          <div className={`hidden md:flex items-center justify-start ${idx % 2 === 1 ? '' : 'invisible'}`} style={{ position: 'relative' }}>
+                          {/* Right card (odd idx) */}
+                          <div className={`flex items-center justify-start ${idx % 2 === 1 ? '' : 'invisible'}`} style={{ position: 'relative' }}>
                             {idx % 2 === 1 && (
                               <>
                                 {/* Garis penghubung dari dot ke card (arah ke kiri) */}
@@ -513,24 +514,23 @@ export default function Page() {
                               </>
                             )}
                           </div>
-                          {/* Mobile: card right of dot, hanya render dot+card, tanpa dot kosong */}
-                          {(
-                            typeof window !== 'undefined' &&
-                            window.innerWidth < 768
-                          ) && (
-                            <div className="md:hidden flex-1 ml-2 flex items-center gap-1.5 mb-6">
-                              <div className={`w-4 h-4 bg-gradient-to-r ${exp.color} rounded-full border-4 border-black shadow-lg relative animate-pulse-timeline`}></div>
-                              <div className="h-0.5 w-3 bg-gradient-to-r from-[#97FFA4] via-[#83DDCB] to-[#67AEFF] rounded-full"></div>
-                              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20 max-w-sm w-full">
-                                <div className="flex items-center gap-2 mb-3">
-                                  <span className={`bg-gradient-to-r ${exp.color} text-black px-3 py-1 rounded-full text-sm font-semibold`}>{exp.date}</span>
-                                </div>
-                                <h3 className={`text-xl font-bold ${exp.titleColor} mb-1`}>{exp.title}</h3>
-                                <p className={`font-medium mb-3 ${exp.orgColor}`}>{exp.org}</p>
-                                <p className="text-gray-300 text-sm">{exp.desc}</p>
-                              </div>
+                        </div>
+                      ))}
+                    </div>
+                    {/* Mobile: dot + line + card, no orphan dots */}
+                    <div className="md:hidden flex flex-col">
+                      {orgExperiences.map((exp, idx) => (
+                        <div key={idx} className="flex items-center gap-1.5 mb-6">
+                          <div className={`w-4 h-4 bg-gradient-to-r ${exp.color} rounded-full border-4 border-black shadow-lg relative animate-pulse-timeline`}></div>
+                          <div className="h-0.5 w-3 bg-gradient-to-r from-[#97FFA4] via-[#83DDCB] to-[#67AEFF] rounded-full"></div>
+                          <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20 max-w-sm w-full">
+                            <div className="flex items-center gap-2 mb-3">
+                              <span className={`bg-gradient-to-r ${exp.color} text-black px-3 py-1 rounded-full text-sm font-semibold`}>{exp.date}</span>
                             </div>
-                          )}
+                            <h3 className={`text-xl font-bold ${exp.titleColor} mb-1`}>{exp.title}</h3>
+                            <p className={`font-medium mb-3 ${exp.orgColor}`}>{exp.org}</p>
+                            <p className="text-gray-300 text-sm">{exp.desc}</p>
+                          </div>
                         </div>
                       ))}
                     </div>
@@ -543,11 +543,12 @@ export default function Page() {
                   <div className="relative">
                     <div className="hidden md:block absolute left-1/2 top-0 -translate-x-1/2 w-0.5 h-full bg-gradient-to-b from-[#97FFA4] via-[#83DDCB] to-[#67AEFF] z-0"></div>
                     <div className="md:hidden absolute left-4 top-0 w-0.5 h-full bg-gradient-to-b from-[#97FFA4] via-[#83DDCB] to-[#67AEFF] z-0"></div>
-                    <div className="flex flex-col">
+                    {/* Desktop: 3-column grid */}
+                    <div className="hidden md:flex flex-col">
                       {workExperiences.map((exp, idx) => (
-                        <div key={idx} className="relative flex md:grid md:grid-cols-3 md:items-center md:gap-4">
-                          {/* Left card (desktop only, even idx) */}
-                          <div className={`hidden md:flex items-center justify-end ${idx % 2 === 0 ? '' : 'invisible'}`} style={{ position: 'relative' }}>
+                        <div key={idx} className="relative grid grid-cols-3 items-center gap-4">
+                          {/* Left card (even idx) */}
+                          <div className={`flex items-center justify-end ${idx % 2 === 0 ? '' : 'invisible'}`} style={{ position: 'relative' }}>
                             {idx % 2 === 0 && (
                               <>
                                 <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20 max-w-sm w-full relative z-30">
@@ -563,12 +564,12 @@ export default function Page() {
                               </>
                             )}
                           </div>
-                          {/* Dot (center col desktop, left col mobile) */}
-                          <div className="flex flex-col items-center md:justify-center md:col-span-1 z-10">
+                          {/* Dot (center col) */}
+                          <div className="flex flex-col items-center justify-center col-span-1 z-10">
                             <div className={`w-4 h-4 bg-gradient-to-r ${exp.color} rounded-full border-4 border-black shadow-lg relative animate-pulse-timeline`}></div>
                           </div>
-                          {/* Right card (desktop only, odd idx) */}
-                          <div className={`hidden md:flex items-center justify-start ${idx % 2 === 1 ? '' : 'invisible'}`} style={{ position: 'relative' }}>
+                          {/* Right card (odd idx) */}
+                          <div className={`flex items-center justify-start ${idx % 2 === 1 ? '' : 'invisible'}`} style={{ position: 'relative' }}>
                             {idx % 2 === 1 && (
                               <>
                                 {/* Garis penghubung dari dot ke card (arah ke kiri) */}
@@ -584,24 +585,23 @@ export default function Page() {
                               </>
                             )}
                           </div>
-                          {/* Mobile: card right of dot, hanya render dot+card, tanpa dot kosong */}
-                          {(
-                            typeof window !== 'undefined' &&
-                            window.innerWidth < 768
-                          ) && (
-                            <div className="md:hidden flex-1 ml-2 flex items-center gap-1.5 mb-6">
-                              <div className={`w-4 h-4 bg-gradient-to-r ${exp.color} rounded-full border-4 border-black shadow-lg relative animate-pulse-timeline`}></div>
-                              <div className="h-0.5 w-3 bg-gradient-to-r from-[#97FFA4] via-[#83DDCB] to-[#67AEFF] rounded-full"></div>
-                              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20 max-w-sm w-full">
-                                <div className="flex items-center gap-2 mb-3">
-                                  <span className={`bg-gradient-to-r ${exp.color} text-black px-3 py-1 rounded-full text-sm font-semibold`}>{exp.date}</span>
-                                </div>
-                                <h3 className={`text-xl font-bold ${exp.titleColor} mb-1`}>{exp.title}</h3>
-                                <p className={`font-medium mb-3 ${exp.orgColor}`}>{exp.org}</p>
-                                <p className="text-gray-300 text-sm">{exp.desc}</p>
-                              </div>
+                        </div>
+                      ))}
+                    </div>
+                    {/* Mobile: dot + line + card, no orphan dots */}
+                    <div className="md:hidden flex flex-col">
+                      {workExperiences.map((exp, idx) => (
+                        <div key={idx} className="flex items-center gap-1.5 mb-6">
+                          <div className={`w-4 h-4 bg-gradient-to-r ${exp.color} rounded-full border-4 border-black shadow-lg relative animate-pulse-timeline`}></div>
+                          <div className="h-0.5 w-3 bg-gradient-to-r from-[#97FFA4] via-[#83DDCB] to-[#67AEFF] rounded-full"></div>
+                          <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20 max-w-sm w-full">
+                            <div className="flex items-center gap-2 mb-3">
+                              <span className={`bg-gradient-to-r ${exp.color} text-black px-3 py-1 rounded-full text-sm font-semibold`}>{exp.date}</span>
                             </div>
-                          )}
+                            <h3 className={`text-xl font-bold ${exp.titleColor} mb-1`}>{exp.title}</h3>
+                            <p className={`font-medium mb-3 ${exp.orgColor}`}>{exp.org}</p>
+                            <p className="text-gray-300 text-sm">{exp.desc}</p>
+                          </div>
                         </div>
                       ))}
                     </div>
@@ -614,11 +614,12 @@ export default function Page() {
                   <div className="relative">
                     <div className="hidden md:block absolute left-1/2 top-0 -translate-x-1/2 w-0.5 h-full bg-gradient-to-b from-[#97FFA4] via-[#83DDCB] to-[#67AEFF] z-0"></div>
                     <div className="md:hidden absolute left-4 top-0 w-0.5 h-full bg-gradient-to-b from-[#97FFA4] via-[#83DDCB] to-[#67AEFF] z-0"></div>
-                    <div className="flex flex-col">
+                    {/* Desktop: 3-column grid */}
+                    <div className="hidden md:flex flex-col">
                       {notableAchievements.map((exp, idx) => (
-                        <div key={idx} className="relative flex md:grid md:grid-cols-3 md:items-center md:gap-4">
-                          {/* Left card (desktop only, even idx) */}
-                          <div className={`hidden md:flex items-center justify-end ${idx % 2 === 0 ? '' : 'invisible'}`} style={{ position: 'relative' }}>
+                        <div key={idx} className="relative grid grid-cols-3 items-center gap-4">
+                          {/* Left card (even idx) */}
+                          <div className={`flex items-center justify-end ${idx % 2 === 0 ? '' : 'invisible'}`} style={{ position: 'relative' }}>
                             {idx % 2 === 0 && (
                               <>
                                 <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20 max-w-sm w-full relative z-30">
@@ -633,12 +634,12 @@ export default function Page() {
                               </>
                             )}
                           </div>
-                          {/* Dot (center col desktop, left col mobile) */}
-                          <div className="flex flex-col items-center md:justify-center md:col-span-1 z-10">
+                          {/* Dot (center col) */}
+                          <div className="flex flex-col items-center justify-center col-span-1 z-10">
                             <div className={`w-4 h-4 bg-gradient-to-r ${exp.color} rounded-full border-4 border-black shadow-lg relative animate-pulse-timeline`}></div>
                           </div>
-                          {/* Right card (desktop only, odd idx) */}
-                          <div className={`hidden md:flex items-center justify-start ${idx % 2 === 1 ? '' : 'invisible'}`} style={{ position: 'relative' }}>
+                          {/* Right card (odd idx) */}
+                          <div className={`flex items-center justify-start ${idx % 2 === 1 ? '' : 'invisible'}`} style={{ position: 'relative' }}>
                             {idx % 2 === 1 && (
                               <>
                                 {/* Garis penghubung dari dot ke card (arah ke kiri) */}
@@ -653,23 +654,22 @@ export default function Page() {
                               </>
                             )}
                           </div>
-                          {/* Mobile: card right of dot, hanya render dot+card, tanpa dot kosong */}
-                          {(
-                            typeof window !== 'undefined' &&
-                            window.innerWidth < 768
-                          ) && (
-                            <div className="md:hidden flex-1 ml-2 flex items-center gap-1.5 mb-6">
-                              <div className={`w-4 h-4 bg-gradient-to-r ${exp.color} rounded-full border-4 border-black shadow-lg relative animate-pulse-timeline`}></div>
-                              <div className="h-0.5 w-3 bg-gradient-to-r from-[#97FFA4] via-[#83DDCB] to-[#67AEFF] rounded-full"></div>
-                              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20 max-w-sm w-full">
-                                <div className="flex items-center gap-2 mb-3">
-                                  <span className={`bg-gradient-to-r ${exp.color} text-black px-3 py-1 rounded-full text-sm font-semibold`}>{exp.date}</span>
-                                </div>
-                                <h3 className={`text-xl font-bold ${exp.titleColor} mb-1`}>{exp.title}</h3>
-                                <p className="text-gray-300 text-sm">{exp.desc}</p>
-                              </div>
+                        </div>
+                      ))}
+                    </div>
+                    {/* Mobile: dot + line + card, no orphan dots */}
+                    <div className="md:hidden flex flex-col">
+                      {notableAchievements.map((exp, idx) => (
+                        <div key={idx} className="flex items-center gap-1.5 mb-6">
+                          <div className={`w-4 h-4 bg-gradient-to-r ${exp.color} rounded-full border-4 border-black shadow-lg relative animate-pulse-timeline`}></div>
+                          <div className="h-0.5 w-3 bg-gradient-to-r from-[#97FFA4] via-[#83DDCB] to-[#67AEFF] rounded-full"></div>
+                          <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20 max-w-sm w-full">
+                            <div className="flex items-center gap-2 mb-3">
+                              <span className={`bg-gradient-to-r ${exp.color} text-black px-3 py-1 rounded-full text-sm font-semibold`}>{exp.date}</span>
                             </div>
-                          )}
+                            <h3 className={`text-xl font-bold ${exp.titleColor} mb-1`}>{exp.title}</h3>
+                            <p className="text-gray-300 text-sm">{exp.desc}</p>
+                          </div>
                         </div>
                       ))}
                     </div>

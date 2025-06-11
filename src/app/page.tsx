@@ -126,6 +126,11 @@ export default function Page() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { orgExperiences, workExperiences, notableAchievements } = useTimelineData();
 
+  // Collapsible state for all timelines
+  const [openOrgz, setOpenOrgz] = useState<number | null>(null);
+  const [openWork, setOpenWork] = useState<number | null>(null);
+  const [openNotable, setOpenNotable] = useState<number | null>(null);
+
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
@@ -468,211 +473,86 @@ export default function Page() {
                 <div className="mb-20">
                   <h3 className="text-xl sm:text-2xl font-bold text-[#97FFA4] mb-2 text-center">Organizational Experiences</h3>
                   <p className="text-center text-gray-300 mb-8">Leadership, teamwork, and organizational growth</p>
-                  <div className="relative">
-                    {/* Timeline Line */}
-                    <div className="hidden md:block absolute left-1/2 top-0 -translate-x-1/2 w-0.5 h-full bg-gradient-to-b from-[#97FFA4] via-[#83DDCB] to-[#67AEFF] z-0"></div>
-                    <div className="md:hidden absolute left-4 top-0 w-0.5 h-full bg-gradient-to-b from-[#97FFA4] via-[#83DDCB] to-[#67AEFF] z-0"></div>
-                    {/* Desktop: 3-column grid */}
-                    <div className="hidden md:flex flex-col">
-                      {orgExperiences.map((exp, idx) => (
-                        <div key={idx} className="relative grid grid-cols-3 items-center gap-4">
-                          {/* Left card (even idx) */}
-                          <div className={`flex items-center justify-end ${idx % 2 === 0 ? '' : 'invisible'}`} style={{ position: 'relative' }}>
-                            {idx % 2 === 0 && (
-                              <>
-                                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20 max-w-sm w-full relative z-30">
-                                  <div className="flex items-center gap-2 mb-3">
-                                    <span className={`bg-gradient-to-r ${exp.color} text-black px-3 py-1 rounded-full text-sm font-semibold`}>{exp.date}</span>
-                                  </div>
-                                  <h3 className="text-xl font-bold text-[#97FFA4] mb-1">{exp.title}</h3>
-                                  <p className="font-medium mb-3 text-[#67AEFF]">{exp.org}</p>
-                                  <p className="text-gray-300 text-sm">{exp.desc}</p>
-                                </div>
-                                {/* Garis penghubung dari card ke dot (arah ke kanan) */}
-                                <div className="absolute top-1/2 left-full ml-4 -translate-y-1/2 h-0.5 w-42 bg-gradient-to-r from-[#97FFA4] via-[#83DDCB] to-[#67AEFF] rounded-full z-20"></div>
-                              </>
-                            )}
+                  <div className="flex flex-col gap-4 w-full max-w-2xl mx-auto">
+                    {orgExperiences.map((exp, idx) => (
+                      <div key={idx} className="bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 shadow-lg transition-all">
+                        <button
+                          className="w-full flex items-center justify-between px-6 py-4 focus:outline-none group"
+                          onClick={() => setOpenOrgz(openOrgz === idx ? null : idx)}
+                          aria-expanded={openOrgz === idx}
+                        >
+                          <div className="flex flex-col text-left">
+                            <span className={`text-sm font-semibold text-black bg-gradient-to-r ${exp.color} px-2 py-0.5 rounded mb-1 w-fit`}>{exp.date}</span>
+                            <span className="text-lg font-bold text-[#97FFA4]">{exp.title}</span>
+                            <span className="text-[#67AEFF] text-sm font-medium">{exp.org}</span>
                           </div>
-                          {/* Dot (center col) */}
-                          <div className="flex flex-col items-center justify-center col-span-1 z-10">
-                            <div className={`w-4 h-4 bg-gradient-to-r ${exp.color} rounded-full border-4 border-black shadow-lg relative animate-pulse-timeline`}></div>
-                          </div>
-                          {/* Right card (odd idx) */}
-                          <div className={`flex items-center justify-start ${idx % 2 === 1 ? '' : 'invisible'}`} style={{ position: 'relative' }}>
-                            {idx % 2 === 1 && (
-                              <>
-                                {/* Garis penghubung dari dot ke card (arah ke kiri) */}
-                                <div className="absolute top-1/2 right-full mr-4 -translate-y-1/2 h-0.5 w-42 bg-gradient-to-l from-[#97FFA4] via-[#83DDCB] to-[#67AEFF] rounded-full z-20"></div>
-                                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20 max-w-sm w-full relative z-30">
-                                  <div className="flex items-center gap-2 mb-3">
-                                    <span className={`bg-gradient-to-r ${exp.color} text-black px-3 py-1 rounded-full text-sm font-semibold`}>{exp.date}</span>
-                                  </div>
-                                  <h3 className="text-xl font-bold text-[#97FFA4] mb-1">{exp.title}</h3>
-                                  <p className="font-medium mb-3 text-[#67AEFF]">{exp.org}</p>
-                                  <p className="text-gray-300 text-sm">{exp.desc}</p>
-                                </div>
-                              </>
-                            )}
-                          </div>
+                          <span className={`ml-4 transition-transform ${openOrgz === idx ? 'rotate-90' : ''}`}>▶</span>
+                        </button>
+                        <div
+                          className={`overflow-hidden transition-all duration-300 px-6 ${openOrgz === idx ? 'max-h-40 py-2' : 'max-h-0 py-0'}`}
+                          style={{color: '#e5e7eb'}}
+                        >
+                          <p className="text-sm text-gray-200">{exp.desc}</p>
                         </div>
-                      ))}
-                    </div>
-                    {/* Mobile: dot + line + card, no orphan dots */}
-                    <div className="md:hidden flex flex-col">
-                      {orgExperiences.map((exp, idx) => (
-                        <div key={idx} className="flex items-center gap-1.5 mb-6">
-                          <div className={`w-4 h-4 bg-gradient-to-r ${exp.color} rounded-full border-4 border-black shadow-lg relative animate-pulse-timeline`}></div>
-                          <div className="h-0.5 w-3 bg-gradient-to-r from-[#97FFA4] via-[#83DDCB] to-[#67AEFF] rounded-full"></div>
-                          <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20 max-w-sm w-full">
-                            <div className="flex items-center gap-2 mb-3">
-                              <span className={`bg-gradient-to-r ${exp.color} text-black px-3 py-1 rounded-full text-sm font-semibold`}>{exp.date}</span>
-                            </div>
-                            <h3 className="text-xl font-bold text-[#97FFA4] mb-1">{exp.title}</h3>
-                            <p className="font-medium mb-3 text-[#67AEFF]">{exp.org}</p>
-                            <p className="text-gray-300 text-sm">{exp.desc}</p>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
+                      </div>
+                    ))}
                   </div>
                 </div>
                 {/* Section: Work Experiences */}
                 <div className="mb-20">
                   <h3 className="text-xl sm:text-2xl font-bold text-[#67AEFF] mb-2 text-center">Work Experiences</h3>
                   <p className="text-center text-gray-300 mb-8">Professional and teaching roles</p>
-                  <div className="relative">
-                    <div className="hidden md:block absolute left-1/2 top-0 -translate-x-1/2 w-0.5 h-full bg-gradient-to-b from-[#97FFA4] via-[#83DDCB] to-[#67AEFF] z-0"></div>
-                    <div className="md:hidden absolute left-4 top-0 w-0.5 h-full bg-gradient-to-b from-[#97FFA4] via-[#83DDCB] to-[#67AEFF] z-0"></div>
-                    {/* Desktop: 3-column grid */}
-                    <div className="hidden md:flex flex-col">
-                      {workExperiences.map((exp, idx) => (
-                        <div key={idx} className="relative grid grid-cols-3 items-center gap-4">
-                          {/* Left card (even idx) */}
-                          <div className={`flex items-center justify-end ${idx % 2 === 0 ? '' : 'invisible'}`} style={{ position: 'relative' }}>
-                            {idx % 2 === 0 && (
-                              <>
-                                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20 max-w-sm w-full relative z-30">
-                                  <div className="flex items-center gap-2 mb-3">
-                                    <span className={`bg-gradient-to-r ${exp.color} text-black px-3 py-1 rounded-full text-sm font-semibold`}>{exp.date}</span>
-                                  </div>
-                                  <h3 className="text-xl font-bold text-[#97FFA4] mb-1">{exp.title}</h3>
-                                  <p className="font-medium mb-3 text-[#67AEFF]">{exp.org}</p>
-                                  <p className="text-gray-300 text-sm">{exp.desc}</p>
-                                </div>
-                                {/* Garis penghubung dari card ke dot (arah ke kanan) */}
-                                <div className="absolute top-1/2 left-full ml-4 -translate-y-1/2 h-0.5 w-42 bg-gradient-to-r from-[#97FFA4] via-[#83DDCB] to-[#67AEFF] rounded-full z-20"></div>
-                              </>
-                            )}
+                  <div className="flex flex-col gap-4 w-full max-w-2xl mx-auto">
+                    {workExperiences.map((exp, idx) => (
+                      <div key={idx} className="bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 shadow-lg transition-all">
+                        <button
+                          className="w-full flex items-center justify-between px-6 py-4 focus:outline-none group"
+                          onClick={() => setOpenWork(openWork === idx ? null : idx)}
+                          aria-expanded={openWork === idx}
+                        >
+                          <div className="flex flex-col text-left">
+                            <span className={`text-sm font-semibold text-black bg-gradient-to-r ${exp.color} px-2 py-0.5 rounded mb-1 w-fit`}>{exp.date}</span>
+                            <span className="text-lg font-bold text-[#67AEFF]">{exp.title}</span>
+                            <span className="text-[#97AEFF] text-sm font-medium">{exp.org}</span>
                           </div>
-                          {/* Dot (center col) */}
-                          <div className="flex flex-col items-center justify-center col-span-1 z-10">
-                            <div className={`w-4 h-4 bg-gradient-to-r ${exp.color} rounded-full border-4 border-black shadow-lg relative animate-pulse-timeline`}></div>
-                          </div>
-                          {/* Right card (odd idx) */}
-                          <div className={`flex items-center justify-start ${idx % 2 === 1 ? '' : 'invisible'}`} style={{ position: 'relative' }}>
-                            {idx % 2 === 1 && (
-                              <>
-                                {/* Garis penghubung dari dot ke card (arah ke kiri) */}
-                                <div className="absolute top-1/2 right-full mr-4 -translate-y-1/2 h-0.5 w-42 bg-gradient-to-l from-[#97FFA4] via-[#83DDCB] to-[#67AEFF] rounded-full z-20"></div>
-                                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20 max-w-sm w-full relative z-30">
-                                  <div className="flex items-center gap-2 mb-3">
-                                    <span className={`bg-gradient-to-r ${exp.color} text-black px-3 py-1 rounded-full text-sm font-semibold`}>{exp.date}</span>
-                                  </div>
-                                  <h3 className="text-xl font-bold text-[#97FFA4] mb-1">{exp.title}</h3>
-                                  <p className="font-medium mb-3 text-[#67AEFF]">{exp.org}</p>
-                                  <p className="text-gray-300 text-sm">{exp.desc}</p>
-                                </div>
-                              </>
-                            )}
-                          </div>
+                          <span className={`ml-4 transition-transform ${openWork === idx ? 'rotate-90' : ''}`}>▶</span>
+                        </button>
+                        <div
+                          className={`overflow-hidden transition-all duration-300 px-6 ${openWork === idx ? 'max-h-40 py-2' : 'max-h-0 py-0'}`}
+                          style={{color: '#e5e7eb'}}
+                        >
+                          <p className="text-sm text-gray-200">{exp.desc}</p>
                         </div>
-                      ))}
-                    </div>
-                    {/* Mobile: dot + line + card, no orphan dots */}
-                    <div className="md:hidden flex flex-col">
-                      {workExperiences.map((exp, idx) => (
-                        <div key={idx} className="flex items-center gap-1.5 mb-6">
-                          <div className={`w-4 h-4 bg-gradient-to-r ${exp.color} rounded-full border-4 border-black shadow-lg relative animate-pulse-timeline`}></div>
-                          <div className="h-0.5 w-3 bg-gradient-to-r from-[#97FFA4] via-[#83DDCB] to-[#67AEFF] rounded-full"></div>
-                          <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20 max-w-sm w-full">
-                            <div className="flex items-center gap-2 mb-3">
-                              <span className={`bg-gradient-to-r ${exp.color} text-black px-3 py-1 rounded-full text-sm font-semibold`}>{exp.date}</span>
-                            </div>
-                            <h3 className="text-xl font-bold text-[#97FFA4] mb-1">{exp.title}</h3>
-                            <p className="font-medium mb-3 text-[#67AEFF]">{exp.org}</p>
-                            <p className="text-gray-300 text-sm">{exp.desc}</p>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
+                      </div>
+                    ))}
                   </div>
                 </div>
                 {/* Section: Notable Projects & Achievements */}
                 <div className="mb-2">
                   <h3 className="text-xl sm:text-2xl font-bold text-[#83DDCB] mb-2 text-center">Notable Projects & Achievements</h3>
                   <p className="text-center text-gray-300 mb-8">Highlights and recognitions</p>
-                  <div className="relative">
-                    <div className="hidden md:block absolute left-1/2 top-0 -translate-x-1/2 w-0.5 h-full bg-gradient-to-b from-[#97FFA4] via-[#83DDCB] to-[#67AEFF] z-0"></div>
-                    <div className="md:hidden absolute left-4 top-0 w-0.5 h-full bg-gradient-to-b from-[#97FFA4] via-[#83DDCB] to-[#67AEFF] z-0"></div>
-                    {/* Desktop: 3-column grid */}
-                    <div className="hidden md:flex flex-col">
-                      {notableAchievements.map((exp, idx) => (
-                        <div key={idx} className="relative grid grid-cols-3 items-center gap-4">
-                          {/* Left card (even idx) */}
-                          <div className={`flex items-center justify-end ${idx % 2 === 0 ? '' : 'invisible'}`} style={{ position: 'relative' }}>
-                            {idx % 2 === 0 && (
-                              <>
-                                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20 max-w-sm w-full relative z-30">
-                                  <div className="flex items-center gap-2 mb-3">
-                                    <span className={`bg-gradient-to-r ${exp.color} text-black px-3 py-1 rounded-full text-sm font-semibold`}>{exp.date}</span>
-                                  </div>
-                                  <h3 className="text-xl font-bold text-[#97FFA4] mb-1">{exp.title}</h3>
-                                  <p className="text-gray-300 text-sm">{exp.desc}</p>
-                                </div>
-                                {/* Garis penghubung dari card ke dot (arah ke kanan) */}
-                                <div className="absolute top-1/2 left-full ml-4 -translate-y-1/2 h-0.5 w-42 bg-gradient-to-r from-[#97FFA4] via-[#83DDCB] to-[#67AEFF] rounded-full z-20"></div>
-                              </>
-                            )}
+                  <div className="flex flex-col gap-4 w-full max-w-2xl mx-auto">
+                    {notableAchievements.map((exp, idx) => (
+                      <div key={idx} className="bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 shadow-lg transition-all">
+                        <button
+                          className="w-full flex items-center justify-between px-6 py-4 focus:outline-none group"
+                          onClick={() => setOpenNotable(openNotable === idx ? null : idx)}
+                          aria-expanded={openNotable === idx}
+                        >
+                          <div className="flex flex-col text-left">
+                            <span className={`text-sm font-semibold text-black bg-gradient-to-r ${exp.color} px-2 py-0.5 rounded mb-1 w-fit`}>{exp.date}</span>
+                            <span className="text-lg font-bold text-[#83DDCB]">{exp.title}</span>
                           </div>
-                          {/* Dot (center col) */}
-                          <div className="flex flex-col items-center justify-center col-span-1 z-10">
-                            <div className={`w-4 h-4 bg-gradient-to-r ${exp.color} rounded-full border-4 border-black shadow-lg relative animate-pulse-timeline`}></div>
-                          </div>
-                          {/* Right card (odd idx) */}
-                          <div className={`flex items-center justify-start ${idx % 2 === 1 ? '' : 'invisible'}`} style={{ position: 'relative' }}>
-                            {idx % 2 === 1 && (
-                              <>
-                                {/* Garis penghubung dari dot ke card (arah ke kiri) */}
-                                <div className="absolute top-1/2 right-full mr-4 -translate-y-1/2 h-0.5 w-42 bg-gradient-to-l from-[#97FFA4] via-[#83DDCB] to-[#67AEFF] rounded-full z-20"></div>
-                                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20 max-w-sm w-full relative z-30">
-                                  <div className="flex items-center gap-2 mb-3">
-                                    <span className={`bg-gradient-to-r ${exp.color} text-black px-3 py-1 rounded-full text-sm font-semibold`}>{exp.date}</span>
-                                  </div>
-                                  <h3 className="text-xl font-bold text-[#97FFA4] mb-1">{exp.title}</h3>
-                                  <p className="text-gray-300 text-sm">{exp.desc}</p>
-                                </div>
-                              </>
-                            )}
-                          </div>
+                          <span className={`ml-4 transition-transform ${openNotable === idx ? 'rotate-90' : ''}`}>▶</span>
+                        </button>
+                        <div
+                          className={`overflow-hidden transition-all duration-300 px-6 ${openNotable === idx ? 'max-h-40 py-2' : 'max-h-0 py-0'}`}
+                          style={{color: '#e5e7eb'}}
+                        >
+                          <p className="text-sm text-gray-200">{exp.desc}</p>
                         </div>
-                      ))}
-                    </div>
-                    {/* Mobile: dot + line + card, no orphan dots */}
-                    <div className="md:hidden flex flex-col">
-                      {notableAchievements.map((exp, idx) => (
-                        <div key={idx} className="flex items-center gap-1.5 mb-6">
-                          <div className={`w-4 h-4 bg-gradient-to-r ${exp.color} rounded-full border-4 border-black shadow-lg relative animate-pulse-timeline`}></div>
-                          <div className="h-0.5 w-3 bg-gradient-to-r from-[#97FFA4] via-[#83DDCB] to-[#67AEFF] rounded-full"></div>
-                          <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20 max-w-sm w-full">
-                            <div className="flex items-center gap-2 mb-3">
-                              <span className={`bg-gradient-to-r ${exp.color} text-black px-3 py-1 rounded-full text-sm font-semibold`}>{exp.date}</span>
-                            </div>
-                            <h3 className="text-xl font-bold text-[#97FFA4] mb-1">{exp.title}</h3>
-                            <p className="text-gray-300 text-sm">{exp.desc}</p>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>

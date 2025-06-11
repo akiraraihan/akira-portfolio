@@ -149,7 +149,7 @@ export default function Page() {
         <div className="sticky top-0 w-full h-[64px] bg-black flex flex-row items-center justify-between px-4 sm:px-8 z-50 rounded-3xl">
           <div>
             <ShinyText 
-              text="Personal Portfolio" 
+              text="Akira Raihan's Property" 
               disabled={false}
               speed={5}
             />

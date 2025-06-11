@@ -25,6 +25,7 @@ import { Marquee } from "@/components/magicui/marquee";
 import SkillCard from "@/components/SkillCard";
 import { skills } from "@/data/skills";
 import { useTimelineData } from "@/data/useTimelineData";
+import { ShinyButton } from "@/components/magicui/shiny-button";
 
 const XIcon = () => (
   <svg
@@ -604,7 +605,9 @@ export default function Page() {
                 <p className="text-gray-400 text-xs mb-1 text-center">Issued Jul 2024 · Expires Jul 2026</p>
                 <p className="text-gray-400 text-xs mb-3 text-center">Credential ID HauI9sNWR5-xTMS1S9yLRQ</p>
                 <div className="flex-grow" />
-                <a href="#" target="_blank" rel="noopener noreferrer" className="inline-block px-4 py-1.5 rounded-lg bg-black text-white text-xs font-semibold hover:bg-gray-800 transition w-full text-center mt-auto mb-1.5">Show Credential</a>
+                <a href="#" target="_blank" rel="noopener noreferrer" className="w-full text-center mt-auto mb-1.5">
+                  <ShinyButton className="w-full">Show Credential</ShinyButton>
+                </a>
               </div>
             </div>
             {/* Sertifikat 2 */}
@@ -618,7 +621,9 @@ export default function Page() {
                 <p className="text-gray-400 text-xs mb-1 text-center">Issued Jul 2024 · Expires Jul 2026</p>
                 <p className="text-gray-400 text-xs mb-3 text-center">Credential ID lcqZMuGzRfu9v3zQ50Qx-g</p>
                 <div className="flex-grow" />
-                <a href="#" target="_blank" rel="noopener noreferrer" className="inline-block px-4 py-1.5 rounded-lg bg-black text-white text-xs font-semibold hover:bg-gray-800 transition w-full text-center mt-auto mb-1.5">Show Credential</a>
+                <a href="#" target="_blank" rel="noopener noreferrer" className="w-full text-center mt-auto mb-1.5">
+                  <ShinyButton className="w-full">Show Credential</ShinyButton>
+                </a>
               </div>
             </div>
             {/* Sertifikat 3 */}
@@ -632,7 +637,9 @@ export default function Page() {
                 <p className="text-gray-400 text-xs mb-1 text-center">Issued Jul 2024 · Expires Jul 2026</p>
                 <p className="text-gray-400 text-xs mb-3 text-center">Credential ID HauI9sNWR5-xTMS1S9yLRQ</p>
                 <div className="flex-grow" />
-                <a href="#" target="_blank" rel="noopener noreferrer" className="inline-block px-4 py-1.5 rounded-lg bg-black text-white text-xs font-semibold hover:bg-gray-800 transition w-full text-center mt-auto mb-1.5">Show Credential</a>
+                <a href="#" target="_blank" rel="noopener noreferrer" className="w-full text-center mt-auto mb-1.5">
+                  <ShinyButton className="w-full">Show Credential</ShinyButton>
+                </a>
               </div>
             </div>
             {/* Sertifikat 4 */}
@@ -646,7 +653,9 @@ export default function Page() {
                 <p className="text-gray-400 text-xs mb-1 text-center">Issued Jul 2024 · Expires Jul 2026</p>
                 <p className="text-gray-400 text-xs mb-3 text-center">Credential ID 9nCwzkSnSbS1Ou4CREIXqw</p>
                 <div className="flex-grow" />
-                <a href="#" target="_blank" rel="noopener noreferrer" className="inline-block px-4 py-1.5 rounded-lg bg-black text-white text-xs font-semibold hover:bg-gray-800 transition w-full text-center mt-auto mb-1.5">Show Credential</a>
+                <a href="#" target="_blank" rel="noopener noreferrer" className="w-full text-center mt-auto mb-1.5">
+                  <ShinyButton className="w-full">Show Credential</ShinyButton>
+                </a>
               </div>
             </div>
             {/* Sertifikat 5 */}
@@ -660,7 +669,9 @@ export default function Page() {
                 <p className="text-gray-400 text-xs mb-1 text-center">Issued Apr 2024 · Expires Apr 2026</p>
                 <p className="text-gray-400 text-xs mb-3 text-center">Credential ID URCNVBe3Tf6N5QhpHltJyw</p>
                 <div className="flex-grow" />
-                <a href="#" target="_blank" rel="noopener noreferrer" className="inline-block px-4 py-1.5 rounded-lg bg-black text-white text-xs font-semibold hover:bg-gray-800 transition w-full text-center mt-auto mb-1.5">Show Credential</a>
+                <a href="#" target="_blank" rel="noopener noreferrer" className="w-full text-center mt-auto mb-1.5">
+                  <ShinyButton className="w-full">Show Credential</ShinyButton>
+                </a>
               </div>
             </div>
             {/* Sertifikat 6 */}
@@ -674,7 +685,9 @@ export default function Page() {
                 <p className="text-gray-400 text-xs mb-1 text-center">Issued Mar 2024 · Expires Mar 2026</p>
                 <p className="text-gray-400 text-xs mb-3 text-center">Credential ID VeaBDw2ATxuXqmU1Eh_ksw</p>
                 <div className="flex-grow" />
-                <a href="#" target="_blank" rel="noopener noreferrer" className="inline-block px-4 py-1.5 rounded-lg bg-black text-white text-xs font-semibold hover:bg-gray-800 transition w-full text-center mt-auto mb-1.5">Show Credential</a>
+                <a href="#" target="_blank" rel="noopener noreferrer" className="w-full text-center mt-auto mb-1.5">
+                  <ShinyButton className="w-full">Show Credential</ShinyButton>
+                </a>
               </div>
             </div>
             {/* Sertifikat 7 */}
@@ -688,7 +701,9 @@ export default function Page() {
                 <p className="text-gray-400 text-xs mb-1 text-center">Issued Mar 2024 · Expires Mar 2026</p>
                 <p className="text-gray-400 text-xs mb-3 text-center">Credential ID hlO0oJqHSvqThwLi_mgN0Q</p>
                 <div className="flex-grow" />
-                <a href="#" target="_blank" rel="noopener noreferrer" className="inline-block px-4 py-1.5 rounded-lg bg-black text-white text-xs font-semibold hover:bg-gray-800 transition w-full text-center mt-auto mb-1.5">Show Credential</a>
+                <a href="#" target="_blank" rel="noopener noreferrer" className="w-full text-center mt-auto mb-1.5">
+                  <ShinyButton className="w-full">Show Credential</ShinyButton>
+                </a>
               </div>
             </div>
             {/* Sertifikat 8 */}
@@ -702,7 +717,9 @@ export default function Page() {
                 <p className="text-gray-400 text-xs mb-1 text-center">Issued Mar 2024 · Expires Mar 2026</p>
                 <p className="text-gray-400 text-xs mb-3 text-center">Credential ID 2K-EC9L7QcyOlK4nxI19Bw</p>
                 <div className="flex-grow" />
-                <a href="#" target="_blank" rel="noopener noreferrer" className="inline-block px-4 py-1.5 rounded-lg bg-black text-white text-xs font-semibold hover:bg-gray-800 transition w-full text-center mt-auto mb-1.5">Show Credential</a>
+                <a href="#" target="_blank" rel="noopener noreferrer" className="w-full text-center mt-auto mb-1.5">
+                  <ShinyButton className="w-full">Show Credential</ShinyButton>
+                </a>
               </div>
             </div>
           </div>

@@ -490,7 +490,7 @@ export default function Page() {
                           )}</div>
                           {/* Dot (center col desktop, left col mobile) */}
                           <div className="flex flex-col items-center md:justify-center md:col-span-1 z-10">
-                            <div className={`w-4 h-4 bg-gradient-to-r ${exp.color} rounded-full border-4 border-black shadow-lg`}></div>
+                            <div className={`w-4 h-4 bg-gradient-to-r ${exp.color} rounded-full border-4 border-black shadow-lg relative animate-pulse-timeline`}></div>
                           </div>
                           {/* Right card (desktop only, odd idx) */}
                           <div className={`hidden md:block ${idx % 2 === 1 ? '' : 'invisible'}`}>{idx % 2 === 1 && (
@@ -544,7 +544,7 @@ export default function Page() {
                             </div>
                           )}</div>
                           <div className="flex flex-col items-center md:justify-center md:col-span-1 z-10">
-                            <div className={`w-4 h-4 bg-gradient-to-r ${exp.color} rounded-full border-4 border-black shadow-lg`}></div>
+                            <div className={`w-4 h-4 bg-gradient-to-r ${exp.color} rounded-full border-4 border-black shadow-lg relative animate-pulse-timeline`}></div>
                           </div>
                           <div className={`hidden md:block ${idx % 2 === 1 ? '' : 'invisible'}`}>{idx % 2 === 1 && (
                             <div className="flex justify-start">
@@ -595,7 +595,7 @@ export default function Page() {
                             </div>
                           )}</div>
                           <div className="flex flex-col items-center md:justify-center md:col-span-1 z-10">
-                            <div className={`w-4 h-4 bg-gradient-to-r ${exp.color} rounded-full border-4 border-black shadow-lg`}></div>
+                            <div className={`w-4 h-4 bg-gradient-to-r ${exp.color} rounded-full border-4 border-black shadow-lg relative animate-pulse-timeline`}></div>
                           </div>
                           <div className={`hidden md:block ${idx % 2 === 1 ? '' : 'invisible'}`}>{idx % 2 === 1 && (
                             <div className="flex justify-start">

@@ -457,7 +457,7 @@ export default function Page() {
                 speed={0.4}
               />
             </div>
-            <div className="max-w-4xl mx-auto px-4 relative z-10 pt-12 pb-16 sm:pt-16 sm:pb-20">
+            <div className="max-w-6xl mx-auto px-4 relative z-10 pt-12 pb-16 sm:pt-16 sm:pb-20">
               <p className="text-lg mt-2 mb-12 text-white text-center">
                 My journey through organizations, experiences, and professional growth
               </p>
@@ -488,7 +488,7 @@ export default function Page() {
                                   <p className="text-gray-300 text-sm">{exp.desc}</p>
                                 </div>
                                 {/* Garis penghubung dari card ke dot (arah ke kanan) */}
-                                <div className="absolute top-1/2 left-full ml-4 -translate-y-1/2 h-0.5 w-32 bg-gradient-to-r from-[#97FFA4] via-[#83DDCB] to-[#67AEFF] rounded-full z-20"></div>
+                                <div className="absolute top-1/2 left-full ml-4 -translate-y-1/2 h-0.5 w-42 bg-gradient-to-r from-[#97FFA4] via-[#83DDCB] to-[#67AEFF] rounded-full z-20"></div>
                               </>
                             )}
                           </div>
@@ -501,7 +501,7 @@ export default function Page() {
                             {idx % 2 === 1 && (
                               <>
                                 {/* Garis penghubung dari dot ke card (arah ke kiri) */}
-                                <div className="absolute top-1/2 right-full mr-4 -translate-y-1/2 h-0.5 w-32 bg-gradient-to-l from-[#97FFA4] via-[#83DDCB] to-[#67AEFF] rounded-full z-20"></div>
+                                <div className="absolute top-1/2 right-full mr-4 -translate-y-1/2 h-0.5 w-42 bg-gradient-to-l from-[#97FFA4] via-[#83DDCB] to-[#67AEFF] rounded-full z-20"></div>
                                 <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20 max-w-sm w-full relative z-30">
                                   <div className="flex items-center gap-2 mb-3">
                                     <span className={`bg-gradient-to-r ${exp.color} text-black px-3 py-1 rounded-full text-sm font-semibold`}>{exp.date}</span>
@@ -513,19 +513,24 @@ export default function Page() {
                               </>
                             )}
                           </div>
-                          {/* Mobile: card right of dot, always tampilkan card */}
-                          <div className="md:hidden flex-1 ml-2 flex items-center gap-1.5">
-                            <div className={`w-4 h-4 bg-gradient-to-r ${exp.color} rounded-full border-4 border-black shadow-lg relative animate-pulse-timeline`}></div>
-                            <div className="h-0.5 w-3 bg-gradient-to-r from-[#97FFA4] via-[#83DDCB] to-[#67AEFF] rounded-full"></div>
-                            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20 max-w-sm w-full">
-                              <div className="flex items-center gap-2 mb-3">
-                                <span className={`bg-gradient-to-r ${exp.color} text-black px-3 py-1 rounded-full text-sm font-semibold`}>{exp.date}</span>
+                          {/* Mobile: card right of dot, hanya render dot+card, tanpa dot kosong */}
+                          {(
+                            typeof window !== 'undefined' &&
+                            window.innerWidth < 768
+                          ) && (
+                            <div className="md:hidden flex-1 ml-2 flex items-center gap-1.5 mb-6">
+                              <div className={`w-4 h-4 bg-gradient-to-r ${exp.color} rounded-full border-4 border-black shadow-lg relative animate-pulse-timeline`}></div>
+                              <div className="h-0.5 w-3 bg-gradient-to-r from-[#97FFA4] via-[#83DDCB] to-[#67AEFF] rounded-full"></div>
+                              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20 max-w-sm w-full">
+                                <div className="flex items-center gap-2 mb-3">
+                                  <span className={`bg-gradient-to-r ${exp.color} text-black px-3 py-1 rounded-full text-sm font-semibold`}>{exp.date}</span>
+                                </div>
+                                <h3 className={`text-xl font-bold ${exp.titleColor} mb-1`}>{exp.title}</h3>
+                                <p className={`font-medium mb-3 ${exp.orgColor}`}>{exp.org}</p>
+                                <p className="text-gray-300 text-sm">{exp.desc}</p>
                               </div>
-                              <h3 className={`text-xl font-bold ${exp.titleColor} mb-1`}>{exp.title}</h3>
-                              <p className={`font-medium mb-3 ${exp.orgColor}`}>{exp.org}</p>
-                              <p className="text-gray-300 text-sm">{exp.desc}</p>
                             </div>
-                          </div>
+                          )}
                         </div>
                       ))}
                     </div>
@@ -554,7 +559,7 @@ export default function Page() {
                                   <p className="text-gray-300 text-sm">{exp.desc}</p>
                                 </div>
                                 {/* Garis penghubung dari card ke dot (arah ke kanan) */}
-                                <div className="absolute top-1/2 left-full ml-4 -translate-y-1/2 h-0.5 w-32 bg-gradient-to-r from-[#97FFA4] via-[#83DDCB] to-[#67AEFF] rounded-full z-20"></div>
+                                <div className="absolute top-1/2 left-full ml-4 -translate-y-1/2 h-0.5 w-42 bg-gradient-to-r from-[#97FFA4] via-[#83DDCB] to-[#67AEFF] rounded-full z-20"></div>
                               </>
                             )}
                           </div>
@@ -567,7 +572,7 @@ export default function Page() {
                             {idx % 2 === 1 && (
                               <>
                                 {/* Garis penghubung dari dot ke card (arah ke kiri) */}
-                                <div className="absolute top-1/2 right-full mr-4 -translate-y-1/2 h-0.5 w-32 bg-gradient-to-l from-[#97FFA4] via-[#83DDCB] to-[#67AEFF] rounded-full z-20"></div>
+                                <div className="absolute top-1/2 right-full mr-4 -translate-y-1/2 h-0.5 w-42 bg-gradient-to-l from-[#97FFA4] via-[#83DDCB] to-[#67AEFF] rounded-full z-20"></div>
                                 <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20 max-w-sm w-full relative z-30">
                                   <div className="flex items-center gap-2 mb-3">
                                     <span className={`bg-gradient-to-r ${exp.color} text-black px-3 py-1 rounded-full text-sm font-semibold`}>{exp.date}</span>
@@ -579,19 +584,24 @@ export default function Page() {
                               </>
                             )}
                           </div>
-                          {/* Mobile: card right of dot, always tampilkan card */}
-                          <div className="md:hidden flex-1 ml-2 flex items-center gap-1.5">
-                            <div className={`w-4 h-4 bg-gradient-to-r ${exp.color} rounded-full border-4 border-black shadow-lg relative animate-pulse-timeline`}></div>
-                            <div className="h-0.5 w-3 bg-gradient-to-r from-[#97FFA4] via-[#83DDCB] to-[#67AEFF] rounded-full"></div>
-                            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20 max-w-sm w-full">
-                              <div className="flex items-center gap-2 mb-3">
-                                <span className={`bg-gradient-to-r ${exp.color} text-black px-3 py-1 rounded-full text-sm font-semibold`}>{exp.date}</span>
+                          {/* Mobile: card right of dot, hanya render dot+card, tanpa dot kosong */}
+                          {(
+                            typeof window !== 'undefined' &&
+                            window.innerWidth < 768
+                          ) && (
+                            <div className="md:hidden flex-1 ml-2 flex items-center gap-1.5 mb-6">
+                              <div className={`w-4 h-4 bg-gradient-to-r ${exp.color} rounded-full border-4 border-black shadow-lg relative animate-pulse-timeline`}></div>
+                              <div className="h-0.5 w-3 bg-gradient-to-r from-[#97FFA4] via-[#83DDCB] to-[#67AEFF] rounded-full"></div>
+                              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20 max-w-sm w-full">
+                                <div className="flex items-center gap-2 mb-3">
+                                  <span className={`bg-gradient-to-r ${exp.color} text-black px-3 py-1 rounded-full text-sm font-semibold`}>{exp.date}</span>
+                                </div>
+                                <h3 className={`text-xl font-bold ${exp.titleColor} mb-1`}>{exp.title}</h3>
+                                <p className={`font-medium mb-3 ${exp.orgColor}`}>{exp.org}</p>
+                                <p className="text-gray-300 text-sm">{exp.desc}</p>
                               </div>
-                              <h3 className={`text-xl font-bold ${exp.titleColor} mb-1`}>{exp.title}</h3>
-                              <p className={`font-medium mb-3 ${exp.orgColor}`}>{exp.org}</p>
-                              <p className="text-gray-300 text-sm">{exp.desc}</p>
                             </div>
-                          </div>
+                          )}
                         </div>
                       ))}
                     </div>
@@ -619,7 +629,7 @@ export default function Page() {
                                   <p className="text-gray-300 text-sm">{exp.desc}</p>
                                 </div>
                                 {/* Garis penghubung dari card ke dot (arah ke kanan) */}
-                                <div className="absolute top-1/2 left-full ml-4 -translate-y-1/2 h-0.5 w-32 bg-gradient-to-r from-[#97FFA4] via-[#83DDCB] to-[#67AEFF] rounded-full z-20"></div>
+                                <div className="absolute top-1/2 left-full ml-4 -translate-y-1/2 h-0.5 w-42 bg-gradient-to-r from-[#97FFA4] via-[#83DDCB] to-[#67AEFF] rounded-full z-20"></div>
                               </>
                             )}
                           </div>
@@ -632,7 +642,7 @@ export default function Page() {
                             {idx % 2 === 1 && (
                               <>
                                 {/* Garis penghubung dari dot ke card (arah ke kiri) */}
-                                <div className="absolute top-1/2 right-full mr-4 -translate-y-1/2 h-0.5 w-32 bg-gradient-to-l from-[#97FFA4] via-[#83DDCB] to-[#67AEFF] rounded-full z-20"></div>
+                                <div className="absolute top-1/2 right-full mr-4 -translate-y-1/2 h-0.5 w-42 bg-gradient-to-l from-[#97FFA4] via-[#83DDCB] to-[#67AEFF] rounded-full z-20"></div>
                                 <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20 max-w-sm w-full relative z-30">
                                   <div className="flex items-center gap-2 mb-3">
                                     <span className={`bg-gradient-to-r ${exp.color} text-black px-3 py-1 rounded-full text-sm font-semibold`}>{exp.date}</span>
@@ -643,18 +653,23 @@ export default function Page() {
                               </>
                             )}
                           </div>
-                          {/* Mobile: card right of dot, always tampilkan card */}
-                          <div className="md:hidden flex-1 ml-2 flex items-center gap-1.5">
-                            <div className={`w-4 h-4 bg-gradient-to-r ${exp.color} rounded-full border-4 border-black shadow-lg relative animate-pulse-timeline`}></div>
-                            <div className="h-0.5 w-3 bg-gradient-to-r from-[#97FFA4] via-[#83DDCB] to-[#67AEFF] rounded-full"></div>
-                            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20 max-w-sm w-full">
-                              <div className="flex items-center gap-2 mb-3">
-                                <span className={`bg-gradient-to-r ${exp.color} text-black px-3 py-1 rounded-full text-sm font-semibold`}>{exp.date}</span>
+                          {/* Mobile: card right of dot, hanya render dot+card, tanpa dot kosong */}
+                          {(
+                            typeof window !== 'undefined' &&
+                            window.innerWidth < 768
+                          ) && (
+                            <div className="md:hidden flex-1 ml-2 flex items-center gap-1.5 mb-6">
+                              <div className={`w-4 h-4 bg-gradient-to-r ${exp.color} rounded-full border-4 border-black shadow-lg relative animate-pulse-timeline`}></div>
+                              <div className="h-0.5 w-3 bg-gradient-to-r from-[#97FFA4] via-[#83DDCB] to-[#67AEFF] rounded-full"></div>
+                              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20 max-w-sm w-full">
+                                <div className="flex items-center gap-2 mb-3">
+                                  <span className={`bg-gradient-to-r ${exp.color} text-black px-3 py-1 rounded-full text-sm font-semibold`}>{exp.date}</span>
+                                </div>
+                                <h3 className={`text-xl font-bold ${exp.titleColor} mb-1`}>{exp.title}</h3>
+                                <p className="text-gray-300 text-sm">{exp.desc}</p>
                               </div>
-                              <h3 className={`text-xl font-bold ${exp.titleColor} mb-1`}>{exp.title}</h3>
-                              <p className="text-gray-300 text-sm">{exp.desc}</p>
                             </div>
-                          </div>
+                          )}
                         </div>
                       ))}
                     </div>

@@ -449,7 +449,7 @@ export default function Page() {
           {/* Simple rounded card design with Aurora */}
           <div className="w-full bg-black text-white relative overflow-hidden shadow-xl rounded-3xl">
             {/* Aurora effect with responsive opacity */}
-            <div className="absolute inset-0 opacity-30 sm:opacity-55">
+            <div className="absolute inset-0 opacity-30 sm:opacity-30">
               <Aurora
                 colorStops={["#97FFA4", "#83DDCB", "#67AEFF"]}
                 blend={0.3}
@@ -484,8 +484,8 @@ export default function Page() {
                                   <div className="flex items-center gap-2 mb-3">
                                     <span className={`bg-gradient-to-r ${exp.color} text-black px-3 py-1 rounded-full text-sm font-semibold`}>{exp.date}</span>
                                   </div>
-                                  <h3 className={`text-xl font-bold ${exp.titleColor} mb-1`}>{exp.title}</h3>
-                                  <p className={`font-medium mb-3 ${exp.orgColor}`}>{exp.org}</p>
+                                  <h3 className="text-xl font-bold text-[#97FFA4] mb-1">{exp.title}</h3>
+                                  <p className="font-medium mb-3 text-[#67AEFF]">{exp.org}</p>
                                   <p className="text-gray-300 text-sm">{exp.desc}</p>
                                 </div>
                                 {/* Garis penghubung dari card ke dot (arah ke kanan) */}
@@ -507,8 +507,8 @@ export default function Page() {
                                   <div className="flex items-center gap-2 mb-3">
                                     <span className={`bg-gradient-to-r ${exp.color} text-black px-3 py-1 rounded-full text-sm font-semibold`}>{exp.date}</span>
                                   </div>
-                                  <h3 className={`text-xl font-bold ${exp.titleColor} mb-1`}>{exp.title}</h3>
-                                  <p className={`font-medium mb-3 ${exp.orgColor}`}>{exp.org}</p>
+                                  <h3 className="text-xl font-bold text-[#97FFA4] mb-1">{exp.title}</h3>
+                                  <p className="font-medium mb-3 text-[#67AEFF]">{exp.org}</p>
                                   <p className="text-gray-300 text-sm">{exp.desc}</p>
                                 </div>
                               </>
@@ -527,8 +527,8 @@ export default function Page() {
                             <div className="flex items-center gap-2 mb-3">
                               <span className={`bg-gradient-to-r ${exp.color} text-black px-3 py-1 rounded-full text-sm font-semibold`}>{exp.date}</span>
                             </div>
-                            <h3 className={`text-xl font-bold ${exp.titleColor} mb-1`}>{exp.title}</h3>
-                            <p className={`font-medium mb-3 ${exp.orgColor}`}>{exp.org}</p>
+                            <h3 className="text-xl font-bold text-[#97FFA4] mb-1">{exp.title}</h3>
+                            <p className="font-medium mb-3 text-[#67AEFF]">{exp.org}</p>
                             <p className="text-gray-300 text-sm">{exp.desc}</p>
                           </div>
                         </div>
@@ -555,8 +555,8 @@ export default function Page() {
                                   <div className="flex items-center gap-2 mb-3">
                                     <span className={`bg-gradient-to-r ${exp.color} text-black px-3 py-1 rounded-full text-sm font-semibold`}>{exp.date}</span>
                                   </div>
-                                  <h3 className={`text-xl font-bold ${exp.titleColor} mb-1`}>{exp.title}</h3>
-                                  <p className={`font-medium mb-3 ${exp.orgColor}`}>{exp.org}</p>
+                                  <h3 className="text-xl font-bold text-[#97FFA4] mb-1">{exp.title}</h3>
+                                  <p className="font-medium mb-3 text-[#67AEFF]">{exp.org}</p>
                                   <p className="text-gray-300 text-sm">{exp.desc}</p>
                                 </div>
                                 {/* Garis penghubung dari card ke dot (arah ke kanan) */}
@@ -578,8 +578,8 @@ export default function Page() {
                                   <div className="flex items-center gap-2 mb-3">
                                     <span className={`bg-gradient-to-r ${exp.color} text-black px-3 py-1 rounded-full text-sm font-semibold`}>{exp.date}</span>
                                   </div>
-                                  <h3 className={`text-xl font-bold ${exp.titleColor} mb-1`}>{exp.title}</h3>
-                                  <p className={`font-medium mb-3 ${exp.orgColor}`}>{exp.org}</p>
+                                  <h3 className="text-xl font-bold text-[#97FFA4] mb-1">{exp.title}</h3>
+                                  <p className="font-medium mb-3 text-[#67AEFF]">{exp.org}</p>
                                   <p className="text-gray-300 text-sm">{exp.desc}</p>
                                 </div>
                               </>
@@ -598,8 +598,8 @@ export default function Page() {
                             <div className="flex items-center gap-2 mb-3">
                               <span className={`bg-gradient-to-r ${exp.color} text-black px-3 py-1 rounded-full text-sm font-semibold`}>{exp.date}</span>
                             </div>
-                            <h3 className={`text-xl font-bold ${exp.titleColor} mb-1`}>{exp.title}</h3>
-                            <p className={`font-medium mb-3 ${exp.orgColor}`}>{exp.org}</p>
+                            <h3 className="text-xl font-bold text-[#97FFA4] mb-1">{exp.title}</h3>
+                            <p className="font-medium mb-3 text-[#67AEFF]">{exp.org}</p>
                             <p className="text-gray-300 text-sm">{exp.desc}</p>
                           </div>
                         </div>
@@ -626,7 +626,7 @@ export default function Page() {
                                   <div className="flex items-center gap-2 mb-3">
                                     <span className={`bg-gradient-to-r ${exp.color} text-black px-3 py-1 rounded-full text-sm font-semibold`}>{exp.date}</span>
                                   </div>
-                                  <h3 className={`text-xl font-bold ${exp.titleColor} mb-1`}>{exp.title}</h3>
+                                  <h3 className="text-xl font-bold text-[#97FFA4] mb-1">{exp.title}</h3>
                                   <p className="text-gray-300 text-sm">{exp.desc}</p>
                                 </div>
                                 {/* Garis penghubung dari card ke dot (arah ke kanan) */}
@@ -648,7 +648,7 @@ export default function Page() {
                                   <div className="flex items-center gap-2 mb-3">
                                     <span className={`bg-gradient-to-r ${exp.color} text-black px-3 py-1 rounded-full text-sm font-semibold`}>{exp.date}</span>
                                   </div>
-                                  <h3 className={`text-xl font-bold ${exp.titleColor} mb-1`}>{exp.title}</h3>
+                                  <h3 className="text-xl font-bold text-[#97FFA4] mb-1">{exp.title}</h3>
                                   <p className="text-gray-300 text-sm">{exp.desc}</p>
                                 </div>
                               </>
@@ -667,7 +667,7 @@ export default function Page() {
                             <div className="flex items-center gap-2 mb-3">
                               <span className={`bg-gradient-to-r ${exp.color} text-black px-3 py-1 rounded-full text-sm font-semibold`}>{exp.date}</span>
                             </div>
-                            <h3 className={`text-xl font-bold ${exp.titleColor} mb-1`}>{exp.title}</h3>
+                            <h3 className="text-xl font-bold text-[#97FFA4] mb-1">{exp.title}</h3>
                             <p className="text-gray-300 text-sm">{exp.desc}</p>
                           </div>
                         </div>

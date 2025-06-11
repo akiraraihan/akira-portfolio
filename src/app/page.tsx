@@ -506,7 +506,9 @@ export default function Page() {
                             </div>
                           )}</div>
                           {/* Mobile: card right of dot */}
-                          <div className="md:hidden flex-1 ml-4">
+                          <div className="md:hidden flex-1 ml-2 flex items-center gap-1.5">
+                            <div className={`w-4 h-4 bg-gradient-to-r ${exp.color} rounded-full border-4 border-black shadow-lg relative animate-pulse-timeline`}></div>
+                            <div className="h-0.5 w-3 bg-gradient-to-r from-[#97FFA4] via-[#83DDCB] to-[#67AEFF] rounded-full"></div>
                             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20 max-w-sm w-full">
                               <div className="flex items-center gap-2 mb-3">
                                 <span className={`bg-gradient-to-r ${exp.color} text-black px-3 py-1 rounded-full text-sm font-semibold`}>{exp.date}</span>
@@ -558,7 +560,9 @@ export default function Page() {
                               </div>
                             </div>
                           )}</div>
-                          <div className="md:hidden flex-1 ml-4">
+                          <div className="md:hidden flex-1 ml-2 flex items-center gap-1.5">
+                            <div className={`w-4 h-4 bg-gradient-to-r ${exp.color} rounded-full border-4 border-black shadow-lg relative animate-pulse-timeline`}></div>
+                            <div className="h-0.5 w-3 bg-gradient-to-r from-[#97FFA4] via-[#83DDCB] to-[#67AEFF] rounded-full"></div>
                             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20 max-w-sm w-full">
                               <div className="flex items-center gap-2 mb-3">
                                 <span className={`bg-gradient-to-r ${exp.color} text-black px-3 py-1 rounded-full text-sm font-semibold`}>{exp.date}</span>
@@ -608,7 +612,9 @@ export default function Page() {
                               </div>
                             </div>
                           )}</div>
-                          <div className="md:hidden flex-1 ml-4">
+                          <div className="md:hidden flex-1 ml-2 flex items-center gap-1.5">
+                            <div className={`w-4 h-4 bg-gradient-to-r ${exp.color} rounded-full border-4 border-black shadow-lg relative animate-pulse-timeline`}></div>
+                            <div className="h-0.5 w-3 bg-gradient-to-r from-[#97FFA4] via-[#83DDCB] to-[#67AEFF] rounded-full"></div>
                             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20 max-w-sm w-full">
                               <div className="flex items-center gap-2 mb-3">
                                 <span className={`bg-gradient-to-r ${exp.color} text-black px-3 py-1 rounded-full text-sm font-semibold`}>{exp.date}</span>

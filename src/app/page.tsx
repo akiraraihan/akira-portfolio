@@ -445,21 +445,23 @@ export default function Page() {
       </div>
       
       <div className="relative mt-4 sm:mt-20 mb-10 sm:mb-20 flex flex-col items-center">
-        <ScrollFloat
-          animationDuration={1}
-          ease="back.inOut(2)"
-          scrollStart="center bottom+=50%"
-          scrollEnd="bottom bottom-=40%"
-          stagger={0.03}
-          textClassName="font-extrabold tracking-tighter text-center text-4xl md:text-5xl lg:text-6xl mb-6"
-        >
-          Orgz and Experiences
-        </ScrollFloat>
-
         {/* Flex container for experiences and certifications */}
         <div className="w-full flex flex-col md:flex-row gap-8 md:gap-6 items-stretch justify-center px-0 md:px-4">
           {/* Experiences section: 2/3 on desktop */}
           <div className="w-full md:w-2/3">
+            {/* Header khusus experiences */}
+            <div className="flex justify-center">
+              <ScrollFloat
+                animationDuration={1}
+                ease="back.inOut(2)"
+                scrollStart="center bottom+=50%"
+                scrollEnd="bottom bottom-=40%"
+                stagger={0.03}
+                textClassName="font-extrabold tracking-tighter text-center text-4xl md:text-5xl lg:text-6xl mb-6"
+              >
+                Orgz and Experiences
+              </ScrollFloat>
+            </div>
             <div className="w-full relative mt-2 sm:mt-4 mb-12 sm:mb-20 px-4">
               {/* Simple rounded card design with Aurora */}
               <div className="w-full bg-black text-white relative overflow-hidden shadow-xl rounded-3xl">
@@ -520,7 +522,7 @@ export default function Page() {
                     </div>
                     {/* Section: Work Experiences */}
                     <div className="mb-20">
-                      <h3 className="text-xl sm:text-2xl font-bold text-[#67AEFF] mb-2 text-center">Work Experiences</h3>
+                      <h3 className="text-xl sm:text-2xl font-bold text-[#97FFA4] mb-2 text-center">Work Experiences</h3>
                       <p className="text-center text-gray-300 mb-8">Professional and teaching roles</p>
                       <div className="relative flex w-full max-w-2xl mx-auto">
                         <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#97FFA4] via-[#83DDCB] to-[#67AEFF] z-0" style={{borderRadius: '9999px'}}></div>
@@ -539,8 +541,8 @@ export default function Page() {
                                 >
                                   <div className="flex flex-col text-left">
                                     <span className={`text-sm font-semibold text-black bg-gradient-to-r ${exp.color} px-2 py-0.5 rounded mb-1 w-fit`}>{exp.date}</span>
-                                    <span className="text-lg font-bold text-[#67AEFF]">{exp.title}</span>
-                                    <span className="text-[#97AEFF] text-sm font-medium">{exp.org}</span>
+                                    <span className="text-lg font-bold text-[#97FFA4]">{exp.title}</span>
+                                    <span className="text-[#67AEFF] text-sm font-medium">{exp.org}</span>
                                   </div>
                                   <span className={`ml-4 transition-transform ${openWork === idx ? 'rotate-90' : ''}`}>▶</span>
                                 </button>
@@ -601,12 +603,24 @@ export default function Page() {
           {/* Certifications section: 1/3 on desktop */}
           <div className="w-full md:w-1/3 flex flex-col justify-start">
             <div className="relative w-full max-w-7xl mx-auto px-4 mb-24 md:mb-0">
-              <div className="bg-white rounded-3xl shadow-xl py-12 px-4 sm:px-8 h-full flex flex-col">
-                <h2 className="text-2xl sm:text-3xl font-bold text-black mb-6 text-center tracking-tighter">Licenses & Certifications</h2>
+              <div className="bg-white rounded-3xl shadow-xl py-6 px-4 border sm:px-8 h-full flex flex-col">
+                {/* Header khusus licence & certi, font lebih kecil dan ScrollFloat */}
+                <div className="flex justify-center">
+                  <ScrollFloat
+                    animationDuration={1}
+                    ease="back.inOut(2)"
+                    scrollStart="center bottom+=50%"
+                    scrollEnd="bottom bottom-=40%"
+                    stagger={0.03}
+                    textClassName="font-bold tracking-tighter text-center text-2xl sm:text-3xl mb-2"
+                  >
+                    Licenses & Certifications
+                  </ScrollFloat>
+                </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 gap-6">
                   {(showAllCertificates || certificates.length <= 3
                     ? certificates
-                    : certificates.slice(0, 3)
+                    : certificates.slice(0, 6)
                   ).map((cert, idx) => (
                     <CertificateCard key={cert.credentialId + idx} cert={cert} />
                   ))}

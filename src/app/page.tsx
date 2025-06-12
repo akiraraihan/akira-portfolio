@@ -606,16 +606,18 @@ export default function Page() {
               <div className="bg-white rounded-3xl shadow-xl py-6 px-4 border sm:px-8 h-full flex flex-col">
                 {/* Header khusus licence & certi, font lebih kecil dan ScrollFloat */}
                 <div className="flex justify-center">
-                  <ScrollFloat
-                    animationDuration={1}
-                    ease="back.inOut(2)"
-                    scrollStart="center bottom+=50%"
-                    scrollEnd="bottom bottom-=40%"
-                    stagger={0.03}
-                    textClassName="font-bold tracking-tighter text-center text-2xl sm:text-3xl mb-2"
-                  >
-                    Licenses & Certifications
-                  </ScrollFloat>
+                  <div className="flex justify-center items-center gap-2 mb-4">
+                    <ScrollFloat
+                      animationDuration={1}
+                      ease="back.inOut(2)"
+                      scrollStart="center bottom+=50%"
+                      scrollEnd="bottom bottom-=40%"
+                      stagger={0.03}
+                      textClassName="font-bold tracking-tighter text-center text-2xl sm:text-3xl mb-2"
+                    >
+                      Licenses & Certifications
+                    </ScrollFloat>
+                  </div>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 gap-6">
                   {(showAllCertificates || certificates.length <= 3
@@ -627,7 +629,7 @@ export default function Page() {
                 </div>
                 {certificates.length > 3 && !showAllCertificates && (
                   <div className="flex justify-center mt-6">
-                    <PulsatingButton onClick={() => setShowAllCertificates(true)}>
+                    <PulsatingButton href="/certificates">
                       Show More
                     </PulsatingButton>
                   </div>

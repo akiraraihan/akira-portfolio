@@ -128,6 +128,8 @@ const DATA = {
 export default function Page() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { orgExperiences, workExperiences, notableAchievements } = useTimelineData();
+  const [showAllCertificates, setShowAllCertificates] = useState(false);
+  const { certificates } = useCertificates();
 
   // Collapsible state for all timelines
   const [openOrgz, setOpenOrgz] = useState<number | null>(null);
@@ -596,10 +598,33 @@ export default function Page() {
         <div className="bg-white rounded-3xl shadow-xl py-12 px-4 sm:px-8">
           <h2 className="text-2xl sm:text-3xl font-bold text-black mb-6 text-center tracking-tighter">Licenses & Certifications</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-            {useCertificates().certificates.map((cert, idx) => (
+            {(showAllCertificates || certificates.length <= 3
+              ? certificates
+              : certificates.slice(0, 3)
+            ).map((cert, idx) => (
               <CertificateCard key={cert.credentialId + idx} cert={cert} />
             ))}
           </div>
+          {certificates.length > 3 && !showAllCertificates && (
+            <div className="flex justify-center mt-6">
+              <button
+                className="px-6 py-2 rounded-lg bg-neutral-900 text-white font-semibold shadow hover:bg-neutral-800 transition"
+                onClick={() => setShowAllCertificates(true)}
+              >
+                Show More
+              </button>
+            </div>
+          )}
+          {certificates.length > 3 && showAllCertificates && (
+            <div className="flex justify-center mt-4">
+              <button
+                className="px-6 py-2 rounded-lg bg-neutral-200 text-neutral-900 font-semibold shadow hover:bg-neutral-300 transition"
+                onClick={() => setShowAllCertificates(false)}
+              >
+                Show Less
+              </button>
+            </div>
+          )}
         </div>
       </div>
       {/* END Certification Section */}

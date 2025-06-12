@@ -613,42 +613,42 @@ export default function Page() {
           </div>
           {/* Certifications section: 1/3 on desktop */}
           <div id="licenses" className="w-full md:w-1/3 flex flex-col justify-start">
-            <div className="relative w-full max-w-7xl mx-auto px-4 mb-24 md:mb-0">
-              <div className="bg-white rounded-3xl shadow-xl py-6 px-4 border sm:px-8 h-full flex flex-col">
+            <div className="relative w-full max-w-2xl mx-auto px-2 mb-16 md:mb-0"> {/* max-w-2xl & px-2, mb-16 lebih kecil */}
+              <div className="bg-white rounded-3xl shadow-xl py-4 px-2 border sm:px-4 h-full flex flex-col"> {/* py-4 px-2 sm:px-4 lebih kecil */}
                 {/* Header khusus licence & certi, font lebih kecil dan ScrollFloat */}
                 <div className="flex justify-center">
-                  <div className="flex justify-center items-center gap-2 mb-4">
+                  <div className="flex justify-center items-center gap-2">
                     <ScrollFloat
                       animationDuration={1}
                       ease="back.inOut(2)"
                       scrollStart="center bottom+=50%"
                       scrollEnd="bottom bottom-=40%"
                       stagger={0.03}
-                      textClassName="font-bold tracking-tighter text-center text-2xl sm:text-3xl mb-2"
+                      textClassName="font-bold tracking-tighter text-center text-lg sm:text-xl mb-1" // font lebih kecil
                     >
                       Licenses & Certifications
                     </ScrollFloat>
                   </div>
                 </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 gap-4"> {/* gap-4 lebih kecil */}
                   {(showAllCertificates || certificates.length <= (isMobile ? 2 : 3)
                     ? certificates
                     : certificates.slice(0, isMobile ? 2 : 6)
                   ).map((cert, idx) => (
-                    <CertificateCard key={cert.credentialId + idx} cert={cert} />
+                    <CertificateCard key={cert.credentialId + idx} cert={cert} small={true} />
                   ))}
                 </div>
                 {certificates.length > (isMobile ? 2 : 3) && !showAllCertificates && (
-                  <div className="flex justify-center mt-6">
+                  <div className="flex justify-center mt-4"> {/* mt-4 lebih kecil */}
                     <PulsatingButton href="/certificates">
                       Show More
                     </PulsatingButton>
                   </div>
                 )}
                 {certificates.length > (isMobile ? 2 : 3) && showAllCertificates && (
-                  <div className="flex justify-center mt-4">
+                  <div className="flex justify-center mt-2"> {/* mt-2 lebih kecil */}
                     <button
-                      className="px-6 py-2 rounded-lg bg-neutral-200 text-neutral-900 font-semibold shadow hover:bg-neutral-300 transition"
+                      className="px-4 py-1.5 rounded-lg bg-neutral-200 text-neutral-900 font-semibold shadow hover:bg-neutral-300 transition text-sm" // font dan padding lebih kecil
                       onClick={() => setShowAllCertificates(false)}
                     >
                       Show Less

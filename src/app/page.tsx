@@ -131,6 +131,7 @@ export default function Page() {
   const { orgExperiences, workExperiences, notableAchievements } = useTimelineData();
   const [showAllCertificates, setShowAllCertificates] = useState(false);
   const { certificates } = useCertificates();
+  const [isMobile, setIsMobile] = useState(false);
 
   // Collapsible state for all timelines
   const [openOrgz, setOpenOrgz] = useState<number | null>(null);
@@ -152,6 +153,16 @@ export default function Page() {
       document.body.style.overflow = '';
     };
   }, [mobileMenuOpen]);
+
+  useEffect(() => {
+    // Check if window is defined (client-side)
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 640); // Tailwind sm breakpoint
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   return (
     <>
@@ -620,21 +631,21 @@ export default function Page() {
                   </div>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 gap-6">
-                  {(showAllCertificates || certificates.length <= 3
+                  {(showAllCertificates || certificates.length <= (isMobile ? 2 : 3)
                     ? certificates
-                    : certificates.slice(0, 6)
+                    : certificates.slice(0, isMobile ? 2 : 6)
                   ).map((cert, idx) => (
                     <CertificateCard key={cert.credentialId + idx} cert={cert} />
                   ))}
                 </div>
-                {certificates.length > 3 && !showAllCertificates && (
+                {certificates.length > (isMobile ? 2 : 3) && !showAllCertificates && (
                   <div className="flex justify-center mt-6">
                     <PulsatingButton href="/certificates">
                       Show More
                     </PulsatingButton>
                   </div>
                 )}
-                {certificates.length > 3 && showAllCertificates && (
+                {certificates.length > (isMobile ? 2 : 3) && showAllCertificates && (
                   <div className="flex justify-center mt-4">
                     <button
                       className="px-6 py-2 rounded-lg bg-neutral-200 text-neutral-900 font-semibold shadow hover:bg-neutral-300 transition"

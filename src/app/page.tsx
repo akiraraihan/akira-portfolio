@@ -28,6 +28,7 @@ import { useTimelineData } from "@/data/useTimelineData";
 import { ShinyButton } from "@/components/magicui/shiny-button";
 import { useCertificates } from "@/data/certificates";
 import CertificateCard from "@/components/CertificateCard";
+import { PulsatingButton } from "@/components/magicui/pulsating-button";
 
 const XIcon = () => (
   <svg
@@ -607,12 +608,9 @@ export default function Page() {
           </div>
           {certificates.length > 3 && !showAllCertificates && (
             <div className="flex justify-center mt-6">
-              <button
-                className="px-6 py-2 rounded-lg bg-neutral-900 text-white font-semibold shadow hover:bg-neutral-800 transition"
-                onClick={() => setShowAllCertificates(true)}
-              >
+              <PulsatingButton onClick={() => setShowAllCertificates(true)}>
                 Show More
-              </button>
+              </PulsatingButton>
             </div>
           )}
           {certificates.length > 3 && showAllCertificates && (

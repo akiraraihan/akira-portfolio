@@ -9,7 +9,10 @@ export default function CertificatesPage() {
   const { certificates } = useCertificates();
 
   return (
-    <div className="min-h-screen bg-white flex flex-col items-center py-8 px-2 sm:px-6">
+    <div
+      id="certificates"
+      className="min-h-screen bg-white flex flex-col items-center py-8 px-2 sm:px-6"
+    >
       <div className="w-full max-w-5xl mx-auto">
         <div className="flex flex-col items-center mb-8">
           <ScrollFloat
@@ -22,7 +25,7 @@ export default function CertificatesPage() {
           >
             All Licenses & Certifications
           </ScrollFloat>
-          <PulsatingButton href="/" className="mt-2 text-sm font-medium">
+          <PulsatingButton href="/#licenses" className="mt-2 text-sm font-medium">
             ← Back to Home
           </PulsatingButton>
         </div>

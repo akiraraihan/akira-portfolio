@@ -448,7 +448,7 @@ export default function Page() {
         {/* Flex container for experiences and certifications */}
         <div className="w-full flex flex-col md:flex-row gap-8 md:gap-6 items-stretch justify-center px-0 md:px-4">
           {/* Experiences section: 2/3 on desktop */}
-          <div className="w-full md:w-2/3">
+          <div id="experiences" className="w-full md:w-2/3">
             {/* Header khusus experiences */}
             <div className="flex justify-center">
               <ScrollFloat
@@ -601,7 +601,7 @@ export default function Page() {
             </div>
           </div>
           {/* Certifications section: 1/3 on desktop */}
-          <div className="w-full md:w-1/3 flex flex-col justify-start">
+          <div id="licenses" className="w-full md:w-1/3 flex flex-col justify-start">
             <div className="relative w-full max-w-7xl mx-auto px-4 mb-24 md:mb-0">
               <div className="bg-white rounded-3xl shadow-xl py-6 px-4 border sm:px-8 h-full flex flex-col">
                 {/* Header khusus licence & certi, font lebih kecil dan ScrollFloat */}

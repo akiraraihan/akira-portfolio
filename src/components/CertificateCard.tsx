@@ -1,5 +1,6 @@
 import { ShinyButton } from "@/components/magicui/shiny-button";
 import type { Certificate } from "@/data/certificates";
+import Image from "next/image";
 
 interface CertificateCardProps {
   cert: Certificate;
@@ -10,7 +11,7 @@ export default function CertificateCard({ cert, small }: CertificateCardProps) {
   return (
     <div className={`flex flex-col items-center bg-black rounded-2xl ${small ? 'p-3' : 'p-6'} shadow-sm h-full`}>
       <div className={`${small ? 'w-14 h-14 mb-2' : 'w-20 h-20 mb-4'} rounded-xl flex items-center justify-center overflow-hidden`}>
-        <img src={cert.imgSrc} alt={cert.alt} className="w-full h-full object-contain" />
+        <Image src={cert.imgSrc} alt={cert.alt} className="w-full h-full object-contain" width={400} height={300} />
       </div>
       <div className="flex flex-col flex-grow w-full">
         <h3 className={`font-semibold ${small ? 'text-base min-h-[32px]' : 'text-lg tracking-tight min-h-[48px]'} text-center mb-1 text-white`}>

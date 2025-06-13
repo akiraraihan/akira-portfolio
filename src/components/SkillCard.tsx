@@ -1,5 +1,6 @@
 // src/components/SkillCard.tsx
 import React from "react";
+import Image from "next/image";
 
 export interface SkillCardProps {
   imgSrc: string;
@@ -14,7 +15,7 @@ const SkillCard: React.FC<SkillCardProps> = ({ imgSrc, alt, label, isSvg, svgCon
     {isSvg && svgContent ? (
       <span className="w-4 h-4 flex items-center">{svgContent}</span>
     ) : (
-      <img src={imgSrc} alt={alt} className="w-4 h-4" />
+      <Image src={imgSrc} alt={alt} className="w-4 h-4" width={16} height={16} />
     )}
     <span className="text-black text-sm font-medium">{label}</span>
   </div>

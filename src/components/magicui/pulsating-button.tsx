@@ -25,7 +25,13 @@ export const PulsatingButton = React.forwardRef<
     duration = "1.5s",
     href,
     ...rest
-  } = props as any;
+  } = props as {
+    className?: string;
+    children?: React.ReactNode;
+    pulseColor?: string;
+    duration?: string;
+    href?: string;
+  };
   const sharedClass = cn(
     "relative flex cursor-pointer items-center justify-center rounded-lg bg-primary px-4 py-2 text-center text-primary-foreground",
     className,

@@ -7,6 +7,12 @@ const nextConfig: NextConfig = {
       {
         hostname: 'raw.githubusercontent.com',
       },
+      {
+        hostname: 'img.icons8.com',
+      },
+      {
+        hostname: 'api.badgr.io',
+      },
     ],
   },
 };

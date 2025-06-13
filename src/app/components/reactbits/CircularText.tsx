@@ -44,9 +44,12 @@ const CircularText: React.FC<CircularTextProps> = ({
     controls.start({
       rotate: currentRotation + 360,
       scale: 1,
-      transition: getTransition(spinDuration, currentRotation),
+      transition: {
+        duration: spinDuration,
+        ease: "linear",
+      },
     });
-  }, [spinDuration, controls, onHover, text]);
+  }, [spinDuration, controls, onHover, text, currentRotation]);
 
   const handleHoverStart = () => {
     if (!onHover) return;
@@ -55,14 +58,20 @@ const CircularText: React.FC<CircularTextProps> = ({
         controls.start({
           rotate: currentRotation + 360,
           scale: 1,
-          transition: getTransition(spinDuration * 2, currentRotation),
+          transition: {
+            duration: spinDuration * 2,
+            ease: "linear",
+          },
         });
         break;
       case "speedUp":
         controls.start({
           rotate: currentRotation + 360,
           scale: 1,
-          transition: getTransition(spinDuration / 4, currentRotation),
+          transition: {
+            duration: spinDuration / 4,
+            ease: "linear",
+          },
         });
         break;
       case "pause":
@@ -70,8 +79,9 @@ const CircularText: React.FC<CircularTextProps> = ({
           rotate: currentRotation,
           scale: 1,
           transition: {
-            rotate: { type: "spring", damping: 20, stiffness: 300 },
-            scale: { type: "spring", damping: 20, stiffness: 300 },
+            type: "spring",
+            damping: 20,
+            stiffness: 300,
           },
         });
         break;
@@ -79,7 +89,10 @@ const CircularText: React.FC<CircularTextProps> = ({
         controls.start({
           rotate: currentRotation + 360,
           scale: 0.8,
-          transition: getTransition(spinDuration / 20, currentRotation),
+          transition: {
+            duration: spinDuration / 20,
+            ease: "linear",
+          },
         });
         break;
       default:
@@ -91,7 +104,10 @@ const CircularText: React.FC<CircularTextProps> = ({
     controls.start({
       rotate: currentRotation + 360,
       scale: 1,
-      transition: getTransition(spinDuration, currentRotation),
+      transition: {
+        duration: spinDuration,
+        ease: "linear",
+      },
     });
   };
 

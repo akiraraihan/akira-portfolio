@@ -2,7 +2,6 @@
 import { useCertificates } from "@/data/certificates";
 import CertificateCard from "@/components/CertificateCard";
 import { PulsatingButton } from "@/components/magicui/pulsating-button";
-import Link from "next/link";
 import ScrollFloat from "../components/reactbits/ScrollFloat";
 
 export default function CertificatesPage() {

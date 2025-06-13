@@ -7,7 +7,7 @@ interface AnimatedContentProps {
   distance?: number;
   direction?: "vertical" | "horizontal";
   reverse?: boolean;
-  config?: any;
+  config?: Record<string, unknown>;
   initialOpacity?: number;
   animateOpacity?: boolean;
   scale?: number;

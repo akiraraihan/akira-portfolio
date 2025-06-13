@@ -3,7 +3,6 @@
 
 import React from "react";
 import { Home, User, Briefcase, Mail } from "lucide-react";
-import { useState, useEffect } from "react";
 
 // XIcon
 export const XIcon = () => (

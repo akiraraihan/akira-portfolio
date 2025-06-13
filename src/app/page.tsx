@@ -131,61 +131,6 @@ export default function Page() {
         </div>
       </AnimatedContent>
       <AnimatedContent distance={100} direction="vertical" animateOpacity threshold={0.2}>
-        {/* Mobile Menu Button - visible only on small screens */}
-        <div className="fixed bottom-4 right-4 z-50 sm:hidden">
-          <button 
-            onClick={toggleMobileMenu}
-            className="bg-black text-white p-3 rounded-full shadow-lg"
-            aria-label="Toggle menu"
-          >
-            {mobileMenuOpen ? <XIconLucide size={24} /> : <Menu size={24} />}
-          </button>
-          
-          {/* Mobile Menu as a small modal with animation */}
-          <div 
-            className={`absolute bottom-16 right-0 bg-[#F8F8FF] rounded-lg shadow-xl w-64 overflow-hidden transition-all duration-300 ease-in-out transform ${
-              mobileMenuOpen ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none"
-            }`}
-            style={{
-              transformOrigin: 'bottom right',
-              maxHeight: mobileMenuOpen ? '80vh' : '0'
-            }}
-          >
-            <div className="flex flex-col">
-              {DATA.navbar.map((item) => (
-                <Link
-                  key={item.label}
-                  href={item.href}
-                  className="flex items-center space-x-3 p-4 hover:bg-gray-100 border-b border-gray-100"
-                  onClick={toggleMobileMenu}
-                >
-                  <item.icon className="size-5" />
-                  <span className="font-medium">{item.label}</span>
-                </Link>
-              ))}
-              <div className="p-4">
-                <p className="text-sm text-gray-500 mb-2">Connect with me:</p>
-                <div className="flex flex-wrap gap-2">
-                  {Object.entries(DATA.contact.social).map(([name, social]) => (
-                    <Link
-                      key={name}
-                      href={social.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={social.name}
-                      className="p-2 hover:bg-gray-100 rounded-full"
-                      onClick={toggleMobileMenu}
-                    >
-                      <social.icon className="size-5" />
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </AnimatedContent>
-      <AnimatedContent distance={100} direction="vertical" animateOpacity threshold={0.2}>
         {/* hero sec */}
         <div className="relative flex justify-center mt-2 sm:mt-4 md:mt-8 h-auto min-h-[500px] sm:h-[350px] md:h-[300px]">
           <div className="block sm:hidden w-full px-4 overflow-hidden">
@@ -608,6 +553,59 @@ export default function Page() {
         </div>
       </AnimatedContent>
       {/* END Certification Section */}
+      {/* Mobile Menu Button - visible only on small screens */}
+      <div className="fixed bottom-4 right-4 z-50 sm:hidden">
+        <button 
+          onClick={toggleMobileMenu}
+          className="bg-black text-white p-3 rounded-full shadow-lg"
+          aria-label="Toggle menu"
+        >
+          {mobileMenuOpen ? <XIconLucide size={24} /> : <Menu size={24} />}
+        </button>
+        {/* Mobile Menu as a small modal with animation */}
+        <div 
+          className={`absolute bottom-0 right-0 bg-[#F8F8FF] rounded-lg shadow-xl w-64 overflow-hidden transition-all duration-300 ease-in-out transform ${
+            mobileMenuOpen ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none"
+          }`}
+          style={{
+            transformOrigin: 'bottom right',
+            maxHeight: mobileMenuOpen ? '80vh' : '0',
+            marginBottom: '64px' // agar menu muncul tepat di atas tombol burger
+          }}
+        >
+          <div className="flex flex-col">
+            {DATA.navbar.map((item) => (
+              <Link
+                key={item.label}
+                href={item.href}
+                className="flex items-center space-x-3 p-4 hover:bg-gray-100 border-b border-gray-100"
+                onClick={toggleMobileMenu}
+              >
+                <item.icon className="size-5" />
+                <span className="font-medium">{item.label}</span>
+              </Link>
+            ))}
+            <div className="p-4">
+              <p className="text-sm text-gray-500 mb-2">Connect with me:</p>
+              <div className="flex flex-wrap gap-2">
+                {Object.entries(DATA.contact.social).map(([name, social]) => (
+                  <Link
+                    key={name}
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={social.name}
+                    className="p-2 hover:bg-gray-100 rounded-full"
+                    onClick={toggleMobileMenu}
+                  >
+                    <social.icon className="size-5" />
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </>
   );
 }

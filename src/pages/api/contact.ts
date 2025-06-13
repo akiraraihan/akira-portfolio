@@ -5,16 +5,28 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return res.status(405).json({ error: "Method not allowed" });
   }
 
+  // Log environment variables availability (but not their values for security)
+  console.log("Environment check:", {
+    hasResendApiKey: Boolean(process.env.RESEND_API_KEY),
+    hasEmailTo: Boolean(process.env.EMAIL_TO)
+  });
+
   const { name, email, message } = req.body;
   if (!name || !email || !message) {
     return res.status(400).json({ error: "Missing fields" });
   }
-
   try {
     const apiKey = process.env.RESEND_API_KEY;
     const to = process.env.EMAIL_TO;
     if (!apiKey || !to) {
-      return res.status(500).json({ error: "Email config missing" });
+      // Provide more specific error message for debugging
+      if (!apiKey && !to) {
+        return res.status(500).json({ error: "Both RESEND_API_KEY and EMAIL_TO are missing" });
+      } else if (!apiKey) {
+        return res.status(500).json({ error: "RESEND_API_KEY is missing" });
+      } else {
+        return res.status(500).json({ error: "EMAIL_TO is missing" });
+      }
     }
     const sendRes = await fetch("https://api.resend.com/emails", {
       method: "POST",

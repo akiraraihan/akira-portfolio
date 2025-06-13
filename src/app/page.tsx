@@ -74,21 +74,24 @@ export default function Page() {
   useEffect(() => {
     if (headerLoaded) {
       document.body.style.overflow = '';
+      document.body.style.position = '';
     } else {
       document.body.style.overflow = 'hidden';
+      document.body.style.position = 'fixed';
     }
     return () => {
       document.body.style.overflow = '';
+      document.body.style.position = '';
     };
   }, [headerLoaded]);
 
   return (
     <>
       {!headerLoaded && (
-        <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black text-white transition-opacity duration-700">
+        <div className="fixed inset-0 top-0 left-0 right-0 bottom-0 z-[9999] flex items-center justify-center bg-black text-white transition-opacity duration-700 h-screen w-screen min-h-screen min-w-screen overflow-hidden m-0 p-0">
           <div className="flex flex-col items-center gap-4">
             <Image src="/images/logo-porto.png" alt="AR Logo" width={60} height={60} className="rounded-full bg-white" />
-            <span className="text-xl font-bold tracking-tight animate-pulse">Finding for miracle...</span>
+            <span className="text-xl tracking-wide animate-pulse">Finding for miracle...</span>
           </div>
         </div>
       )}

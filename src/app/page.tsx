@@ -306,10 +306,10 @@ export default function Page() {
           </div>
         </div>
         
-        {/* Tablet and Desktop Layout - similar to original */}
-        <div className="hidden sm:block">
-          <div className="absolute left-[20%] top-1/2 transform -translate-y-1/2">
-            <div className="inline-flex items-center">
+        {/* Tablet and Desktop Layout - improved responsive flex, centered */}
+        <div className="hidden sm:flex w-full max-w-6xl mx-auto items-center justify-center px-8 gap-8 md:gap-16">
+          <div className="flex-1 min-w-0 max-w-xl">
+            <div className="inline-flex items-center flex-wrap">
               <SplitText
                 text="Welcome, My Honored"
                 className="text-3xl md:text-4xl text-black font-bold tracking-tighter"
@@ -345,7 +345,7 @@ export default function Page() {
               />
             </div>
           </div>
-          <div className="absolute right-[20%] top-1/2 transform -translate-y-1/2">
+          <div className="flex-shrink-0 flex justify-center items-center">
             <AnimatedContent
               distance={250}
               direction="horizontal"

@@ -21,15 +21,6 @@ const getRotationTransition = (
   repeat: loop ? Infinity : 0,
 });
 
-const getTransition = (duration: number, from: number) => ({
-  rotate: getRotationTransition(duration, from),
-  scale: {
-    type: "spring",
-    damping: 20,
-    stiffness: 300,
-  },
-});
-
 const CircularText: React.FC<CircularTextProps> = ({
   text,
   spinDuration = 20,

@@ -10,9 +10,9 @@ import {
   motion,
   AnimatePresence,
   Transition,
-  type VariantLabels,
-  type Target,
-  type TargetAndTransition,
+  // type VariantLabels,
+  // type Target,
+  // type TargetAndTransition,
 } from "framer-motion";
 
 function cn(...classes: (string | undefined | null | boolean)[]): string {

@@ -1,7 +1,7 @@
 "use client"
 import Image from "next/image";
 import Link from "next/link";
-import { Home, User, Briefcase, Mail, Menu, X as XIconLucide } from "lucide-react";
+import { Menu, X as XIconLucide } from "lucide-react";
 import { useState, useEffect } from "react";
 import ScrollFloat from "./components/reactbits/ScrollFloat";
 import SplitText from "./components/reactbits/SplitText";

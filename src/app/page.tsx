@@ -443,7 +443,7 @@ export default function Page() {
         </div>
         <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
           {/* Single Row Marquee for All Skills */}
-          <Marquee pauseOnHover className="[--duration:180s] mb-2">
+          <Marquee pauseOnHover className="[--duration:60s] mb-2">
             {skills.map((skill, idx) => (
               <SkillCard key={skill.label + idx} imgSrc={skill.imgSrc} alt={skill.alt} label={skill.label} />
             ))}
@@ -503,8 +503,8 @@ export default function Page() {
                           {orgExperiences.map((exp, idx) => (
                             <div key={idx} className="relative flex items-center min-h-[64px]"> {/* min-h lebih kecil */}
                               {/* Dot perfectly centered vertically, always above card using z-20 */}
-                              <div className="absolute -left-10 top-1/2 -translate-y-1/2 flex items-center justify-center w-6 h-0 z-20"> {/* ukuran dot lebih kecil */}
-                                <div className={`w-4 h-4 bg-gradient-to-r ${exp.color} rounded-full border-2 border-black shadow-lg animate-pulse-timeline`}></div>
+                              <div className="absolute -left-9 top-1/2 -translate-y-1/2 flex items-center justify-center w-6 h-0 z-20"> {/* ukuran dot lebih kecil */}
+                                <div className={`w-3 h-3 bg-gradient-to-r ${exp.color} rounded-full border-2 border-black shadow-lg animate-pulse-timeline`}></div>
                               </div>
                               <div className="bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 shadow transition-all w-full z-10"> {/* rounded dan shadow lebih kecil */}
                                 <button
@@ -540,8 +540,8 @@ export default function Page() {
                           {workExperiences.map((exp, idx) => (
                             <div key={idx} className="relative flex items-center min-h-[64px]">
                               {/* Dot perfectly centered vertically, always above card using z-20 */}
-                              <div className="absolute -left-10 top-1/2 -translate-y-1/2 flex items-center justify-center w-6 h-0 z-20">
-                                <div className={`w-4 h-4 bg-gradient-to-r ${exp.color} rounded-full border-2 border-black shadow-lg animate-pulse-timeline`}></div>
+                              <div className="absolute -left-9 top-1/2 -translate-y-1/2 flex items-center justify-center w-6 h-0 z-20">
+                                <div className={`w-3 h-3 bg-gradient-to-r ${exp.color} rounded-full border-2 border-black shadow-lg animate-pulse-timeline`}></div>
                               </div>
                               <div className="bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 shadow transition-all w-full z-10">
                                 <button
@@ -577,8 +577,8 @@ export default function Page() {
                           {notableAchievements.map((exp, idx) => (
                             <div key={idx} className="relative flex items-center min-h-[64px]">
                               {/* Dot perfectly centered vertically, always above card using z-20 */}
-                              <div className="absolute -left-10 top-1/2 -translate-y-1/2 flex items-center justify-center w-6 h-0 z-20">
-                                <div className={`w-4 h-4 bg-gradient-to-r ${exp.color} rounded-full border-2 border-black shadow-lg animate-pulse-timeline`}></div>
+                              <div className="absolute -left-9 top-1/2 -translate-y-1/2 flex items-center justify-center w-6 h-0 z-20">
+                                <div className={`w-3 h-3 bg-gradient-to-r ${exp.color} rounded-full border-2 border-black shadow-lg animate-pulse-timeline`}></div>
                               </div>
                               <div className="bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 shadow transition-all w-full z-10">
                                 <button

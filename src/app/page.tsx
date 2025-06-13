@@ -169,7 +169,15 @@ export default function Page() {
       <div className="relative mx-2 my-3">
         {/* header bar */}
         <div className="sticky top-0 w-full h-[64px] bg-black flex flex-row items-center justify-between px-4 sm:px-8 z-50 rounded-3xl">
-          <div>
+          <div className="flex flex-row items-center gap-4">
+            <Image
+              src="/images/logo-porto.png"
+              alt="AR Logo"
+              width={40}
+              height={40}
+              className="rounded-full bg-white"
+              priority
+            />
             <ShinyText 
               text="Akira Raihan's Property" 
               disabled={false}

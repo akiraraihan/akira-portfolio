@@ -2,16 +2,6 @@
 
 import React, { useState } from "react";
 
-const SOCIALS = [
-	{ name: "GitHub", url: "https://github.com/akiraraihaan" },
-	{
-		name: "LinkedIn",
-		url: "https://www.linkedin.com/in/raihan-akira-r-6a76b6294/",
-	},
-	{ name: "X", url: "https://x.com/calmotionz" },
-	{ name: "Instagram", url: "https://instagram.com/raihaan_ar" },
-];
-
 export default function Footer() {
 	const [form, setForm] = useState({ name: "", email: "", message: "" });
 	const [status, setStatus] = useState<string | null>(null);
@@ -43,11 +33,11 @@ export default function Footer() {
 	};
 
 	return (
-		<footer className="w-full border-t mt-12 bg-white/80 dark:bg-black/40 backdrop-blur">
+		<footer className="w-full border-t mt-12 bg-black backdrop-blur max-w-49/50 mx-auto mb-4 rounded-4xl">
 			<div className="max-w-2xl mx-auto py-8 px-4 flex flex-col gap-6 items-center">
 				<form
 					onSubmit={handleSubmit}
-					className="w-full flex flex-col gap-3 bg-white/70 dark:bg-black/30 p-4 rounded-xl shadow"
+					className="w-full flex flex-col gap-3 bg-white dark:bg-black/30 p-4 rounded-xl shadow"
 				>
 					<h3 className="font-semibold text-lg mb-1">
 						Kirim Pesan ke Saya
@@ -98,35 +88,12 @@ export default function Footer() {
 				</form>
 				<div className="text-center text-sm text-gray-500 flex flex-col gap-2">
 					<div>
-						Powered by{" "}
 						<a
-							href="https://nextjs.org/"
-							target="_blank"
-							rel="noopener noreferrer"
-							className="underline"
+							href="mailto:raihanakirar@gmail.com"
+							className="hover:underline"
 						>
-							Next.js
+							raihanakirar@gmail.com
 						</a>
-						| Email:{" "}
-						<a
-							href="mailto:your_email@gmail.com"
-							className="underline"
-						>
-							your_email@gmail.com
-						</a>
-					</div>
-					<div className="flex gap-3 justify-center">
-						{SOCIALS.map((s) => (
-							<a
-								key={s.name}
-								href={s.url}
-								target="_blank"
-								rel="noopener noreferrer"
-								className="underline"
-							>
-								{s.name}
-							</a>
-						))}
 					</div>
 					<div>© 2025 Raihan Akira R</div>
 				</div>

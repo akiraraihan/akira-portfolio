@@ -41,7 +41,7 @@ export default function Footer() {
 					className="w-full flex flex-col gap-3 bg-white dark:bg-black/30 p-4 rounded-xl shadow"
 				>
 					<h3 className="font-semibold text-lg tracking-tight mb-1">
-						Send Me a Message
+						Send Me a Message, directly!
 					</h3>
 					<input
 						type="text"

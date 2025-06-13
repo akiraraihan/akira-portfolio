@@ -13,7 +13,9 @@ export default function CertificateCard({ cert, small }: CertificateCardProps) {
         <img src={cert.imgSrc} alt={cert.alt} className="w-full h-full object-contain" />
       </div>
       <div className="flex flex-col flex-grow w-full">
-        <h3 className={`font-semibold ${small ? 'text-base min-h-[32px]' : 'text-lg min-h-[48px]'} text-center mb-1 text-white`}>{cert.title}</h3>
+        <h3 className={`font-semibold ${small ? 'text-base min-h-[32px]' : 'text-lg tracking-tight min-h-[48px]'} text-center mb-1 text-white`}>
+          {cert.title}
+        </h3>
         <p className={`text-gray-200 ${small ? 'text-xs' : 'text-sm'} mb-1 text-center`}>{cert.issuer}</p>
         <p className={`text-gray-400 ${small ? 'text-[10px]' : 'text-xs'} mb-1 text-center`}>Issued {cert.issued} · Expires {cert.expires}</p>
         <p className={`text-gray-400 ${small ? 'text-[10px]' : 'text-xs'} mb-2 text-center`}>Credential ID {cert.credentialId}</p>

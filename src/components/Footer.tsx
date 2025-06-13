@@ -39,13 +39,13 @@ export default function Footer() {
 					onSubmit={handleSubmit}
 					className="w-full flex flex-col gap-3 bg-white dark:bg-black/30 p-4 rounded-xl shadow"
 				>
-					<h3 className="font-semibold text-lg mb-1">
-						Kirim Pesan ke Saya
+					<h3 className="font-semibold text-lg tracking-tight mb-1">
+						Send Me a Message
 					</h3>
 					<input
 						type="text"
 						name="name"
-						placeholder="Nama"
+						placeholder="Name"
 						value={form.name}
 						onChange={handleChange}
 						required
@@ -54,7 +54,7 @@ export default function Footer() {
 					<input
 						type="email"
 						name="email"
-						placeholder="Email Anda"
+						placeholder="Your Email"
 						value={form.email}
 						onChange={handleChange}
 						required
@@ -62,7 +62,7 @@ export default function Footer() {
 					/>
 					<textarea
 						name="message"
-						placeholder="Pesan"
+						placeholder="Message"
 						value={form.message}
 						onChange={handleChange}
 						required
@@ -73,16 +73,16 @@ export default function Footer() {
 						className="bg-black text-white rounded px-4 py-2 mt-2 hover:bg-gray-800 transition"
 						disabled={status === "loading"}
 					>
-						{status === "loading" ? "Mengirim..." : "Kirim"}
+						{status === "loading" ? "Sending..." : "Send"}
 					</button>
 					{status === "success" && (
 						<p className="text-green-600 text-xs mt-1">
-							Pesan berhasil dikirim!
+							Message sent successfully!
 						</p>
 					)}
 					{status === "error" && (
 						<p className="text-red-600 text-xs mt-1">
-							Gagal mengirim pesan. Coba lagi.
+							Failed to send message. Please try again.
 						</p>
 					)}
 				</form>

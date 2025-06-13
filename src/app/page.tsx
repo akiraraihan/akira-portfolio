@@ -162,7 +162,7 @@ export default function Page() {
               <div className="inline-flex items-center flex-wrap justify-center">
                 <SplitText
                   text="Welcome, My Honored"
-                  className="text-2xl sm:text-3xl text-black font-bold tracking-tighter"
+                  className="text-2xl sm:text-3xl text-black font-bold tracking-tight"
                   delay={150}
                   animationFrom={{ opacity: 0, transform: 'translate3d(0,50px,0)' }}
                   animationTo={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
@@ -173,7 +173,7 @@ export default function Page() {
                 />
                 <RotatingText
                   texts={['Guests!', 'Visitors!', 'Friends!', 'Viewers!']}
-                  mainClassName="text-2xl sm:text-3xl text-white font-bold tracking-tighter px-2 bg-black overflow-hidden py-0.5 justify-center rounded-lg ml-1"
+                  mainClassName="text-2xl sm:text-3xl text-white font-bold tracking-tight px-2 bg-black overflow-hidden py-0.5 justify-center rounded-lg ml-1"
                   staggerFrom={"last"}
                   initial={{ y: "-100%" }}  
                   animate={{ y: 0 }}
@@ -225,7 +225,7 @@ export default function Page() {
             <div className="inline-flex items-center flex-wrap">
               <SplitText
                 text="Welcome, My Honored"
-                className="text-3xl md:text-4xl text-black font-bold tracking-tighter"
+                className="text-3xl md:text-4xl text-black font-bold tracking-tight"
                 delay={150}
                 animationFrom={{ opacity: 0, transform: 'translate3d(0,50px,0)' }}
                 animationTo={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
@@ -236,7 +236,7 @@ export default function Page() {
               />
               <RotatingText
                 texts={['Guests!', 'Visitors!', 'Friends!', 'Viewers!']}
-                mainClassName="text-3xl md:text-4xl text-white font-bold tracking-tighter px-2 bg-black overflow-hidden py-0.5 justify-center rounded-lg ml-1"
+                mainClassName="text-3xl md:text-4xl text-white font-bold tracking-tight px-2 bg-black overflow-hidden py-0.5 justify-center rounded-lg ml-1"
                 staggerFrom={"last"}
                 initial={{ y: "-100%" }}  
                 animate={{ y: 0 }}
@@ -351,7 +351,7 @@ export default function Page() {
       {/* Skills Marquee Section */}
       <div className="relative mt-8 sm:mt-12 mb-8 overflow-hidden">
         <div className="text-center mb-8">
-          <h2 className="text-2xl sm:text-3xl font-bold text-black mb-2 tracking-tighter">Tech Stack & Tools</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold text-black mb-2 tracking-tight">Tech Stack & Tools</h2>
           <p className="text-gray-600 text-sm sm:text-base">I work with</p>
         </div>
         <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
@@ -381,9 +381,9 @@ export default function Page() {
                 scrollStart="center bottom+=50%"
                 scrollEnd="bottom bottom-=40%"
                 stagger={0.03}
-                textClassName="font-extrabold tracking-tighter text-center text-2xl md:text-3xl lg:text-4xl mb-4" // lebih kecil
+                textClassName="font-extrabold tracking-tight text-center text-2xl md:text-3xl lg:text-4xl mb-4" // lebih kecil
               >
-                Orgz and Experiences
+                Organizations and Experiences
               </ScrollFloat>
             </div>
             <div className="w-full relative mt-1 sm:mt-2 mb-8 sm:mb-12 px-2"> {/* margin dan padding lebih kecil */}
@@ -407,7 +407,7 @@ export default function Page() {
                   <div className="relative">
                     {/* Section: Organizational Experiences */}
                     <div className="mb-10"> {/* mb lebih kecil */}
-                      <h3 className="text-lg sm:text-xl font-bold text-[#97FFA4] mb-1 text-center">Organizational Experiences</h3>
+                      <h3 className="text-lg sm:text-xl font-bold tracking-tight text-[#97FFA4] mb-1 text-center">Organizational Experiences</h3>
                       <p className="text-center text-gray-300 mb-4 text-xs">Leadership, teamwork, and organizational growth</p>
                       <div className="relative flex w-full max-w-md mx-auto"> {/* max-w lebih kecil */}
                         {/* Vertical line */}
@@ -445,7 +445,7 @@ export default function Page() {
                     </div>
                     {/* Section: Work Experiences */}
                     <div className="mb-10">
-                      <h3 className="text-lg sm:text-xl font-bold text-[#97FFA4] mb-1 text-center">Work Experiences</h3>
+                      <h3 className="text-lg sm:text-xl font-bold tracking-tight text-[#97FFA4] mb-1 text-center">Work Experiences</h3>
                       <p className="text-center text-gray-300 mb-4 text-xs">Professional and teaching roles</p>
                       <div className="relative flex w-full max-w-md mx-auto">
                         <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#97FFA4] via-[#83DDCB] to-[#67AEFF] z-0" style={{borderRadius: '9999px'}}></div>
@@ -482,7 +482,7 @@ export default function Page() {
                     </div>
                     {/* Section: Notable Projects & Achievements */}
                     <div className="mb-2">
-                      <h3 className="text-lg sm:text-xl font-bold text-[#83DDCB] mb-1 text-center">Notable Projects & Achievements</h3>
+                      <h3 className="text-lg sm:text-xl font-bold tracking-tight text-[#83DDCB] mb-1 text-center">Notable Projects & Achievements</h3>
                       <p className="text-center text-gray-300 mb-4 text-xs">Highlights and recognitions</p>
                       <div className="relative flex w-full max-w-md mx-auto">
                         <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#97FFA4] via-[#83DDCB] to-[#67AEFF] z-0" style={{borderRadius: '9999px'}}></div>
@@ -534,7 +534,7 @@ export default function Page() {
                       scrollStart="center bottom+=50%"
                       scrollEnd="bottom bottom-=40%"
                       stagger={0.03}
-                      textClassName="font-bold tracking-tighter text-center text-lg sm:text-xl mb-1" // font lebih kecil
+                      textClassName="font-bold tracking-tight text-center text-lg sm:text-xl mb-1"
                     >
                       Licenses & Certifications
                     </ScrollFloat>

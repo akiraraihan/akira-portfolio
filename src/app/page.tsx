@@ -25,11 +25,10 @@ import { Marquee } from "@/components/magicui/marquee";
 import SkillCard from "@/components/SkillCard";
 import { skills } from "@/data/skills";
 import { useTimelineData } from "@/data/useTimelineData";
-import { ShinyButton } from "@/components/magicui/shiny-button";
 import { useCertificates } from "@/data/certificates";
 import CertificateCard from "@/components/CertificateCard";
 import { PulsatingButton } from "@/components/magicui/pulsating-button";
-import { XIcon, DATA, handleAnimationComplete, handleAnimationComplete2 } from "./components/pageHooks";
+import { DATA, handleAnimationComplete, handleAnimationComplete2 } from "./components/pageHooks";
 
 export default function Page() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);

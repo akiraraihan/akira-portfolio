@@ -8,19 +8,6 @@ interface CircularTextProps {
   className?: string;
 }
 
-const getRotationTransition = (
-  duration: number,
-  from: number,
-  loop: boolean = true
-) => ({
-  from: from,
-  to: from + 360,
-  ease: "linear",
-  duration: duration,
-  type: "tween",
-  repeat: loop ? Infinity : 0,
-});
-
 const CircularText: React.FC<CircularTextProps> = ({
   text,
   spinDuration = 20,

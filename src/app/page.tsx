@@ -363,7 +363,7 @@ export default function Page() {
                   stagger={0.03}
                   textClassName="font-extrabold tracking-tight text-center text-2xl md:text-3xl lg:text-4xl mb-4" // lebih kecil
                 >
-                  Organizations and Experiences
+                  Orgz and Experiences
                 </ScrollFloat>
               </div>
               <div className="w-full relative mt-1 sm:mt-2 mb-8 sm:mb-12 px-2"> {/* margin dan padding lebih kecil */}

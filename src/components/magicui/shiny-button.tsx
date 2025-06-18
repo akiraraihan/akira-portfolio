@@ -5,17 +5,16 @@ import { motion, MotionProps } from "framer-motion";
 import React from "react";
 
 const animationProps = {
-  initial: { "--x": "100%", scale: 0.8 },
-  animate: { "--x": "-100%", scale: 1 },
+  initial: { "--x": "100%" },
+  animate: { "--x": "-100%" },
+  whileHover: { scale: 1.05 },
   whileTap: { scale: 0.95 },
   transition: {
-    repeat: Infinity,
-    repeatType: "loop" as const,
-    repeatDelay: 1,
     type: "spring" as const,
     stiffness: 20,
     damping: 15,
     mass: 2,
+    duration: 1.8, // durasi shine, bisa diubah sesuai selera
   },
 };
 

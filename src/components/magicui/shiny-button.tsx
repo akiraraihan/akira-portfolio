@@ -1,22 +1,29 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { motion, MotionProps } from "framer-motion";
+import { motion, MotionProps } from "motion/react";
 import React from "react";
 
 const animationProps = {
-  initial: { "--x": "100%" },
-  animate: { "--x": "-100%" },
-  whileHover: { scale: 1.05 },
+  initial: { "--x": "100%", scale: 0.8 },
+  animate: { "--x": "-100%", scale: 1 },
   whileTap: { scale: 0.95 },
   transition: {
-    type: "spring" as const,
+    repeat: Infinity,
+    repeatType: "loop",
+    repeatDelay: 1,
+    type: "spring",
     stiffness: 20,
     damping: 15,
     mass: 2,
-    duration: 1.8, // durasi shine, bisa diubah sesuai selera
+    scale: {
+      type: "spring",
+      stiffness: 200,
+      damping: 5,
+      mass: 0.5,
+    },
   },
-};
+} as const;
 
 interface ShinyButtonProps
   extends Omit<React.HTMLAttributes<HTMLElement>, keyof MotionProps>,

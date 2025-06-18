@@ -504,7 +504,7 @@ export default function Page() {
             {/* Certifications section: 1/3 on desktop */}
             <div id="licenses" className="w-full md:w-1/3 flex flex-col justify-start">
               <div className="relative w-full max-w-2xl mx-auto px-2 mb-16 md:mb-0"> {/* max-w-2xl & px-2, mb-16 lebih kecil */}
-                <div className="bg-white rounded-3xl shadow-xl py-4 px-2 border sm:px-4 h-full flex flex-col"> {/* py-4 px-2 sm:px-4 lebih kecil */}
+                <div className="bg-white rounded-3xl py-4 px-2 border sm:px-4 h-full flex flex-col"> {/* py-4 px-2 sm:px-4 lebih kecil */}
                   {/* Header khusus licence & certi, font lebih kecil dan ScrollFloat */}
                   <div className="flex justify-center">
                     <div className="flex justify-center items-center gap-2">

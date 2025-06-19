@@ -420,31 +420,40 @@ export default function Page() {
                           <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#97FFA4] via-[#83DDCB] to-[#67AEFF] z-0" style={{borderRadius: '9999px'}}></div>
                           <div className="flex flex-col gap-2 w-full pl-12"> {/* gap dan padding lebih kecil */}
                             {orgExperiences.map((exp, idx) => (
-                              <div key={idx} className="relative flex items-center min-h-[64px]"> {/* min-h lebih kecil */}
-                                {/* Dot perfectly centered vertically, always above card using z-20 */}
-                                <div className="absolute -left-9 top-1/2 -translate-y-1/2 flex items-center justify-center w-6 h-0 z-20"> {/* ukuran dot lebih kecil */}
-                                  <div className={`w-3 h-3 bg-gradient-to-r ${exp.color} rounded-full border-2 border-black shadow-lg animate-pulse-timeline`}></div>
-                                </div>
-                                <div className="bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 shadow transition-all w-full z-10"> {/* rounded dan shadow lebih kecil */}
-                                  <button
-                                    className="w-full flex items-center justify-between px-4 py-2 focus:outline-none group text-xs" // font dan padding lebih kecil
-                                    onClick={() => setOpenOrgz(openOrgz === idx ? null : idx)}
-                                    aria-expanded={openOrgz === idx}
-                                  >
-                                    <div className="flex flex-col text-left">
-                                      <span className={`text-xs font-semibold text-black bg-gradient-to-r ${exp.color} px-1.5 py-0.5 rounded mb-1 w-fit`}>{exp.date}</span>
-                                      <span className="text-base font-bold text-[#97FFA4]">{exp.title}</span>
-                                      <span className="text-[#67AEFF] text-xs font-medium">{exp.org}</span>
+                              <AnimatedContent
+                                key={idx}
+                                distance={40}
+                                direction="vertical"
+                                animateOpacity
+                                threshold={0.2}
+                                delay={idx * 80}
+                              >
+                                <div className="relative flex items-center min-h-[64px]">
+                                  {/* Dot dan Card */}
+                                  <div className="absolute -left-9 top-1/2 -translate-y-1/2 flex items-center justify-center w-6 h-0 z-20">
+                                    <div className={`w-3 h-3 bg-gradient-to-r ${exp.color} rounded-full border-2 border-black shadow-lg animate-pulse-timeline`}></div>
+                                  </div>
+                                  <div className="bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 shadow transition-all w-full z-10">
+                                    <button
+                                      className="w-full flex items-center justify-between px-4 py-2 focus:outline-none group text-xs" // font dan padding lebih kecil
+                                      onClick={() => setOpenOrgz(openOrgz === idx ? null : idx)}
+                                      aria-expanded={openOrgz === idx}
+                                    >
+                                      <div className="flex flex-col text-left">
+                                        <span className={`text-xs font-semibold text-black bg-gradient-to-r ${exp.color} px-1.5 py-0.5 rounded mb-1 w-fit`}>{exp.date}</span>
+                                        <span className="text-base font-bold text-[#97FFA4]">{exp.title}</span>
+                                        <span className="text-[#67AEFF] text-xs font-medium">{exp.org}</span>
+                                      </div>
+                                      <span className={`ml-2 transition-transform ${openOrgz === idx ? 'rotate-90' : ''}`}>▶</span>
+                                    </button>
+                                    <div
+                                      className={`overflow-hidden transition-all duration-300 px-4 ${openOrgz === idx ? 'max-h-32 py-1' : 'max-h-0 py-0'}`}
+                                      style={{color: '#e5e7eb'}}>
+                                      <p className="text-xs text-gray-200">{exp.desc}</p>
                                     </div>
-                                    <span className={`ml-2 transition-transform ${openOrgz === idx ? 'rotate-90' : ''}`}>▶</span>
-                                  </button>
-                                  <div
-                                    className={`overflow-hidden transition-all duration-300 px-4 ${openOrgz === idx ? 'max-h-32 py-1' : 'max-h-0 py-0'}`}
-                                    style={{color: '#e5e7eb'}}>
-                                    <p className="text-xs text-gray-200">{exp.desc}</p>
                                   </div>
                                 </div>
-                              </div>
+                              </AnimatedContent>
                             ))}
                           </div>
                         </div>
@@ -457,31 +466,40 @@ export default function Page() {
                           <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#97FFA4] via-[#83DDCB] to-[#67AEFF] z-0" style={{borderRadius: '9999px'}}></div>
                           <div className="flex flex-col gap-2 w-full pl-12">
                             {workExperiences.map((exp, idx) => (
-                              <div key={idx} className="relative flex items-center min-h-[64px]">
-                                {/* Dot perfectly centered vertically, always above card using z-20 */}
-                                <div className="absolute -left-9 top-1/2 -translate-y-1/2 flex items-center justify-center w-6 h-0 z-20">
-                                  <div className={`w-3 h-3 bg-gradient-to-r ${exp.color} rounded-full border-2 border-black shadow-lg animate-pulse-timeline`}></div>
-                                </div>
-                                <div className="bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 shadow transition-all w-full z-10">
-                                  <button
-                                    className="w-full flex items-center justify-between px-4 py-2 focus:outline-none group text-xs"
-                                    onClick={() => setOpenWork(openWork === idx ? null : idx)}
-                                    aria-expanded={openWork === idx}
-                                  >
-                                    <div className="flex flex-col text-left">
-                                      <span className={`text-xs font-semibold text-black bg-gradient-to-r ${exp.color} px-1.5 py-0.5 rounded mb-1 w-fit`}>{exp.date}</span>
-                                      <span className="text-base font-bold text-[#97FFA4]">{exp.title}</span>
-                                      <span className="text-[#67AEFF] text-xs font-medium">{exp.org}</span>
+                              <AnimatedContent
+                                key={idx}
+                                distance={40}
+                                direction="vertical"
+                                animateOpacity
+                                threshold={0.2}
+                                delay={idx * 80}
+                              >
+                                <div className="relative flex items-center min-h-[64px]">
+                                  {/* Dot dan Card */}
+                                  <div className="absolute -left-9 top-1/2 -translate-y-1/2 flex items-center justify-center w-6 h-0 z-20">
+                                    <div className={`w-3 h-3 bg-gradient-to-r ${exp.color} rounded-full border-2 border-black shadow-lg animate-pulse-timeline`}></div>
+                                  </div>
+                                  <div className="bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 shadow transition-all w-full z-10">
+                                    <button
+                                      className="w-full flex items-center justify-between px-4 py-2 focus:outline-none group text-xs"
+                                      onClick={() => setOpenWork(openWork === idx ? null : idx)}
+                                      aria-expanded={openWork === idx}
+                                    >
+                                      <div className="flex flex-col text-left">
+                                        <span className={`text-xs font-semibold text-black bg-gradient-to-r ${exp.color} px-1.5 py-0.5 rounded mb-1 w-fit`}>{exp.date}</span>
+                                        <span className="text-base font-bold text-[#97FFA4]">{exp.title}</span>
+                                        <span className="text-[#67AEFF] text-xs font-medium">{exp.org}</span>
+                                      </div>
+                                      <span className={`ml-2 transition-transform ${openWork === idx ? 'rotate-90' : ''}`}>▶</span>
+                                    </button>
+                                    <div
+                                      className={`overflow-hidden transition-all duration-300 px-4 ${openWork === idx ? 'max-h-32 py-1' : 'max-h-0 py-0'}`}
+                                      style={{color: '#e5e7eb'}}>
+                                      <p className="text-xs text-gray-200">{exp.desc}</p>
                                     </div>
-                                    <span className={`ml-2 transition-transform ${openWork === idx ? 'rotate-90' : ''}`}>▶</span>
-                                  </button>
-                                  <div
-                                    className={`overflow-hidden transition-all duration-300 px-4 ${openWork === idx ? 'max-h-32 py-1' : 'max-h-0 py-0'}`}
-                                    style={{color: '#e5e7eb'}}>
-                                    <p className="text-xs text-gray-200">{exp.desc}</p>
                                   </div>
                                 </div>
-                              </div>
+                              </AnimatedContent>
                             ))}
                           </div>
                         </div>
@@ -494,30 +512,39 @@ export default function Page() {
                           <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#97FFA4] via-[#83DDCB] to-[#67AEFF] z-0" style={{borderRadius: '9999px'}}></div>
                           <div className="flex flex-col gap-2 w-full pl-12">
                             {notableAchievements.map((exp, idx) => (
-                              <div key={idx} className="relative flex items-center min-h-[64px]">
-                                {/* Dot perfectly centered vertically, always above card using z-20 */}
-                                <div className="absolute -left-9 top-1/2 -translate-y-1/2 flex items-center justify-center w-6 h-0 z-20">
-                                  <div className={`w-3 h-3 bg-gradient-to-r ${exp.color} rounded-full border-2 border-black shadow-lg animate-pulse-timeline`}></div>
-                                </div>
-                                <div className="bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 shadow transition-all w-full z-10">
-                                  <button
-                                    className="w-full flex items-center justify-between px-4 py-2 focus:outline-none group text-xs"
-                                    onClick={() => setOpenNotable(openNotable === idx ? null : idx)}
-                                    aria-expanded={openNotable === idx}
-                                  >
-                                    <div className="flex flex-col text-left">
-                                      <span className={`text-xs font-semibold text-black bg-gradient-to-r ${exp.color} px-1.5 py-0.5 rounded mb-1 w-fit`}>{exp.date}</span>
-                                      <span className="text-base font-bold text-[#83DDCB]">{exp.title}</span>
+                              <AnimatedContent
+                                key={idx}
+                                distance={40}
+                                direction="vertical"
+                                animateOpacity
+                                threshold={0.2}
+                                delay={idx * 80}
+                              >
+                                <div className="relative flex items-center min-h-[64px]">
+                                  {/* Dot dan Card */}
+                                  <div className="absolute -left-9 top-1/2 -translate-y-1/2 flex items-center justify-center w-6 h-0 z-20">
+                                    <div className={`w-3 h-3 bg-gradient-to-r ${exp.color} rounded-full border-2 border-black shadow-lg animate-pulse-timeline`}></div>
+                                  </div>
+                                  <div className="bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 shadow transition-all w-full z-10">
+                                    <button
+                                      className="w-full flex items-center justify-between px-4 py-2 focus:outline-none group text-xs"
+                                      onClick={() => setOpenNotable(openNotable === idx ? null : idx)}
+                                      aria-expanded={openNotable === idx}
+                                    >
+                                      <div className="flex flex-col text-left">
+                                        <span className={`text-xs font-semibold text-black bg-gradient-to-r ${exp.color} px-1.5 py-0.5 rounded mb-1 w-fit`}>{exp.date}</span>
+                                        <span className="text-base font-bold text-[#83DDCB]">{exp.title}</span>
+                                      </div>
+                                      <span className={`ml-2 transition-transform ${openNotable === idx ? 'rotate-90' : ''}`}>▶</span>
+                                    </button>
+                                    <div
+                                      className={`overflow-hidden transition-all duration-300 px-4 ${openNotable === idx ? 'max-h-32 py-1' : 'max-h-0 py-0'}`}
+                                      style={{color: '#e5e7eb'}}>
+                                      <p className="text-xs text-gray-200">{exp.desc}</p>
                                     </div>
-                                    <span className={`ml-2 transition-transform ${openNotable === idx ? 'rotate-90' : ''}`}>▶</span>
-                                  </button>
-                                  <div
-                                    className={`overflow-hidden transition-all duration-300 px-4 ${openNotable === idx ? 'max-h-32 py-1' : 'max-h-0 py-0'}`}
-                                    style={{color: '#e5e7eb'}}>
-                                    <p className="text-xs text-gray-200">{exp.desc}</p>
                                   </div>
                                 </div>
-                              </div>
+                              </AnimatedContent>
                             ))}
                           </div>
                         </div>

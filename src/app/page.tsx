@@ -134,7 +134,7 @@ export default function Page() {
         {/* hero sec */}
         <div className="relative flex justify-center mt-2 sm:mt-4 md:mt-8 h-auto min-h-[500px] sm:h-[350px] md:h-[300px]">
           {/* Particles background for hero section */}
-          <div className="absolute inset-0 w-full h-full z-30 pointer-events-none">
+          <div className="absolute inset-x-0 top-0 bottom-0 w-full h-full min-h-full z-30 pointer-events-none hidden sm:block">
             {/*
               Particles component props:
               - className: string | undefined
@@ -158,7 +158,7 @@ export default function Page() {
               vy={0}         // y velocity
             />
           </div>
-          <div className="block sm:hidden w-full px-4 overflow-hidden z-10">
+          <div className="block sm:hidden w-full px-4 overflow-hidden z-10 min-h-screen">
             {/* Mobile layout */}
             <div className="flex flex-col items-center">
               <div className="flex flex-col items-center mb-6">
@@ -205,7 +205,7 @@ export default function Page() {
                   width={180} 
                   height={180} 
                   priority
-                  className="rounded-full h-[180px] w-[180px] object-cover border-4 border-black" 
+                  className="rounded-[80px] shadow-2xl h-[180px] w-[180px] object-cover" 
                 />
               </AnimatedContent>
               

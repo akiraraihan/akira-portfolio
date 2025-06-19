@@ -125,6 +125,7 @@ export default function Page() {
                 text="*EST*2025"
                 onHover="pause"
                 spinDuration={20}
+                className="z-50 relative"
               />
             </div>
           </div>

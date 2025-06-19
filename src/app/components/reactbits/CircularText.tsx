@@ -17,8 +17,10 @@ const CircularText: React.FC<CircularTextProps> = ({
   const letters = Array.from(text);
   const controls = useAnimation();
   const [currentRotation, setCurrentRotation] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
 
   useEffect(() => {
+    if (isPaused) return; // Jangan trigger animasi jika pause
     controls.start({
       rotate: currentRotation + 360,
       scale: 1,
@@ -27,10 +29,15 @@ const CircularText: React.FC<CircularTextProps> = ({
         ease: "linear",
       },
     });
-  }, [spinDuration, controls, onHover, text, currentRotation]);
+  }, [spinDuration, controls, onHover, text, currentRotation, isPaused]);
 
   const handleHoverStart = () => {
     if (!onHover) return;
+    if (onHover === "pause") {
+      setIsPaused(true);
+      controls.stop();
+      return;
+    }
     switch (onHover) {
       case "slowDown":
         controls.start({
@@ -52,17 +59,6 @@ const CircularText: React.FC<CircularTextProps> = ({
           },
         });
         break;
-      case "pause":
-        controls.start({
-          rotate: currentRotation,
-          scale: 1,
-          transition: {
-            type: "spring",
-            damping: 20,
-            stiffness: 300,
-          },
-        });
-        break;
       case "goBonkers":
         controls.start({
           rotate: currentRotation + 360,
@@ -79,6 +75,18 @@ const CircularText: React.FC<CircularTextProps> = ({
   };
 
   const handleHoverEnd = () => {
+    if (onHover === "pause") {
+      setIsPaused(false);
+      controls.start({
+        rotate: currentRotation + 360,
+        scale: 1,
+        transition: {
+          duration: spinDuration,
+          ease: "linear",
+        },
+      });
+      return;
+    }
     controls.start({
       rotate: currentRotation + 360,
       scale: 1,

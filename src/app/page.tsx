@@ -30,6 +30,7 @@ import CertificateCard from "@/components/CertificateCard";
 import { PulsatingButton } from "@/components/magicui/pulsating-button";
 import { DATA, handleAnimationComplete, handleAnimationComplete2 } from "./components/pageHooks";
 import { Particles } from "@/components/magicui/Particles";
+import InfiniteScroll from "./components/reactbits/InfiniteScroll";
 
 export default function Page() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -376,10 +377,12 @@ export default function Page() {
       </AnimatedContent>
       <AnimatedContent distance={100} direction="vertical" animateOpacity threshold={0.2}>
         <div className="relative mt-4 sm:mt-20 mb-10 sm:mb-20 flex flex-col items-center">
-          {/* Flex container for experiences and certifications */}
-          <div className="w-full flex flex-col md:flex-row gap-8 md:gap-6 items-stretch justify-center px-0 md:px-4">
-            {/* Experiences section: 2/3 on desktop */}
-            <div id="experiences" className="w-full md:w-2/3">
+          {/* Flex container for photos, experiences, and certifications */}
+          <div className="w-full flex flex-col md:flex-row gap-2 md:gap-4 items-stretch justify-center px-0 md:px-4">
+            {/* Left empty column */}
+            <div className="hidden md:block md:w-1/8"></div>
+            {/* Experiences section: 4/8 on desktop */}
+            <div id="experiences" className="w-full md:w-4/8">
               {/* Header khusus experiences */}
               <div className="flex justify-center">
                 <ScrollFloat
@@ -555,8 +558,8 @@ export default function Page() {
                 </div>
               </div>
             </div>
-            {/* Certifications section: 1/3 on desktop */}
-            <div id="licenses" className="w-full md:w-1/3 flex flex-col justify-start">
+            {/* Certifications section: 2/8 on desktop */}
+            <div id="licenses" className="w-full md:w-2/8 flex flex-col justify-start">
               <div className="relative w-full max-w-2xl mx-auto px-2 mb-16 md:mb-0"> {/* max-w-2xl & px-2, mb-16 lebih kecil */}
                 <div className="bg-white rounded-3xl py-4 px-2 border sm:px-4 h-full flex flex-col"> {/* py-4 px-2 sm:px-4 lebih kecil */}
                   {/* Header khusus licence & certi, font lebih kecil dan ScrollFloat */}
@@ -602,6 +605,8 @@ export default function Page() {
                 </div>
               </div>
             </div>
+            {/* Right empty column */}
+            <div className="hidden md:block md:w-1/8"></div>
           </div>
         </div>
       </AnimatedContent>

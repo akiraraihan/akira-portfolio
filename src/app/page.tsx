@@ -269,7 +269,7 @@ export default function Page() {
               
               <div className="mt-6 w-full px-4 max-w-full">
                 <BlurText
-                  text="&emsp;I'm Raihan Akira Rahmaputra. A computer science student with a lifelong passion for technology and innovation. From leading national-scale digital events to developing real-world systems and competing in design and AI challenges — I thrive in the intersection between creativity, logic, and leadership. I aspire to grow into a tech leader who not only builds solutions, but also empowers others to build with purpose."
+                  text="&emsp;I'm Raihan Akira Rahmaputra, a Computer Science student with a lifelong passion for technology and innovation. Whether organizing nationwide digital events, building practical systems, or engaging in design and AI competitions, I thrive at the intersection of creativity, logic, and leadership. My aspiration is to become a tech leader who not only develops impactful solutions but also inspires others to create meaningful change."
                   delay={150}
                   animateBy="words"
                   direction="top"
@@ -310,7 +310,7 @@ export default function Page() {
               </div>
               <div className="mt-6 max-w-[600px]">
                 <BlurText
-                  text="&emsp;I'm Raihan Akira Rahmaputra. A computer science student with a lifelong passion for technology and innovation. From leading national-scale digital events to developing real-world systems and competing in design and AI challenges — I thrive in the intersection between creativity, logic, and leadership. I aspire to grow into a tech leader who not only builds solutions, but also empowers others to build with purpose."
+                  text="&emsp;I'm Raihan Akira Rahmaputra, a Computer Science student with a lifelong passion for technology and innovation. Whether organizing nationwide digital events, building practical systems, or engaging in design and AI competitions, I thrive at the intersection of creativity, logic, and leadership. My aspiration is to become a tech leader who not only develops impactful solutions but also inspires others to create meaningful change."
                   delay={150}
                   animateBy="words"
                   direction="top"

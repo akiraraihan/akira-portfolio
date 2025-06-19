@@ -5,13 +5,19 @@ const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
       {
+        protocol: 'https',
         hostname: 'raw.githubusercontent.com',
+        pathname: '/**',
       },
       {
+        protocol: 'https',
         hostname: 'img.icons8.com',
+        pathname: '/**',
       },
       {
+        protocol: 'https',
         hostname: 'api.badgr.io',
+        pathname: '/**',
       },
     ],
   },

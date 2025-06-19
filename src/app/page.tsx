@@ -504,7 +504,11 @@ export default function Page() {
                                         <span className="text-base font-bold text-[#97FFA4]">{exp.title}</span>
                                         <span className="text-[#67AEFF] text-xs font-medium">{exp.org}</span>
                                       </div>
-                                      <span className={`ml-2 transition-transform ${openOrgz === idx ? 'rotate-90' : ''}`}>▶</span>
+                                      <span className={`ml-2 transition-transform duration-300 ${openOrgz === idx ? 'rotate-90' : ''}`}>
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="inline align-middle">
+                                          <polyline points="9 18 15 12 9 6" />
+                                        </svg>
+                                      </span>
                                     </button>
                                     <div
                                       className={`overflow-hidden transition-all duration-300 px-4 ${openOrgz === idx ? 'max-h-32 py-1' : 'max-h-0 py-0'}`}
@@ -550,7 +554,11 @@ export default function Page() {
                                         <span className="text-base font-bold text-[#97FFA4]">{exp.title}</span>
                                         <span className="text-[#67AEFF] text-xs font-medium">{exp.org}</span>
                                       </div>
-                                      <span className={`ml-2 transition-transform ${openWork === idx ? 'rotate-90' : ''}`}>▶</span>
+                                      <span className={`ml-2 transition-transform duration-300 ${openWork === idx ? 'rotate-90' : ''}`}>
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="inline align-middle">
+                                          <polyline points="9 18 15 12 9 6" />
+                                        </svg>
+                                      </span>
                                     </button>
                                     <div
                                       className={`overflow-hidden transition-all duration-300 px-4 ${openWork === idx ? 'max-h-32 py-1' : 'max-h-0 py-0'}`}
@@ -595,7 +603,11 @@ export default function Page() {
                                         <span className={`text-xs font-semibold text-black bg-gradient-to-r ${exp.color} px-1.5 py-0.5 rounded mb-1 w-fit`}>{exp.date}</span>
                                         <span className="text-base font-bold text-[#83DDCB]">{exp.title}</span>
                                       </div>
-                                      <span className={`ml-2 transition-transform ${openNotable === idx ? 'rotate-90' : ''}`}>▶</span>
+                                      <span className={`ml-2 transition-transform duration-300 ${openNotable === idx ? 'rotate-90' : ''}`}>
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="inline align-middle">
+                                          <polyline points="9 18 15 12 9 6" />
+                                        </svg>
+                                      </span>
                                     </button>
                                     <div
                                       className={`overflow-hidden transition-all duration-300 px-4 ${openNotable === idx ? 'max-h-32 py-1' : 'max-h-0 py-0'}`}

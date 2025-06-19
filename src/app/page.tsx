@@ -29,6 +29,7 @@ import { useCertificates } from "@/data/certificates";
 import CertificateCard from "@/components/CertificateCard";
 import { PulsatingButton } from "@/components/magicui/pulsating-button";
 import { DATA, handleAnimationComplete, handleAnimationComplete2 } from "./components/pageHooks";
+import { Particles } from "@/components/magicui/Particles";
 
 export default function Page() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -132,7 +133,32 @@ export default function Page() {
       <AnimatedContent distance={100} direction="vertical" animateOpacity threshold={0.2}>
         {/* hero sec */}
         <div className="relative flex justify-center mt-2 sm:mt-4 md:mt-8 h-auto min-h-[500px] sm:h-[350px] md:h-[300px]">
-          <div className="block sm:hidden w-full px-4 overflow-hidden">
+          {/* Particles background for hero section */}
+          <div className="absolute inset-0 w-full h-full z-30 pointer-events-none">
+            {/*
+              Particles component props:
+              - className: string | undefined
+              - quantity: number (default: 100)
+              - staticity: number (default: 50)
+              - ease: number (default: 50)
+              - size: number (default: 0.4)
+              - refresh: boolean (default: false)
+              - color: string (default: #ffffff)
+              - vx: number (default: 0)
+              - vy: number (default: 0)
+            */}
+            <Particles
+              quantity={100} // number of particles
+              staticity={25} // staticity of the particles
+              ease={30}      // ease of the particles
+              size={0.8}     // size of the particles
+              refresh={false} // refresh particles
+              color="#000000" // color of the particles (black)
+              vx={0}         // x velocity
+              vy={0}         // y velocity
+            />
+          </div>
+          <div className="block sm:hidden w-full px-4 overflow-hidden z-10">
             {/* Mobile layout */}
             <div className="flex flex-col items-center">
               <div className="flex flex-col items-center mb-6">
@@ -197,7 +223,7 @@ export default function Page() {
           </div>
           
           {/* Tablet and Desktop Layout - improved responsive flex, centered */}
-          <div className="hidden sm:flex w-full max-w-6xl mx-auto items-center justify-center px-8 gap-8 md:gap-16">
+          <div className="hidden sm:flex w-full max-w-6xl mx-auto items-center justify-center px-8 gap-8 md:gap-16 z-10">
             <div className="flex-1 min-w-0 max-w-xl">
               <div className="inline-flex items-center flex-wrap">
                 <SplitText

@@ -48,20 +48,29 @@ function JourneyPhotoSlider() {
   return (
     <div className="relative w-full flex flex-col items-center">
       <div className="relative w-full max-w-2xl mx-auto aspect-video bg-neutral-900 rounded-2xl overflow-hidden shadow-lg">
-        <Image
-          src={images[current]}
-          alt={`Journey ${current + 1}`}
-          width={960}
-          height={540}
-          className="w-full h-full object-cover object-center select-none"
-          priority
-        />
+        <div
+          className="flex w-full h-full transition-transform duration-700 ease-in-out"
+          style={{ transform: `translateX(-${current * 100}%)` }}
+        >
+          {images.map((src, idx) => (
+            <div key={idx} className="w-full h-full flex-shrink-0 flex items-center justify-center">
+              <Image
+                src={src}
+                alt={`Journey ${idx + 1}`}
+                width={960}
+                height={540}
+                className="w-full h-full object-cover object-center select-none"
+                priority={idx === 0}
+              />
+            </div>
+          ))}
+        </div>
         {/* Left Arrow */}
-        <button onClick={goLeft} className="absolute top-1/2 left-4 -translate-y-1/2 bg-white/80 hover:bg-white text-black rounded-full p-2 shadow transition z-10">
+        <button onClick={goLeft} className="absolute top-1/2 left-4 -translate-y-1/2 bg-white/80 hover:bg-white text-black rounded-full p-2 shadow transition z-20">
           <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7" /></svg>
         </button>
         {/* Right Arrow */}
-        <button onClick={goRight} className="absolute top-1/2 right-4 -translate-y-1/2 bg-white/80 hover:bg-white text-black rounded-full p-2 shadow transition z-10">
+        <button onClick={goRight} className="absolute top-1/2 right-4 -translate-y-1/2 bg-white/80 hover:bg-white text-black rounded-full p-2 shadow transition z-20">
           <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" /></svg>
         </button>
       </div>

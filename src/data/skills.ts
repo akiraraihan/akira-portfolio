@@ -32,4 +32,9 @@ export const skills = [
   { imgSrc: "https://svgl.app/library/vscode.svg", alt: "VS Code", label: "VS Code" },
   { imgSrc: "https://svgl.app/library/firebase.svg", alt: "Firebase", label: "Firebase" },
   { imgSrc: "https://svgl.app/library/wordpress.svg", alt: "WordPress", label: "WordPress" },
+  {
+    imgSrc: "https://svgl.app/library/supabase.svg",
+    alt: "Supabase",
+    label: "Supabase"
+  },
 ];

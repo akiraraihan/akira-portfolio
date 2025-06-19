@@ -134,7 +134,7 @@ export default function Page() {
         {/* hero sec */}
         <div className="relative flex justify-center mt-2 sm:mt-4 md:mt-8 h-auto min-h-[500px] sm:h-[350px] md:h-[300px]">
           {/* Particles background for hero section */}
-          <div className="absolute inset-x-0 top-0 bottom-0 w-full h-full min-h-full z-30 pointer-events-none hidden sm:block">
+          <div className="absolute inset-x-0 top-0 bottom-0 w-full h-full min-h-full pointer-events-none hidden sm:block z-10">
             {/*
               Particles component props:
               - className: string | undefined
@@ -148,14 +148,14 @@ export default function Page() {
               - vy: number (default: 0)
             */}
             <Particles
-              quantity={100} // number of particles
-              staticity={25} // staticity of the particles
-              ease={30}      // ease of the particles
-              size={0.8}     // size of the particles
-              refresh={false} // refresh particles
-              color="#000000" // color of the particles (black)
-              vx={0}         // x velocity
-              vy={0}         // y velocity
+              quantity={100}
+              staticity={25}
+              ease={30}
+              size={0.8}
+              refresh={false}
+              color="#000000"
+              vx={0}
+              vy={0}
             />
           </div>
           <div className="block sm:hidden w-full px-4 overflow-hidden z-10 min-h-screen">

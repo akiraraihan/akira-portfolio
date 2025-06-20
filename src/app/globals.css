@@ -47,6 +47,10 @@ html {
   color-scheme: light;
 }
 
+html, body {
+  overflow-x: hidden;
+}
+
 @theme inline {
   --animate-pulse: pulse var(--duration) ease-out infinite;
   --radius-sm: calc(var(--radius) - 4px);

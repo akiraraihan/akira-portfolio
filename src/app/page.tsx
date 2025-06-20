@@ -89,7 +89,7 @@ export default function Page() {
   return (
     <>
       {!headerLoaded && (
-        <div className="fixed inset-0 top-0 left-0 right-0 bottom-0 z-[9999] flex items-center justify-center bg-black text-white transition-opacity duration-700 h-screen w-screen min-h-screen min-w-screen overflow-hidden m-0 p-0">
+        <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black text-white transition-opacity duration-700 w-screen h-screen overflow-hidden m-0 p-0">
           <div className="flex flex-col items-center gap-4">
             <Image src="/images/logo-porto.png" alt="AR Logo" width={60} height={60} className="rounded-full bg-white" />
             <span className="text-xl tracking-wide animate-pulse">Finding for miracle...</span>

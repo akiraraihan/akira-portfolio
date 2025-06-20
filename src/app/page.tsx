@@ -30,7 +30,7 @@ import CertificateCard from "@/components/CertificateCard";
 import { PulsatingButton } from "@/components/magicui/pulsating-button";
 import { DATA, handleAnimationComplete, handleAnimationComplete2 } from "./components/pageHooks";
 import { Particles } from "@/components/magicui/Particles";
-import { JourneyPhotoSlider } from "./components/JourneyPhotoSlider";
+import JourneyPhotoCarousel from "./components/JourneyPhotoCarousel";
 
 export default function Page() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -629,7 +629,30 @@ export default function Page() {
           {/* Kiri: Slider Foto Journey */}
           <div className="w-full md:w-1/2">
             <h2 className="text-2xl sm:text-3xl font-bold mb-6 tracking-tight text-black text-center md:text-left w-fit mx-auto">Journey Documentations</h2>
-            <JourneyPhotoSlider />
+            <JourneyPhotoCarousel
+              images={[
+                "https://raw.githubusercontent.com/akiraraihaan/self-sources/main/IMG_0992.JPEG.jpg",
+                "https://raw.githubusercontent.com/akiraraihaan/self-sources/main/rpl.jpg",
+                "https://raw.githubusercontent.com/akiraraihaan/self-sources/main/IMG_7687.JPG",
+                "https://raw.githubusercontent.com/akiraraihaan/self-sources/main/all-2.jpg",
+                "https://raw.githubusercontent.com/akiraraihaan/self-sources/main/cu23.jpg",
+                "https://raw.githubusercontent.com/akiraraihaan/self-sources/main/FGRI5728.JPG",
+                "https://raw.githubusercontent.com/akiraraihaan/self-sources/main/IMG_0492.JPG",
+                "https://raw.githubusercontent.com/akiraraihaan/self-sources/main/gedungbaru.jpg",
+                "https://raw.githubusercontent.com/akiraraihaan/self-sources/main/kemejaputih.jpg",
+                "https://raw.githubusercontent.com/akiraraihaan/self-sources/main/mfq-perisma24.jpg",
+                "https://raw.githubusercontent.com/akiraraihaan/self-sources/main/openhouse-cs.jpg",
+                "https://raw.githubusercontent.com/akiraraihaan/self-sources/main/sic-batch5.jpg",
+                "https://raw.githubusercontent.com/akiraraihaan/self-sources/main/panit-mif.jpg",
+                "https://raw.githubusercontent.com/akiraraihaan/self-sources/main/usability-test.jpg",
+              ]}
+              baseWidth={480}
+              autoplay={true}
+              autoplayDelay={3500}
+              pauseOnHover={true}
+              loop={true}
+              round={false}
+            />
           </div>
           {/* Kanan: Showcase Project (placeholder) */}
           <div className="w-full md:w-1/2 flex flex-col items-center justify-center min-h-[400px] border-2 border-dashed border-neutral-300 rounded-3xl bg-neutral-50">

@@ -3,12 +3,17 @@ import { useState, useRef } from "react";
 
 export function useJourneyPhotoSlider() {
   const images = [
-    "https://raw.githubusercontent.com/akiraraihaan/self-sources/refs/heads/main/IMG_0992.JPEG.jpg",
-    "https://raw.githubusercontent.com/akiraraihaan/self-sources/refs/heads/main/WA98638.jpg",
-    "https://raw.githubusercontent.com/akiraraihaan/self-sources/refs/heads/main/IMG_0992.JPEG.jpg",
-    "https://raw.githubusercontent.com/akiraraihaan/self-sources/refs/heads/main/WA98638.jpg",
-    "https://raw.githubusercontent.com/akiraraihaan/self-sources/refs/heads/main/IMG_0992.JPEG.jpg",
-    "https://raw.githubusercontent.com/akiraraihaan/self-sources/refs/heads/main/WA98638.jpg",
+    "https://raw.githubusercontent.com/akiraraihaan/self-sources/main/FGRI5728.JPG",
+    "https://raw.githubusercontent.com/akiraraihaan/self-sources/main/IMG_0492.JPG",
+    "https://raw.githubusercontent.com/akiraraihaan/self-sources/main/IMG_0992.JPEG.jpg",
+    "https://raw.githubusercontent.com/akiraraihaan/self-sources/main/IMG_7687.JPG",
+    "https://raw.githubusercontent.com/akiraraihaan/self-sources/main/all-2.jpg",
+    "https://raw.githubusercontent.com/akiraraihaan/self-sources/main/cu23.jpg",
+    "https://raw.githubusercontent.com/akiraraihaan/self-sources/main/gedungbaru.jpg",
+    "https://raw.githubusercontent.com/akiraraihaan/self-sources/main/kemejaputih.jpg",
+    "https://raw.githubusercontent.com/akiraraihaan/self-sources/main/mfq-perisma24.jpg",
+    "https://raw.githubusercontent.com/akiraraihaan/self-sources/main/openhouse-cs.jpg",
+    "https://raw.githubusercontent.com/akiraraihaan/self-sources/main/sic-batch5.jpg",
   ];
   return { images };
 }

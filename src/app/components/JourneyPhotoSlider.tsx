@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 
 export function useJourneyPhotoSlider() {
   const images = [
@@ -24,6 +24,7 @@ export function JourneyPhotoSlider() {
   const [isTransitioning, setIsTransitioning] = useState(false);
   const sliderRef = useRef<HTMLDivElement>(null);
   const total = images.length;
+  const autoSlideInterval = 3500; // ms
   // Duplicate first and last for infinite effect
   const displayImages = [images[total - 1], ...images, images[0]];
 
@@ -62,6 +63,17 @@ export function JourneyPhotoSlider() {
   };
   // When current changes, update transform
   const getTransform = () => `translateX(-${current * 100}%)`;
+
+  // Auto slide effect
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (!isTransitioning) {
+        setIsTransitioning(true);
+        setCurrent((prev) => prev + 1);
+      }
+    }, autoSlideInterval);
+    return () => clearInterval(interval);
+  }, [isTransitioning]);
 
   return (
     <div className="relative w-full flex flex-col items-center">

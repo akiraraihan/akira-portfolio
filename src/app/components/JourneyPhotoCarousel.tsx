@@ -110,6 +110,59 @@ export default function JourneyPhotoCarousel({
         },
       };
 
+  // Komponen child agar useTransform dipanggil di top-level function
+  interface CarouselItemMotionProps {
+    x: MotionValue<number>;
+    index: number;
+    trackItemOffset: number;
+    itemWidth: number;
+    src: string;
+    round: boolean;
+    effectiveTransition: any;
+  }
+  function CarouselItemMotion({
+    x,
+    index,
+    trackItemOffset,
+    itemWidth,
+    src,
+    round,
+    effectiveTransition,
+  }: CarouselItemMotionProps) {
+    const range = [
+      -(index + 1) * trackItemOffset,
+      -index * trackItemOffset,
+      -(index - 1) * trackItemOffset,
+    ];
+    const outputRange = [90, 0, -90];
+    const rotateY = useTransform(x, range, outputRange, { clamp: false });
+    return (
+      <motion.div
+        className={`relative shrink-0 flex flex-col ${
+          round
+            ? "items-center justify-center text-center bg-[#060010] border-0"
+            : "items-center justify-center bg-[#222] shadow-xl rounded-[12px]"
+        } overflow-hidden cursor-grab active:cursor-grabbing`}
+        style={{
+          width: itemWidth,
+          height: round ? itemWidth : "320px",
+          rotateY: rotateY,
+          ...(round && { borderRadius: "50%" }),
+        }}
+        transition={effectiveTransition}
+      >
+        <Image
+          src={src}
+          alt={`Journey ${index + 1}`}
+          width={960}
+          height={540}
+          className="w-full h-full object-cover object-center select-none pointer-events-none"
+          priority={index === 0}
+        />
+      </motion.div>
+    );
+  }
+
   return (
     <div
       ref={containerRef}
@@ -139,41 +192,18 @@ export default function JourneyPhotoCarousel({
         transition={effectiveTransition}
         onAnimationComplete={handleAnimationComplete}
       >
-        {carouselItems.map((src, index) => {
-          const range = [
-            -(index + 1) * trackItemOffset,
-            -index * trackItemOffset,
-            -(index - 1) * trackItemOffset,
-          ];
-          const outputRange = [90, 0, -90];
-          const rotateY = useTransform(x, range, outputRange, { clamp: false });
-          return (
-            <motion.div
-              key={index}
-              className={`relative shrink-0 flex flex-col ${
-                round
-                  ? "items-center justify-center text-center bg-[#060010] border-0"
-                  : "items-center justify-center bg-[#222] shadow-xl rounded-[12px]"
-              } overflow-hidden cursor-grab active:cursor-grabbing`}
-              style={{
-                width: itemWidth,
-                height: round ? itemWidth : "320px",
-                rotateY: rotateY,
-                ...(round && { borderRadius: "50%" }),
-              }}
-              transition={effectiveTransition}
-            >
-              <Image
-                src={src}
-                alt={`Journey ${index + 1}`}
-                width={960}
-                height={540}
-                className="w-full h-full object-cover object-center select-none pointer-events-none"
-                priority={index === 0}
-              />
-            </motion.div>
-          );
-        })}
+        {carouselItems.map((src, index) => (
+          <CarouselItemMotion
+            key={index}
+            x={x}
+            index={index}
+            trackItemOffset={trackItemOffset}
+            itemWidth={itemWidth}
+            src={src}
+            round={round}
+            effectiveTransition={effectiveTransition}
+          />
+        ))}
       </motion.div>
       <div
         className={`flex w-full justify-center ${

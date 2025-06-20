@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useMemo } from "react";
 import { motion, PanInfo, useMotionValue, useTransform } from "framer-motion";
 
 export interface CarouselItem {
@@ -103,16 +103,17 @@ export default function JourneyPhotoCarousel({
     }
   };
 
-  // Buat array transform untuk setiap item
-  const rotateYTransforms = carouselItems.map((_, index) => {
+  // Buat array transform untuk setiap item SESUAI aturan hooks (top-level, bukan di dalam map/useMemo)
+  const rotateYTransforms = [];
+  for (let index = 0; index < carouselItems.length; index++) {
     const range = [
       -(index + 1) * trackItemOffset,
       -index * trackItemOffset,
       -(index - 1) * trackItemOffset,
     ];
     const outputRange = [90, 0, -90];
-    return useTransform(x, range, outputRange, { clamp: false });
-  });
+    rotateYTransforms.push(useTransform(x, range, outputRange, { clamp: false }));
+  }
 
   return (
     <div

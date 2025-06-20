@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { useEffect, useState, useRef } from "react";
-import { motion, PanInfo, useMotionValue, useTransform, MotionValue } from "framer-motion";
+import { motion, PanInfo, useMotionValue, useTransform, MotionValue, Transition } from "framer-motion";
 
 export interface JourneyPhotoCarouselProps {
   images: string[];
@@ -118,7 +118,7 @@ export default function JourneyPhotoCarousel({
     itemWidth: number;
     src: string;
     round: boolean;
-    effectiveTransition: any;
+    effectiveTransition: Transition;
   }
   function CarouselItemMotion({
     x,

@@ -2,11 +2,6 @@ import Image from "next/image";
 import { useEffect, useState, useRef } from "react";
 import { motion, PanInfo, useMotionValue, useTransform, MotionValue } from "framer-motion";
 
-export interface CarouselItem {
-  src: string;
-  id: number;
-}
-
 export interface JourneyPhotoCarouselProps {
   images: string[];
   baseWidth?: number;
@@ -35,9 +30,9 @@ export default function JourneyPhotoCarousel({
   const itemWidth = baseWidth - containerPadding * 2;
   const trackItemOffset = itemWidth + GAP;
 
-  // Tambahkan duplikat gambar terakhir di awal dan gambar pertama di akhir
-  const carouselItems = loop ? [images[images.length-1], ...images, images[0]] : images;
-  const [currentIndex, setCurrentIndex] = useState<number>(1); // start at 1
+  // Adaptasi dari Carousel.tsx: duplikasi item hanya di akhir
+  const carouselItems = loop ? [...images, images[0]] : images;
+  const [currentIndex, setCurrentIndex] = useState<number>(0);
   const x = useMotionValue(0);
   const [isHovered, setIsHovered] = useState<boolean>(false);
   const [isResetting, setIsResetting] = useState<boolean>(false);
@@ -79,14 +74,9 @@ export default function JourneyPhotoCarousel({
   const handleAnimationComplete = () => {
     if (loop && currentIndex === carouselItems.length - 1) {
       setIsResetting(true);
-      x.set(-trackItemOffset);
-      setCurrentIndex(1);
-      setTimeout(() => setIsResetting(false), 0);
-    } else if (loop && currentIndex === 0) {
-      setIsResetting(true);
-      x.set(-trackItemOffset * (images.length));
-      setCurrentIndex(images.length);
-      setTimeout(() => setIsResetting(false), 0);
+      x.set(0);
+      setCurrentIndex(0);
+      setTimeout(() => setIsResetting(false), 50);
     }
   };
 
@@ -97,66 +87,28 @@ export default function JourneyPhotoCarousel({
     const offset = info.offset.x;
     const velocity = info.velocity.x;
     if (offset < -DRAG_BUFFER || velocity < -VELOCITY_THRESHOLD) {
-      setCurrentIndex((prev) => prev + 1);
+      if (loop && currentIndex === images.length - 1) {
+        setCurrentIndex(currentIndex + 1);
+      } else {
+        setCurrentIndex((prev) => Math.min(prev + 1, carouselItems.length - 1));
+      }
     } else if (offset > DRAG_BUFFER || velocity > VELOCITY_THRESHOLD) {
-      setCurrentIndex((prev) => prev - 1);
+      if (loop && currentIndex === 0) {
+        setCurrentIndex(images.length - 1);
+      } else {
+        setCurrentIndex((prev) => Math.max(prev - 1, 0));
+      }
     }
   };
 
-  // Komponen child agar useTransform dipanggil di top-level function
-  interface CarouselItemMotionProps {
-    x: MotionValue<number>;
-    index: number;
-    trackItemOffset: number;
-    itemWidth: number;
-    src: string;
-    round: boolean;
-    effectiveTransition: any;
-  }
-  function CarouselItemMotion({
-    x,
-    index,
-    trackItemOffset,
-    itemWidth,
-    src,
-    round,
-    effectiveTransition,
-  }: CarouselItemMotionProps) {
-    const range = [
-      -(index + 1) * trackItemOffset,
-      -index * trackItemOffset,
-      -(index - 1) * trackItemOffset,
-    ];
-    const outputRange = [90, 0, -90];
-    const rotateY = useTransform(x, range, outputRange, { clamp: false });
-    return (
-      <motion.div
-        className={`relative shrink-0 flex flex-col ${
-          round
-            ? "items-center justify-center text-center bg-[#060010] border-0"
-            : "items-center justify-center bg-[#222] shadow-xl rounded-[12px]"
-        } overflow-hidden cursor-grab active:cursor-grabbing`}
-        style={{
-          width: itemWidth,
-          height: round ? itemWidth : "320px",
-          rotateY: rotateY,
-          ...(round && { borderRadius: "50%" }),
-        }}
-        transition={effectiveTransition}
-        drag="x"
-        dragListener={false}
-      >
-        <Image
-          src={src}
-          alt={`Journey ${index + 1}`}
-          width={960}
-          height={540}
-          className="w-full h-full object-cover object-center select-none pointer-events-none"
-          priority={index === 0}
-        />
-      </motion.div>
-    );
-  }
+  const dragProps = loop
+    ? {}
+    : {
+        dragConstraints: {
+          left: -trackItemOffset * (carouselItems.length - 1),
+          right: 0,
+        },
+      };
 
   return (
     <div
@@ -174,9 +126,7 @@ export default function JourneyPhotoCarousel({
       <motion.div
         className="flex"
         drag="x"
-        dragElastic={0.2}
-        dragMomentum={false}
-        dragConstraints={loop ? false : { left: -trackItemOffset * (carouselItems.length - 1), right: 0 }}
+        {...dragProps}
         style={{
           minWidth: `${trackItemOffset * carouselItems.length}px`,
           gap: `${GAP}px`,
@@ -188,20 +138,42 @@ export default function JourneyPhotoCarousel({
         animate={{ x: -(currentIndex * trackItemOffset) }}
         transition={effectiveTransition}
         onAnimationComplete={handleAnimationComplete}
-        dragListener={true}
       >
-        {carouselItems.map((src, index) => (
-          <CarouselItemMotion
-            key={index}
-            x={x}
-            index={index}
-            trackItemOffset={trackItemOffset}
-            itemWidth={itemWidth}
-            src={src}
-            round={round}
-            effectiveTransition={effectiveTransition}
-          />
-        ))}
+        {carouselItems.map((src, index) => {
+          const range = [
+            -(index + 1) * trackItemOffset,
+            -index * trackItemOffset,
+            -(index - 1) * trackItemOffset,
+          ];
+          const outputRange = [90, 0, -90];
+          const rotateY = useTransform(x, range, outputRange, { clamp: false });
+          return (
+            <motion.div
+              key={index}
+              className={`relative shrink-0 flex flex-col ${
+                round
+                  ? "items-center justify-center text-center bg-[#060010] border-0"
+                  : "items-center justify-center bg-[#222] shadow-xl rounded-[12px]"
+              } overflow-hidden cursor-grab active:cursor-grabbing`}
+              style={{
+                width: itemWidth,
+                height: round ? itemWidth : "320px",
+                rotateY: rotateY,
+                ...(round && { borderRadius: "50%" }),
+              }}
+              transition={effectiveTransition}
+            >
+              <Image
+                src={src}
+                alt={`Journey ${index + 1}`}
+                width={960}
+                height={540}
+                className="w-full h-full object-cover object-center select-none pointer-events-none"
+                priority={index === 0}
+              />
+            </motion.div>
+          );
+        })}
       </motion.div>
       <div
         className={`flex w-full justify-center ${
@@ -213,7 +185,7 @@ export default function JourneyPhotoCarousel({
             <motion.div
               key={index}
               className={`h-3 w-3 rounded-full cursor-pointer transition-colors duration-150 ${
-                (currentIndex-1+images.length)%images.length === index
+                currentIndex % images.length === index
                   ? round
                     ? "bg-white"
                     : "bg-[#333333]"
@@ -222,9 +194,9 @@ export default function JourneyPhotoCarousel({
                     : "bg-[rgba(51,51,51,0.4)]"
               }`}
               animate={{
-                scale: (currentIndex-1+images.length)%images.length === index ? 1.2 : 1,
+                scale: currentIndex % images.length === index ? 1.2 : 1,
               }}
-              onClick={() => setCurrentIndex(index+1)}
+              onClick={() => setCurrentIndex(index)}
               transition={{ duration: 0.15 }}
             />
           ))}

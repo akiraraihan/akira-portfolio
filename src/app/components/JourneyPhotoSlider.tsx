@@ -3,17 +3,20 @@ import { useState, useRef, useEffect } from "react";
 
 export function useJourneyPhotoSlider() {
   const images = [
-    "https://raw.githubusercontent.com/akiraraihaan/self-sources/main/FGRI5728.JPG",
-    "https://raw.githubusercontent.com/akiraraihaan/self-sources/main/IMG_0492.JPG",
     "https://raw.githubusercontent.com/akiraraihaan/self-sources/main/IMG_0992.JPEG.jpg",
+    "https://raw.githubusercontent.com/akiraraihaan/self-sources/main/rpl.jpg",
     "https://raw.githubusercontent.com/akiraraihaan/self-sources/main/IMG_7687.JPG",
     "https://raw.githubusercontent.com/akiraraihaan/self-sources/main/all-2.jpg",
     "https://raw.githubusercontent.com/akiraraihaan/self-sources/main/cu23.jpg",
+    "https://raw.githubusercontent.com/akiraraihaan/self-sources/main/FGRI5728.JPG",
+    "https://raw.githubusercontent.com/akiraraihaan/self-sources/main/IMG_0492.JPG",
     "https://raw.githubusercontent.com/akiraraihaan/self-sources/main/gedungbaru.jpg",
     "https://raw.githubusercontent.com/akiraraihaan/self-sources/main/kemejaputih.jpg",
     "https://raw.githubusercontent.com/akiraraihaan/self-sources/main/mfq-perisma24.jpg",
     "https://raw.githubusercontent.com/akiraraihaan/self-sources/main/openhouse-cs.jpg",
     "https://raw.githubusercontent.com/akiraraihaan/self-sources/main/sic-batch5.jpg",
+    "https://raw.githubusercontent.com/akiraraihaan/self-sources/main/panit-mif.jpg",
+    "https://raw.githubusercontent.com/akiraraihaan/self-sources/main/usability-test.jpg",
   ];
   return { images };
 }

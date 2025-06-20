@@ -30,7 +30,7 @@ import CertificateCard from "@/components/CertificateCard";
 import { PulsatingButton } from "@/components/magicui/pulsating-button";
 import { DATA, handleAnimationComplete, handleAnimationComplete2 } from "./components/pageHooks";
 import { Particles } from "@/components/magicui/Particles";
-import { JourneyPhotoSlider, useJourneyPhotoSlider } from "./components/JourneyPhotoSlider";
+import { JourneyPhotoSlider } from "./components/JourneyPhotoSlider";
 
 export default function Page() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);

@@ -103,13 +103,24 @@ export default function JourneyPhotoCarousel({
     }
   };
 
+  // Buat array transform untuk setiap item
+  const rotateYTransforms = carouselItems.map((_, index) => {
+    const range = [
+      -(index + 1) * trackItemOffset,
+      -index * trackItemOffset,
+      -(index - 1) * trackItemOffset,
+    ];
+    const outputRange = [90, 0, -90];
+    return useTransform(x, range, outputRange, { clamp: false });
+  });
+
   return (
     <div
       ref={containerRef}
       className={`relative overflow-hidden p-4 ${
         round
           ? "rounded-full border border-white"
-          : "rounded-[24px] border border-[#222]"
+          : "rounded-[24px] border mx-auto"
       }`}
       style={{
         width: `${baseWidth}px`,
@@ -136,20 +147,15 @@ export default function JourneyPhotoCarousel({
         dragListener={true}
       >
         {carouselItems.map((src, index) => {
-          const range = [
-            -(index + 1) * trackItemOffset,
-            -index * trackItemOffset,
-            -(index - 1) * trackItemOffset,
-          ];
-          const outputRange = [90, 0, -90];
-          const rotateY = useTransform(x, range, outputRange, { clamp: false });
+          // gunakan transform dari array
+          const rotateY = rotateYTransforms[index];
           return (
             <motion.div
               key={index}
               className={`relative shrink-0 flex flex-col ${
                 round
                   ? "items-center justify-center text-center bg-[#060010] border-0"
-                  : "items-center justify-center bg-[#222] border border-[#222] rounded-[12px]"
+                  : "items-center justify-center bg-[#222] shadow-xl rounded-[12px]"
               } overflow-hidden cursor-grab active:cursor-grabbing`}
               style={{
                 width: itemWidth,
@@ -201,7 +207,7 @@ export default function JourneyPhotoCarousel({
         </div>
       </div>
       <div className="w-full flex justify-center mt-2">
-        <span className="text-xs text-neutral-500 select-none">Geser atau drag untuk melihat foto lainnya</span>
+        <span className="text-xs text-neutral-500 select-none">Swipe, Slide or drag horizontally to see more photos</span>
       </div>
     </div>
   );

@@ -35,8 +35,9 @@ export default function JourneyPhotoCarousel({
   const itemWidth = baseWidth - containerPadding * 2;
   const trackItemOffset = itemWidth + GAP;
 
-  const carouselItems = loop ? [...images, images[0]] : images;
-  const [currentIndex, setCurrentIndex] = useState<number>(0);
+  // Tambahkan duplikat gambar terakhir di awal dan gambar pertama di akhir
+  const carouselItems = loop ? [images[images.length-1], ...images, images[0]] : images;
+  const [currentIndex, setCurrentIndex] = useState<number>(1); // start at 1
   const x = useMotionValue(0);
   const [isHovered, setIsHovered] = useState<boolean>(false);
   const [isResetting, setIsResetting] = useState<boolean>(false);
@@ -78,9 +79,14 @@ export default function JourneyPhotoCarousel({
   const handleAnimationComplete = () => {
     if (loop && currentIndex === carouselItems.length - 1) {
       setIsResetting(true);
-      x.set(0);
-      setCurrentIndex(0);
-      setTimeout(() => setIsResetting(false), 50);
+      x.set(-trackItemOffset);
+      setCurrentIndex(1);
+      setTimeout(() => setIsResetting(false), 0);
+    } else if (loop && currentIndex === 0) {
+      setIsResetting(true);
+      x.set(-trackItemOffset * (images.length));
+      setCurrentIndex(images.length);
+      setTimeout(() => setIsResetting(false), 0);
     }
   };
 
@@ -91,17 +97,9 @@ export default function JourneyPhotoCarousel({
     const offset = info.offset.x;
     const velocity = info.velocity.x;
     if (offset < -DRAG_BUFFER || velocity < -VELOCITY_THRESHOLD) {
-      if (loop && currentIndex === images.length - 1) {
-        setCurrentIndex(currentIndex + 1);
-      } else {
-        setCurrentIndex((prev) => Math.min(prev + 1, carouselItems.length - 1));
-      }
+      setCurrentIndex((prev) => prev + 1);
     } else if (offset > DRAG_BUFFER || velocity > VELOCITY_THRESHOLD) {
-      if (loop && currentIndex === 0) {
-        setCurrentIndex(images.length - 1);
-      } else {
-        setCurrentIndex((prev) => Math.max(prev - 1, 0));
-      }
+      setCurrentIndex((prev) => prev - 1);
     }
   };
 
@@ -185,7 +183,7 @@ export default function JourneyPhotoCarousel({
             <motion.div
               key={index}
               className={`h-3 w-3 rounded-full cursor-pointer transition-colors duration-150 ${
-                currentIndex % images.length === index
+                (currentIndex-1+images.length)%images.length === index
                   ? round
                     ? "bg-white"
                     : "bg-[#333333]"
@@ -194,9 +192,9 @@ export default function JourneyPhotoCarousel({
                     : "bg-[rgba(51,51,51,0.4)]"
               }`}
               animate={{
-                scale: currentIndex % images.length === index ? 1.2 : 1,
+                scale: (currentIndex-1+images.length)%images.length === index ? 1.2 : 1,
               }}
-              onClick={() => setCurrentIndex(index)}
+              onClick={() => setCurrentIndex(index+1)}
               transition={{ duration: 0.15 }}
             />
           ))}

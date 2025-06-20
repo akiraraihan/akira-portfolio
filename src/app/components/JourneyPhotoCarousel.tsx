@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { useEffect, useState, useRef, useMemo } from "react";
-import { motion, PanInfo, useMotionValue, useTransform } from "framer-motion";
+import { useEffect, useState, useRef } from "react";
+import { motion, PanInfo, useMotionValue, useTransform, MotionValue } from "framer-motion";
 
 export interface CarouselItem {
   src: string;
@@ -103,16 +103,59 @@ export default function JourneyPhotoCarousel({
     }
   };
 
-  // Buat array transform untuk setiap item SESUAI aturan hooks (top-level, bukan di dalam map/useMemo)
-  const rotateYTransforms = [];
-  for (let index = 0; index < carouselItems.length; index++) {
+  // Komponen child agar useTransform dipanggil di top-level function
+  interface CarouselItemMotionProps {
+    x: MotionValue<number>;
+    index: number;
+    trackItemOffset: number;
+    itemWidth: number;
+    src: string;
+    round: boolean;
+    effectiveTransition: any;
+  }
+  function CarouselItemMotion({
+    x,
+    index,
+    trackItemOffset,
+    itemWidth,
+    src,
+    round,
+    effectiveTransition,
+  }: CarouselItemMotionProps) {
     const range = [
       -(index + 1) * trackItemOffset,
       -index * trackItemOffset,
       -(index - 1) * trackItemOffset,
     ];
     const outputRange = [90, 0, -90];
-    rotateYTransforms.push(useTransform(x, range, outputRange, { clamp: false }));
+    const rotateY = useTransform(x, range, outputRange, { clamp: false });
+    return (
+      <motion.div
+        className={`relative shrink-0 flex flex-col ${
+          round
+            ? "items-center justify-center text-center bg-[#060010] border-0"
+            : "items-center justify-center bg-[#222] shadow-xl rounded-[12px]"
+        } overflow-hidden cursor-grab active:cursor-grabbing`}
+        style={{
+          width: itemWidth,
+          height: round ? itemWidth : "320px",
+          rotateY: rotateY,
+          ...(round && { borderRadius: "50%" }),
+        }}
+        transition={effectiveTransition}
+        drag="x"
+        dragListener={false}
+      >
+        <Image
+          src={src}
+          alt={`Journey ${index + 1}`}
+          width={960}
+          height={540}
+          className="w-full h-full object-cover object-center select-none pointer-events-none"
+          priority={index === 0}
+        />
+      </motion.div>
+    );
   }
 
   return (
@@ -147,38 +190,18 @@ export default function JourneyPhotoCarousel({
         onAnimationComplete={handleAnimationComplete}
         dragListener={true}
       >
-        {carouselItems.map((src, index) => {
-          // gunakan transform dari array
-          const rotateY = rotateYTransforms[index];
-          return (
-            <motion.div
-              key={index}
-              className={`relative shrink-0 flex flex-col ${
-                round
-                  ? "items-center justify-center text-center bg-[#060010] border-0"
-                  : "items-center justify-center bg-[#222] shadow-xl rounded-[12px]"
-              } overflow-hidden cursor-grab active:cursor-grabbing`}
-              style={{
-                width: itemWidth,
-                height: round ? itemWidth : "320px",
-                rotateY: rotateY,
-                ...(round && { borderRadius: "50%" }),
-              }}
-              transition={effectiveTransition}
-              drag="x"
-              dragListener={false}
-            >
-              <Image
-                src={src}
-                alt={`Journey ${index + 1}`}
-                width={960}
-                height={540}
-                className="w-full h-full object-cover object-center select-none pointer-events-none"
-                priority={index === 0}
-              />
-            </motion.div>
-          );
-        })}
+        {carouselItems.map((src, index) => (
+          <CarouselItemMotion
+            key={index}
+            x={x}
+            index={index}
+            trackItemOffset={trackItemOffset}
+            itemWidth={itemWidth}
+            src={src}
+            round={round}
+            effectiveTransition={effectiveTransition}
+          />
+        ))}
       </motion.div>
       <div
         className={`flex w-full justify-center ${

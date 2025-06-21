@@ -623,13 +623,12 @@ export default function Page() {
           </div>
         </div>
       </AnimatedContent>
-      {/* END Certification Section */}
-      {/* Journey & Showcase Section */}
-      <section className="w-full max-w-6xl mx-auto mt-24 mb-12 px-2">
-        <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-start mb-48">
+      {/* END Certification Section */}      {/* Journey & Showcase Section */}
+      <section className="w-full max-w-6xl mx-auto mt-12 sm:mt-24 mb-12 px-2 sm:px-4">
+        <div className="flex flex-col md:flex-row gap-6 sm:gap-8 md:gap-12 items-start mb-24 sm:mb-48">
           {/* Kiri: Slider Foto Journey */}
           <div className="w-full md:w-1/2">
-            <h2 className="text-2xl sm:text-3xl font-bold mb-6 tracking-tight text-black text-center md:text-left w-fit mx-auto">Journey Documentations</h2>
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 sm:mb-6 tracking-tight text-black text-center md:text-left w-fit mx-auto">Journey Documentations</h2>
             <JourneyPhotoCarousel
               images={[
                 "https://raw.githubusercontent.com/akiraraihaan/self-sources/main/IMG_0992.JPEG.jpg",
@@ -647,48 +646,72 @@ export default function Page() {
                 "https://raw.githubusercontent.com/akiraraihaan/self-sources/main/panit-mif.jpg",
                 "https://raw.githubusercontent.com/akiraraihaan/self-sources/main/usability-test.jpg",
               ]}
-              baseWidth={480}
+              baseWidth={isMobile ? 320 : 480}
               autoplay={true}
               autoplayDelay={3500}
-              pauseOnHover={true}
+              pauseOnHover={false}
               loop={true}
               round={false}
             />
-          </div>
-          {/* Kanan: Showcase Project (CardSwap) */}
-          <div className="w-full md:w-1/2 flex flex-col items-center justify-center min-h-[400px] text-white">
-            <div>
-              <h2 className="pl-24 text-2xl sm:text-3xl font-bold tracking-tight text-black text-center md:text-left w-fit mx-auto">Featured Projects</h2>
+          </div>          {/* Kanan: Showcase Project (CardSwap) */}
+          <div className="w-full md:w-1/2 flex flex-col items-center justify-center min-h-[300px] sm:min-h-[400px]">
+            <div className="mb-4 sm:mb-6">
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-black text-center md:text-left w-fit mx-auto">Featured Projects</h2>
             </div>
-            {/* Project Showcase CardSwap */}
-            <div style={{ height: 400, position: 'relative', width: '100%', maxWidth: 480 }} className="-ml-18">
-              <CardSwap
-                cardDistance={60}
-                verticalDistance={70}
-                delay={5000}
-                pauseOnHover={false}
-                width={400}
-                height={300}
-              >
-                <Card>
-                  <div className="flex flex-col items-center justify-center h-full p-6">
-                    <h3 className="text-xl font-bold mb-2">Card 1</h3>
-                    <p className="text-gray-700">Your content here</p>
+            {/* Project Showcase CardSwap Container */}
+            <div className="relative w-full max-w-[400px] h-[280px] sm:h-[320px] bg-gradient-to-br from-gray-900 via-gray-800 to-black rounded-2xl border border-gray-700 overflow-hidden shadow-2xl">
+              {/* Background Pattern */}
+              <div className="absolute inset-0 opacity-10">
+                <div className="absolute top-4 right-4 w-20 h-20 border border-gray-600 rounded-full"></div>
+                <div className="absolute bottom-6 left-6 w-12 h-12 border border-gray-600 rounded-lg rotate-45"></div>
+                <div className="absolute top-1/2 left-4 w-8 h-8 bg-gray-700 rounded-full"></div>
+              </div>
+              
+              {/* Header in Container */}
+              <div className="absolute top-4 left-4 z-10">
+                <div className="flex items-center gap-2 mb-1">
+                  <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                  <span className="text-xs text-gray-400 font-medium">Live Projects</span>
+                </div>
+                <h3 className="text-sm font-semibold text-white">Development Showcase</h3>
+              </div>              {/* CardSwap positioned to be cut off */}
+              <div className="absolute -bottom-8 -right-8 w-[120%] h-[120%] flex items-end justify-center">                <CardSwap
+                  cardDistance={isMobile ? 35 : 50}
+                  verticalDistance={isMobile ? 40 : 60}
+                  delay={3000}
+                  pauseOnHover={true}
+                  width={isMobile ? 240 : 320}
+                  height={isMobile ? 160 : 220}
+                  easing="elastic"
+                ><Card>
+                  <div className="flex flex-col items-center justify-center h-full p-2 sm:p-4">
+                    <div className="w-8 h-8 bg-blue-500 rounded-lg mb-2 flex items-center justify-center">
+                      <span className="text-white text-xs font-bold">WA</span>
+                    </div>
+                    <h3 className="text-sm sm:text-base font-bold mb-1 text-white text-center">Web App</h3>
+                    <p className="text-gray-400 text-xs text-center">React & Next.js</p>
                   </div>
                 </Card>
                 <Card>
-                  <div className="flex flex-col items-center justify-center h-full p-6">
-                    <h3 className="text-xl font-bold mb-2">Card 2</h3>
-                    <p className="text-gray-700">Your content here</p>
+                  <div className="flex flex-col items-center justify-center h-full p-2 sm:p-4">
+                    <div className="w-8 h-8 bg-green-500 rounded-lg mb-2 flex items-center justify-center">
+                      <span className="text-white text-xs font-bold">MA</span>
+                    </div>
+                    <h3 className="text-sm sm:text-base font-bold mb-1 text-white text-center">Mobile App</h3>
+                    <p className="text-gray-400 text-xs text-center">React Native</p>
                   </div>
                 </Card>
                 <Card>
-                  <div className="flex flex-col items-center justify-center h-full p-6">
-                    <h3 className="text-xl font-bold mb-2">Card 3</h3>
-                    <p className="text-gray-700">Your content here</p>
+                  <div className="flex flex-col items-center justify-center h-full p-2 sm:p-4">
+                    <div className="w-8 h-8 bg-purple-500 rounded-lg mb-2 flex items-center justify-center">
+                      <span className="text-white text-xs font-bold">AI</span>
+                    </div>
+                    <h3 className="text-sm sm:text-base font-bold mb-1 text-white text-center">AI Platform</h3>
+                    <p className="text-gray-400 text-xs text-center">Python & ML</p>
                   </div>
                 </Card>
               </CardSwap>
+              </div>
             </div>
           </div>
         </div>

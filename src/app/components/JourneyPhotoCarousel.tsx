@@ -26,8 +26,25 @@ export default function JourneyPhotoCarousel({
   loop = true,
   round = false,
 }: JourneyPhotoCarouselProps) {
-  const containerPadding = 16;
-  const itemWidth = baseWidth - containerPadding * 2;
+  const [windowWidth, setWindowWidth] = useState(0);
+  
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Responsive width calculation
+  const getResponsiveWidth = () => {
+    if (windowWidth < 640) return Math.min(windowWidth - 32, 320); // Mobile: max 320px with 16px margin each side
+    if (windowWidth < 768) return Math.min(windowWidth - 64, 400); // Tablet: max 400px
+    return baseWidth; // Desktop: use baseWidth
+  };
+
+  const responsiveWidth = getResponsiveWidth();
+  const containerPadding = windowWidth < 640 ? 8 : 16; // Smaller padding on mobile
+  const itemWidth = responsiveWidth - containerPadding * 2;
   const trackItemOffset = itemWidth + GAP;
 
   // Adaptasi dari Carousel.tsx: duplikasi item hanya di akhir
@@ -142,10 +159,9 @@ export default function JourneyPhotoCarousel({
           round
             ? "items-center justify-center text-center bg-[#060010] border-0"
             : "items-center justify-center bg-[#222] shadow-xl rounded-[12px]"
-        } overflow-hidden cursor-grab active:cursor-grabbing`}
-        style={{
+        } overflow-hidden cursor-grab active:cursor-grabbing`}        style={{
           width: itemWidth,
-          height: round ? itemWidth : "320px",
+          height: round ? itemWidth : windowWidth < 640 ? "200px" : windowWidth < 768 ? "250px" : "320px",
           rotateY: rotateY,
           ...(round && { borderRadius: "50%" }),
         }}
@@ -162,22 +178,24 @@ export default function JourneyPhotoCarousel({
       </motion.div>
     );
   }
-
   return (
     <div
       ref={containerRef}
-      className={`relative overflow-hidden p-4 ${
+      className={`relative overflow-hidden ${
         round
           ? "rounded-full border border-white"
-          : "rounded-[24px] border mx-auto"
+          : "rounded-[12px] sm:rounded-[24px] border mx-auto"
       }`}
       style={{
-        width: `${baseWidth}px`,
-        ...(round && { height: `${baseWidth}px` }),
+        width: `${responsiveWidth}px`,
+        padding: `${containerPadding}px`,
+        ...(round && { height: `${responsiveWidth}px` }),
       }}
     >
-      <div className="w-full flex justify-center mb-4">
-        <span className="text-xs text-neutral-500 select-none">Swipe, Slide or drag horizontally to see more photos</span>
+      <div className="w-full flex justify-center mb-2 sm:mb-4">
+        <span className="text-xs text-neutral-500 select-none text-center px-2">
+          {windowWidth < 640 ? "Swipe to see more" : "Swipe, Slide or drag horizontally to see more photos"}
+        </span>
       </div>
       <motion.div
         className="flex"
@@ -207,17 +225,16 @@ export default function JourneyPhotoCarousel({
             effectiveTransition={effectiveTransition}
           />
         ))}
-      </motion.div>
-      <div
+      </motion.div>      <div
         className={`flex w-full justify-center ${
           round ? "absolute z-20 bottom-12 left-1/2 -translate-x-1/2" : ""
         }`}
       >
-        <div className="mt-4 flex w-full max-w-[480px] justify-center gap-4 px-2">
+        <div className="mt-2 sm:mt-4 flex w-full max-w-[480px] justify-center gap-2 sm:gap-4 px-2">
           {images.map((_, index) => (
             <motion.div
               key={index}
-              className={`h-3 w-3 rounded-full cursor-pointer transition-colors duration-150 ${
+              className={`h-2 w-2 sm:h-3 sm:w-3 rounded-full cursor-pointer transition-colors duration-150 ${
                 currentIndex % images.length === index
                   ? round
                     ? "bg-white"

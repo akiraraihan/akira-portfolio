@@ -203,7 +203,7 @@ export default function Page() {
                 threshold={0.2}
               >
                 <Image 
-                  src="https://raw.githubusercontent.com/akiraraihaan/self-sources/refs/heads/main/WA98638.jpg" 
+                  src="https://raw.githubusercontent.com/akiraraihaan/self-sources/refs/heads/main/formal-square.png" 
                   alt="logo" 
                   width={180} 
                   height={180} 
@@ -276,7 +276,7 @@ export default function Page() {
                 threshold={0.2}
               >
                 <Image 
-                  src="https://raw.githubusercontent.com/akiraraihaan/self-sources/refs/heads/main/WA98638.jpg" 
+                  src="https://raw.githubusercontent.com/akiraraihaan/self-sources/refs/heads/main/formal-square.png" 
                   alt="logo" 
                   width={256} 
                   height={256} 
@@ -645,11 +645,12 @@ export default function Page() {
                 "https://raw.githubusercontent.com/akiraraihaan/self-sources/main/sic-batch5.jpg",
                 "https://raw.githubusercontent.com/akiraraihaan/self-sources/main/panit-mif.jpg",
                 "https://raw.githubusercontent.com/akiraraihaan/self-sources/main/usability-test.jpg",
+                "https://raw.githubusercontent.com/akiraraihaan/self-sources/refs/heads/main/WA98638.jpg"
               ]}
               baseWidth={isMobile ? 320 : 480}
               autoplay={true}
               autoplayDelay={3500}
-              pauseOnHover={false}
+              pauseOnHover={true}
               loop={true}
               round={false}
             />

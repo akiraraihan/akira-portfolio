@@ -176,6 +176,9 @@ export default function JourneyPhotoCarousel({
         ...(round && { height: `${baseWidth}px` }),
       }}
     >
+      <div className="w-full flex justify-center mb-4">
+        <span className="text-xs text-neutral-500 select-none">Swipe, Slide or drag horizontally to see more photos</span>
+      </div>
       <motion.div
         className="flex"
         drag="x"
@@ -232,9 +235,7 @@ export default function JourneyPhotoCarousel({
           ))}
         </div>
       </div>
-      <div className="w-full flex justify-center mt-2">
-        <span className="text-xs text-neutral-500 select-none">Swipe, Slide or drag horizontally to see more photos</span>
-      </div>
+    
     </div>
   );
 }

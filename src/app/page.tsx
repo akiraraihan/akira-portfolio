@@ -31,6 +31,7 @@ import { PulsatingButton } from "@/components/magicui/pulsating-button";
 import { DATA, handleAnimationComplete, handleAnimationComplete2 } from "./components/pageHooks";
 import { Particles } from "@/components/magicui/Particles";
 import JourneyPhotoCarousel from "./components/JourneyPhotoCarousel";
+import CardSwap, { Card } from "./components/reactbits/CardSwap";
 
 export default function Page() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -654,9 +655,38 @@ export default function Page() {
               round={false}
             />
           </div>
-          {/* Kanan: Showcase Project (placeholder) */}
-          <div className="w-full md:w-1/2 flex flex-col items-center justify-center min-h-[400px] border-2 border-dashed border-neutral-300 rounded-3xl bg-neutral-50">
-            <span className="text-neutral-400 text-lg font-semibold">Project Showcase<br/>Coming Soon</span>
+          {/* Kanan: Showcase Project (CardSwap) */}
+          <div className="w-full md:w-1/2 flex flex-col items-center justify-center min-h-[400px] text-white">
+            {/* Project Showcase CardSwap */}
+            <div style={{ height: 400, position: 'relative', width: '100%', maxWidth: 480 }}>
+              <CardSwap
+                cardDistance={60}
+                verticalDistance={70}
+                delay={5000}
+                pauseOnHover={false}
+                width={500}
+                height={350}
+              >
+                <Card>
+                  <div className="flex flex-col items-center justify-center h-full p-6">
+                    <h3 className="text-xl font-bold mb-2">Card 1</h3>
+                    <p className="text-gray-700">Your content here</p>
+                  </div>
+                </Card>
+                <Card>
+                  <div className="flex flex-col items-center justify-center h-full p-6">
+                    <h3 className="text-xl font-bold mb-2">Card 2</h3>
+                    <p className="text-gray-700">Your content here</p>
+                  </div>
+                </Card>
+                <Card>
+                  <div className="flex flex-col items-center justify-center h-full p-6">
+                    <h3 className="text-xl font-bold mb-2">Card 3</h3>
+                    <p className="text-gray-700">Your content here</p>
+                  </div>
+                </Card>
+              </CardSwap>
+            </div>
           </div>
         </div>
       </section>

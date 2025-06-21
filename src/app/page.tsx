@@ -626,7 +626,7 @@ export default function Page() {
       {/* END Certification Section */}
       {/* Journey & Showcase Section */}
       <section className="w-full max-w-6xl mx-auto mt-24 mb-12 px-2">
-        <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-start">
+        <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-start mb-48">
           {/* Kiri: Slider Foto Journey */}
           <div className="w-full md:w-1/2">
             <h2 className="text-2xl sm:text-3xl font-bold mb-6 tracking-tight text-black text-center md:text-left w-fit mx-auto">Journey Documentations</h2>
@@ -657,15 +657,18 @@ export default function Page() {
           </div>
           {/* Kanan: Showcase Project (CardSwap) */}
           <div className="w-full md:w-1/2 flex flex-col items-center justify-center min-h-[400px] text-white">
+            <div>
+              <h2 className="pl-24 text-2xl sm:text-3xl font-bold tracking-tight text-black text-center md:text-left w-fit mx-auto">Featured Projects</h2>
+            </div>
             {/* Project Showcase CardSwap */}
-            <div style={{ height: 400, position: 'relative', width: '100%', maxWidth: 480 }}>
+            <div style={{ height: 400, position: 'relative', width: '100%', maxWidth: 480 }} className="-ml-18">
               <CardSwap
                 cardDistance={60}
                 verticalDistance={70}
                 delay={5000}
                 pauseOnHover={false}
-                width={500}
-                height={350}
+                width={400}
+                height={300}
               >
                 <Card>
                   <div className="flex flex-col items-center justify-center h-full p-6">

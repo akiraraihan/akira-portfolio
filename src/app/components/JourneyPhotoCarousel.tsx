@@ -90,10 +90,12 @@ export default function JourneyPhotoCarousel({
 
   const handleAnimationComplete = () => {
     if (loop && currentIndex === carouselItems.length - 1) {
-      setIsResetting(true);
-      x.set(0);
-      setCurrentIndex(0);
-      setTimeout(() => setIsResetting(false), 50);
+      setTimeout(() => {
+        setIsResetting(true);
+        x.set(0); // Instantly reset position without animation
+        setCurrentIndex(0);
+        setTimeout(() => setIsResetting(false), 50); // Re-enable animation after reset
+      }, 50); // Delay to allow smooth transition before reset
     }
   };
 
@@ -111,7 +113,12 @@ export default function JourneyPhotoCarousel({
       }
     } else if (offset > DRAG_BUFFER || velocity > VELOCITY_THRESHOLD) {
       if (loop && currentIndex === 0) {
-        setCurrentIndex(images.length - 1);
+        setTimeout(() => {
+          setIsResetting(true);
+          x.set(-trackItemOffset * (images.length)); // Instantly move to the duplicated last image
+          setCurrentIndex(images.length - 1);
+          setTimeout(() => setIsResetting(false), 50); // Re-enable animation after reset
+        }, 50);
       } else {
         setCurrentIndex((prev) => Math.max(prev - 1, 0));
       }

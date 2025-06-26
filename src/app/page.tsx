@@ -687,7 +687,7 @@ export default function Page() {
               >
                 {/* Card 1 */}
                 <Card>
-                  <div className="relative flex flex-col items-center justify-start h-full p-0 rounded-2xl shadow-2xl border border-[#222] bg-[#0a0a0d] overflow-hidden" style={{boxShadow: '0 8px 32px 0 rgba(0,0,0,0.45)'}}>
+                  <div className="relative flex flex-col items-center justify-start h-full p-0 rounded-2xl shadow-2xl border border-black bg-[#0a0a0d] overflow-hidden" style={{boxShadow: '0 8px 32px 0 rgba(0,0,0,0.45)'}}>
                     {/* Header */}
                     <div className="absolute top-0 left-0 w-full flex items-center gap-2 px-4 py-2 border-b border-[#222] bg-[#111114]/95 rounded-t-2xl z-10">
                       <span className="w-2 h-2 bg-[#fff] rounded-full border border-[#444] mr-2"></span>
@@ -705,7 +705,7 @@ export default function Page() {
                 </Card>
                 {/* Card 2 */}
                 <Card>
-                  <div className="relative flex flex-col items-center justify-start h-full p-0 rounded-2xl shadow-2xl border border-[#222] bg-[#0a0a0d] overflow-hidden" style={{boxShadow: '0 8px 32px 0 rgba(0,0,0,0.45)'}}>
+                  <div className="relative flex flex-col items-center justify-start h-full p-0 rounded-2xl shadow-2xl border border-black bg-[#0a0a0d] overflow-hidden" style={{boxShadow: '0 8px 32px 0 rgba(0,0,0,0.45)'}}>
                     {/* Header */}
                     <div className="absolute top-0 left-0 w-full flex items-center gap-2 px-4 py-2 border-b border-[#222] bg-[#111114]/95 rounded-t-2xl z-10">
                       <span className="w-2 h-2 bg-[#fff] rounded-full border border-[#444] mr-2"></span>
@@ -722,7 +722,7 @@ export default function Page() {
                 </Card>
                 {/* Card 3 */}
                 <Card>
-                  <div className="relative flex flex-col items-center justify-start h-full p-0 rounded-2xl shadow-2xl border border-[#222] bg-[#0a0a0d] overflow-hidden" style={{boxShadow: '0 8px 32px 0 rgba(0,0,0,0.45)'}}>
+                  <div className="relative flex flex-col items-center justify-start h-full p-0 rounded-2xl shadow-2xl border border-black bg-[#0a0a0d] overflow-hidden" style={{boxShadow: '0 8px 32px 0 rgba(0,0,0,0.45)'}}>
                     {/* Header */}
                     <div className="absolute top-0 left-0 w-full flex items-center gap-2 px-4 py-2 border-b border-[#222] bg-[#111114]/95 rounded-t-2xl z-10">
                       <span className="w-2 h-2 bg-[#fff] rounded-full border border-[#444] mr-2"></span>

@@ -203,7 +203,7 @@ export default function Page() {
                 threshold={0.2}
               >
                 <Image 
-                  src="https://raw.githubusercontent.com/akiraraihaan/self-sources/refs/heads/main/formal-square.png" 
+                  src="https://raw.githubusercontent.com/akiraraihaan/self-sources/refs/heads/main/formal-square-2.png" 
                   alt="logo" 
                   width={180} 
                   height={180} 
@@ -276,7 +276,7 @@ export default function Page() {
                 threshold={0.2}
               >
                 <Image 
-                  src="https://raw.githubusercontent.com/akiraraihaan/self-sources/refs/heads/main/formal-square.png" 
+                  src="https://raw.githubusercontent.com/akiraraihaan/self-sources/refs/heads/main/formal-square-2.png" 
                   alt="logo" 
                   width={256} 
                   height={256} 
@@ -677,38 +677,64 @@ export default function Page() {
                 <h3 className="text-sm font-semibold text-white">Development Showcase</h3>
               </div>              {/* CardSwap positioned to be cut off */}
               <div className="absolute -bottom-8 -right-8 w-[120%] h-[120%] flex items-end justify-center">                <CardSwap
-                  cardDistance={isMobile ? 35 : 50}
-                  verticalDistance={isMobile ? 40 : 60}
-                  delay={3000}
-                  pauseOnHover={true}
-                  width={isMobile ? 240 : 320}
-                  height={isMobile ? 160 : 220}
-                  easing="elastic"
-                ><Card>
-                  <div className="flex flex-col items-center justify-center h-full p-2 sm:p-4">
-                    <div className="w-8 h-8 bg-blue-500 rounded-lg mb-2 flex items-center justify-center">
-                      <span className="text-white text-xs font-bold">WA</span>
+                cardDistance={isMobile ? 35 : 50}
+                verticalDistance={isMobile ? 40 : 60}
+                delay={3000}
+                pauseOnHover={true}
+                width={isMobile ? 240 : 320}
+                height={isMobile ? 180 : 240}
+                easing="elastic"
+              >
+                {/* Card 1 */}
+                <Card>
+                  <div className="relative flex flex-col items-center justify-start h-full p-0 rounded-2xl shadow-2xl border border-[#222] bg-[#0a0a0d] overflow-hidden" style={{boxShadow: '0 8px 32px 0 rgba(0,0,0,0.45)'}}>
+                    {/* Header */}
+                    <div className="absolute top-0 left-0 w-full flex items-center gap-2 px-4 py-2 border-b border-[#222] bg-[#111114]/95 rounded-t-2xl z-10">
+                      <span className="w-2 h-2 bg-[#fff] rounded-full border border-[#444] mr-2"></span>
+                      <span className="text-xs text-white font-semibold tracking-wide">Reliable</span>
                     </div>
-                    <h3 className="text-sm sm:text-base font-bold mb-1 text-white text-center">Web App</h3>
-                    <p className="text-gray-400 text-xs text-center">React & Next.js</p>
+                    {/* Image Full Card */}
+                    <Image
+                      src="/images/edu-bridge (1).png"
+                      alt="EduBridge Project"
+                      fill
+                      className="object-cover w-full h-full"
+                      priority
+                    />
                   </div>
                 </Card>
+                {/* Card 2 */}
                 <Card>
-                  <div className="flex flex-col items-center justify-center h-full p-2 sm:p-4">
-                    <div className="w-8 h-8 bg-green-500 rounded-lg mb-2 flex items-center justify-center">
-                      <span className="text-white text-xs font-bold">MA</span>
+                  <div className="relative flex flex-col items-center justify-start h-full p-0 rounded-2xl shadow-2xl border border-[#222] bg-[#0a0a0d] overflow-hidden" style={{boxShadow: '0 8px 32px 0 rgba(0,0,0,0.45)'}}>
+                    {/* Header */}
+                    <div className="absolute top-0 left-0 w-full flex items-center gap-2 px-4 py-2 border-b border-[#222] bg-[#111114]/95 rounded-t-2xl z-10">
+                      <span className="w-2 h-2 bg-[#fff] rounded-full border border-[#444] mr-2"></span>
+                      <span className="text-xs text-white font-semibold tracking-wide">Customizable</span>
                     </div>
-                    <h3 className="text-sm sm:text-base font-bold mb-1 text-white text-center">Mobile App</h3>
-                    <p className="text-gray-400 text-xs text-center">React Native</p>
+                    <Image
+                      src="/images/io-1.png"
+                      alt="IO Project"
+                      fill
+                      className="object-cover w-full h-full"
+                      priority
+                    />
                   </div>
                 </Card>
+                {/* Card 3 */}
                 <Card>
-                  <div className="flex flex-col items-center justify-center h-full p-2 sm:p-4">
-                    <div className="w-8 h-8 bg-purple-500 rounded-lg mb-2 flex items-center justify-center">
-                      <span className="text-white text-xs font-bold">AI</span>
+                  <div className="relative flex flex-col items-center justify-start h-full p-0 rounded-2xl shadow-2xl border border-[#222] bg-[#0a0a0d] overflow-hidden" style={{boxShadow: '0 8px 32px 0 rgba(0,0,0,0.45)'}}>
+                    {/* Header */}
+                    <div className="absolute top-0 left-0 w-full flex items-center gap-2 px-4 py-2 border-b border-[#222] bg-[#111114]/95 rounded-t-2xl z-10">
+                      <span className="w-2 h-2 bg-[#fff] rounded-full border border-[#444] mr-2"></span>
+                      <span className="text-xs text-white font-semibold tracking-wide">Smooth</span>
                     </div>
-                    <h3 className="text-sm sm:text-base font-bold mb-1 text-white text-center">AI Platform</h3>
-                    <p className="text-gray-400 text-xs text-center">Python & ML</p>
+                    <Image
+                      src="/images/seb-2.png"
+                      alt="SEB Project"
+                      fill
+                      className="object-cover w-full h-full"
+                      priority
+                    />
                   </div>
                 </Card>
               </CardSwap>

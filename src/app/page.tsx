@@ -161,7 +161,7 @@ export default function Page() {
               vy={0}
             />
           </div>
-          <div className="block sm:hidden w-full px-4 overflow-hidden z-10 min-h-screen">
+          <div className="block sm:hidden w-full px-4 overflow-hidden z-10">
             {/* Mobile layout */}
             <div className="flex flex-col items-center">
               <div className="flex flex-col items-center mb-6">
@@ -212,14 +212,14 @@ export default function Page() {
                 />
               </AnimatedContent>
               
-              <div className="mt-6 w-full px-4 max-w-full">
+              <div className="mt-6 w-full px-4 max-w-full mb-6">
                 <BlurText
                   text="&emsp;I'm Raihan Akira Rahmaputra, a Computer Science student with a lifelong passion for technology and innovation. Whether organizing nationwide digital events, building practical systems, or engaging in design and AI competitions, I thrive at the intersection of creativity, logic, and leadership. My aspiration is to become a tech leader who not only develops impactful solutions but also inspires others to create meaningful change."
                   delay={150}
                   animateBy="words"
                   direction="top"
                   onAnimationComplete={handleAnimationComplete2}
-                  className="text-sm mb-20 text-gray-700 text-balance"
+                  className="text-sm text-gray-700 text-balance"
                 />
               </div>
             </div>
@@ -357,7 +357,7 @@ export default function Page() {
       </AnimatedContent>
       <AnimatedContent distance={100} direction="vertical" animateOpacity threshold={0.2}>
         {/* Skills Marquee Section */}
-        <div className="relative mt-8 sm:mt-12 mb-8 overflow-hidden">
+        <div className="relative mt-2 sm:mt-12 mb-8 overflow-hidden">
           <div className="text-center mb-8">
             <h2 className="text-2xl sm:text-3xl font-bold text-black mb-2 tracking-tight">Tech Stack & Tools</h2>
             <p className="text-gray-600 text-sm sm:text-base">I work with</p>

@@ -203,7 +203,7 @@ export default function Page() {
                 threshold={0.2}
               >
                 <Image 
-                  src="https://raw.githubusercontent.com/akiraraihaan/self-sources/refs/heads/main/formal-square-2.png" 
+                  src="/images/formal-square-2.png" 
                   alt="logo" 
                   width={180} 
                   height={180} 
@@ -276,7 +276,7 @@ export default function Page() {
                 threshold={0.2}
               >
                 <Image 
-                  src="https://raw.githubusercontent.com/akiraraihaan/self-sources/refs/heads/main/formal-square-2.png" 
+                  src="/images/formal-square-2.png" 
                   alt="logo" 
                   width={256} 
                   height={256} 
@@ -631,21 +631,21 @@ export default function Page() {
             <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 sm:mb-6 tracking-tight text-black text-center md:text-left w-fit mx-auto">Journey Documentations</h2>
             <JourneyPhotoCarousel
               images={[
-                "https://raw.githubusercontent.com/akiraraihaan/self-sources/main/IMG_0992.JPEG.jpg",
-                "https://raw.githubusercontent.com/akiraraihaan/self-sources/main/rpl.jpg",
-                "https://raw.githubusercontent.com/akiraraihaan/self-sources/main/IMG_7687.JPG",
-                "https://raw.githubusercontent.com/akiraraihaan/self-sources/main/all-2.jpg",
-                "https://raw.githubusercontent.com/akiraraihaan/self-sources/main/cu23.jpg",
-                "https://raw.githubusercontent.com/akiraraihaan/self-sources/main/FGRI5728.JPG",
-                "https://raw.githubusercontent.com/akiraraihaan/self-sources/main/IMG_0492.JPG",
-                "https://raw.githubusercontent.com/akiraraihaan/self-sources/main/gedungbaru.jpg",
-                "https://raw.githubusercontent.com/akiraraihaan/self-sources/main/kemejaputih.jpg",
-                "https://raw.githubusercontent.com/akiraraihaan/self-sources/main/mfq-perisma24.jpg",
-                "https://raw.githubusercontent.com/akiraraihaan/self-sources/main/openhouse-cs.jpg",
-                "https://raw.githubusercontent.com/akiraraihaan/self-sources/main/sic-batch5.jpg",
-                "https://raw.githubusercontent.com/akiraraihaan/self-sources/main/panit-mif.jpg",
-                "https://raw.githubusercontent.com/akiraraihaan/self-sources/main/usability-test.jpg",
-                "https://raw.githubusercontent.com/akiraraihaan/self-sources/refs/heads/main/WA98638.jpg"
+                "/images/IMG_0992.JPEG.jpg",
+                "/images/rpl.jpg",
+                "/images/IMG_7687.JPG",
+                "/images/all-2.jpg",
+                "/images/cu23.jpg",
+                "/images/FGRI5728.JPG",
+                "/images/IMG_0492.JPG",
+                "/images/gedungbaru.jpg",
+                "/images/kemejaputih.jpg",
+                "/images/mfq-perisma24.jpg",
+                "/images/openhouse-cs.jpg",
+                "/images/sic-batch5.jpg",
+                "/images/panit-mif.jpg",
+                "/images/usability-test.jpg",
+                "/images/WA98638.jpg"
               ]}
               baseWidth={isMobile ? 320 : 480}
               autoplay={true}

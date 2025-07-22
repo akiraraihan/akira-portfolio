@@ -32,6 +32,9 @@ import { DATA, handleAnimationComplete, handleAnimationComplete2 } from "./compo
 import { Particles } from "@/components/magicui/Particles";
 import JourneyPhotoCarousel from "./components/JourneyPhotoCarousel";
 import CardSwap, { Card } from "./components/reactbits/CardSwap";
+import dynamic from "next/dynamic";
+
+const Masonry = dynamic(() => import("./components/reactbits/Masonry"), { ssr: false });
 
 export default function Page() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -40,6 +43,7 @@ export default function Page() {
   const { certificates } = useCertificates();
   const [isMobile, setIsMobile] = useState(false);
   const [headerLoaded, setHeaderLoaded] = useState(false);
+  const [isClient, setIsClient] = useState(false);
 
   // Collapsible state for all timelines
   const [openOrgz, setOpenOrgz] = useState<number | null>(null);
@@ -86,6 +90,113 @@ export default function Page() {
       document.body.style.position = '';
     };
   }, [headerLoaded]);
+
+  useEffect(() => { setIsClient(true); }, []);
+
+  // GitHub project data for Masonry cards
+  const githubProjects = [
+    {
+      id: "halal-lens",
+      name: "Halal Lens",
+      description: "A mobile app to scan and check halal status of products using OCR and barcode, built with Flutter.",
+      techStack: ["Flutter", "Dart", "Firebase", "OCR", "REST API"],
+      repo: "https://github.com/akiraraihaan/Halal_Lens",
+      img: "https://picsum.photos/id/1015/600/900?grayscale",
+      height: 400,
+    },
+    {
+      id: "gg-blogs-nextjs",
+      name: "GG Blogs (Next.js)",
+      description: "A modern blog platform with authentication, markdown editor, and responsive UI using Next.js and MongoDB.",
+      techStack: ["Next.js", "React", "MongoDB", "TailwindCSS", "TypeScript"],
+      repo: "https://github.com/akiraraihaan/GG-blogs-nextjs",
+      img: "https://picsum.photos/id/1011/600/750?grayscale",
+      height: 250,
+    },
+    {
+      id: "csdev-deploy-mm",
+      name: "CSDev Deploy MM",
+      description: "A deployment management tool for CSDev projects, automating CI/CD pipelines and monitoring.",
+      techStack: ["Node.js", "Express", "CI/CD", "Docker", "MongoDB"],
+      repo: "https://github.com/akiraraihaan/csdev-deploy-MM",
+      img: "https://picsum.photos/id/1020/600/800?grayscale",
+      height: 600,
+    },
+    {
+      id: "gg-pomodoro",
+      name: "GG Pomodoro",
+      description: "A productivity timer app implementing the Pomodoro technique, with analytics and notifications.",
+      techStack: ["React", "TypeScript", "TailwindCSS", "Vite"],
+      repo: "https://github.com/akiraraihaan/GG-pomodoro",
+      img: "https://picsum.photos/id/1024/600/800?grayscale",
+      height: 350,
+    },
+    {
+      id: "kuis-3-kriptografi",
+      name: "Kuis 3 Kriptografi",
+      description: "A cryptography quiz app for learning and testing cryptographic concepts, built for academic purposes.",
+      techStack: ["Python", "Flask", "HTML", "CSS", "JavaScript"],
+      repo: "https://github.com/akiraraihaan/kuis-3-kriptografi",
+      img: "https://picsum.photos/id/1025/600/900?grayscale",
+      height: 500,
+    },
+    {
+      id: "io-web",
+      name: "IO Web",
+      description: "A web platform for IO (Informatics Olympiad) training, featuring problem sets and user progress tracking.",
+      techStack: ["React", "Next.js", "Firebase", "TailwindCSS"],
+      repo: "https://github.com/akiraraihaan/IO-web",
+      img: "https://picsum.photos/id/1035/600/700?grayscale",
+      height: 300,
+    },
+    {
+      id: "edubridge",
+      name: "EduBridge",
+      description: "A platform connecting students with mentors and educational resources, supporting chat and scheduling.",
+      techStack: ["React", "Node.js", "Express", "MongoDB", "Socket.io"],
+      repo: "https://github.com/akiraraihaan/EduBridge",
+      img: "https://picsum.photos/id/1036/600/700?grayscale",
+      height: 300,
+    },
+    {
+      id: "quiz-app",
+      name: "Quiz App",
+      description: "A simple quiz application with multiple categories, scoring, and timer features.",
+      techStack: ["React", "JavaScript", "CSS"],
+      repo: "https://github.com/akiraraihaan/quiz_app",
+      img: "https://picsum.photos/id/1037/600/700?grayscale",
+      height: 300,
+    },
+  ];
+
+  // Build Masonry items from GitHub projects
+  const masonryItems = githubProjects.map((proj) => ({
+    id: proj.id,
+    img: proj.img,
+    url: proj.repo,
+    height: proj.height,
+    content: (
+      <div className="flex flex-col h-full justify-between p-3">
+        <div>
+          <h3 className="text-lg font-bold text-black mb-1">{proj.name}</h3>
+          <p className="text-xs text-gray-700 mb-2 line-clamp-3">{proj.description}</p>
+          <div className="flex flex-wrap gap-1 mb-2">
+            {proj.techStack.map((tech) => (
+              <span key={tech} className="bg-gray-200 text-gray-800 text-[10px] px-2 py-0.5 rounded-full font-semibold">{tech}</span>
+            ))}
+          </div>
+        </div>
+        <a
+          href={proj.repo}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-2 inline-block px-3 py-1 bg-black text-white text-xs rounded-lg font-semibold shadow hover:bg-gray-800 transition"
+        >
+          View Repo
+        </a>
+      </div>
+    ),
+  }));
 
   return (
     <>
@@ -645,7 +756,8 @@ export default function Page() {
                 "/images/sic-batch5.jpg",
                 "/images/panit-mif.jpg",
                 "/images/usability-test.jpg",
-                "/images/WA98638.jpg"
+                "/images/WA98638.jpg",
+                "/images/mobile_last.jpeg"
               ]}
               baseWidth={isMobile ? 320 : 480}
               autoplay={true}
@@ -680,8 +792,8 @@ export default function Page() {
                 verticalDistance={isMobile ? 40 : 60}
                 delay={3000}
                 pauseOnHover={true}
-                width={isMobile ? 240 : 320}
-                height={isMobile ? 180 : 240}
+                width={isMobile ? 340 : 320}
+                height={isMobile ? 240 : 240}
                 easing="elastic"
               >
                 {/* Card 1 */}
@@ -740,6 +852,45 @@ export default function Page() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+      {/* Masonry Section */}
+      <section className="w-full max-w-6xl mx-auto mb-24 px-2 sm:px-4 min-h-[400px] overflow-visible">
+        <h2 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-black text-center mb-8">Project Gallery</h2>
+        <div className="bg-[#0a0914] rounded-2xl p-4">
+          {isClient && (
+            <>
+              {/* Custom Masonry grid for 2/3 columns and row variety */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                {masonryItems.map((item, idx) => (
+                  <div
+                    key={item.id}
+                    className={
+                      `flex flex-col h-full w-full rounded-2xl overflow-visible shadow-xl bg-white border border-gray-200 min-h-[260px] md:min-h-[320px] max-w-full transition-all duration-300` +
+                      (idx % 4 === 0 ? ' md:row-span-2 md:min-h-[400px]' : '')
+                    }
+                  >
+                    <div className="flex-1 flex items-center justify-center p-4">
+                      <img
+                        src={item.img}
+                        alt={item.id}
+                        className="object-cover rounded-2xl w-full h-[120px] md:h-[180px] max-w-[90%] mx-auto border border-gray-100 shadow"
+                        style={{ background: '#f3f3f3', objectFit: 'cover' }}
+                      />
+                    </div>
+                    <div className="px-4 pb-4 pt-2 flex flex-col gap-2 min-h-[60px] justify-center">
+                      <div className="text-base md:text-lg font-semibold text-black break-words line-clamp-2" style={{wordBreak:'break-word'}}>
+                        {item.id}
+                      </div>
+                      <div className="text-xs md:text-sm text-gray-700 break-words line-clamp-3" style={{wordBreak:'break-word'}}>
+                        {item.content}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </>
+          )}
         </div>
       </section>
       {/* Mobile Menu Button - visible only on small screens */}

@@ -34,7 +34,7 @@ export default function Footer() {
 	};
 
 	return (
-		<footer className="w-full border-t mt-12 bg-black backdrop-blur max-w-49/50 mx-auto mb-4 rounded-4xl">
+		<footer id="contact" className="w-full border-t mt-12 bg-black backdrop-blur max-w-49/50 mx-auto mb-4 rounded-4xl scroll-mt-32">
 			<div className="max-w-2xl mx-auto py-8 px-4 flex flex-col gap-6 items-center">
 				<form
 					onSubmit={handleSubmit}

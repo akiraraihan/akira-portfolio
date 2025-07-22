@@ -34,6 +34,7 @@ import JourneyPhotoCarousel from "./components/JourneyPhotoCarousel";
 
 import CardSwap, { Card } from "./components/reactbits/CardSwap";
 import { githubProjects } from "@/data/githubProjects";
+import Footer from "@/components/Footer";
 
 export default function Page() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -51,6 +52,17 @@ export default function Page() {
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
+  };
+
+  // Smooth scroll function
+  const smoothScrollTo = (elementId: string) => {
+    const element = document.getElementById(elementId);
+    if (element) {
+      element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+    }
   };
 
   // Prevent scrolling when mobile menu is open
@@ -343,16 +355,29 @@ export default function Page() {
                     <DockIcon key={item.label}>
                       <Tooltip>
                         <TooltipTrigger asChild>
-                          <Link
-                            href={item.href}
-                            aria-label={item.label}
-                            className={cn(
-                              buttonVariants({ variant: "ghost", size: "icon" }),
-                              "size-10 sm:size-12 rounded-full"
-                            )}
-                          >
-                            <item.icon className="size-4" />
-                          </Link>
+                          {item.href.startsWith('#') ? (
+                            <button
+                              onClick={() => smoothScrollTo(item.href.substring(1))}
+                              aria-label={item.label}
+                              className={cn(
+                                buttonVariants({ variant: "ghost", size: "icon" }),
+                                "size-10 sm:size-12 rounded-full"
+                              )}
+                            >
+                              <item.icon className="size-4" />
+                            </button>
+                          ) : (
+                            <Link
+                              href={item.href}
+                              aria-label={item.label}
+                              className={cn(
+                                buttonVariants({ variant: "ghost", size: "icon" }),
+                                "size-10 sm:size-12 rounded-full"
+                              )}
+                            >
+                              <item.icon className="size-4" />
+                            </Link>
+                          )}
                         </TooltipTrigger>
                         <TooltipContent>
                           <p>{item.label}</p>

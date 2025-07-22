@@ -33,10 +33,7 @@ import { Particles } from "@/components/magicui/Particles";
 import JourneyPhotoCarousel from "./components/JourneyPhotoCarousel";
 
 import CardSwap, { Card } from "./components/reactbits/CardSwap";
-import dynamic from "next/dynamic";
 import { githubProjects } from "@/data/githubProjects";
-
-// Removed unused Masonry assignment (was not used directly)
 
 export default function Page() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -811,6 +808,7 @@ export default function Page() {
                           'w-full flex items-center justify-center ' +
                           (isTall ? 'aspect-[3/4] md:aspect-[3/4] h-[180px] md:h-[260px]' : 'aspect-[4/3] md:aspect-[4/3] h-[120px] md:h-[160px]')
                         }>
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
                           <img
                             src={item.img}
                             alt={proj?.name || item.id}

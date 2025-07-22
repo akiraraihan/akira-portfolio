@@ -1,4 +1,5 @@
 import React, {
+  useCallback,
   useEffect,
   useLayoutEffect,
   useMemo,
@@ -24,8 +25,7 @@ const useMedia = (
       queries.forEach((q) =>
         matchMedia(q).removeEventListener("change", handler)
       );
-    // get is defined in this scope, no need to add as dep
-    // values and defaultValue are static
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [queries, values, defaultValue]);
 
   return value;
@@ -106,7 +106,7 @@ const Masonry: React.FC<MasonryProps> = ({
   const [containerRef, { width }] = useMeasure<HTMLDivElement>();
   const [imagesReady, setImagesReady] = useState(false);
 
-  const getInitialPosition = (item: { x: number; y: number; w: number; h: number }) => {
+  const getInitialPosition = useCallback((item: { x: number; y: number; w: number; h: number }) => {
     const containerRect = containerRef.current?.getBoundingClientRect();
     if (!containerRect) return { x: item.x, y: item.y };
 
@@ -135,7 +135,7 @@ const Masonry: React.FC<MasonryProps> = ({
       default:
         return { x: item.x, y: item.y + 100 };
     }
-  };
+  }, [animateFrom, containerRef]);
 
   useEffect(() => {
     preloadImages(items.map((i) => i.img)).then(() => setImagesReady(true));

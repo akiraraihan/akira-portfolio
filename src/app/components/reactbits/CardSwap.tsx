@@ -147,7 +147,7 @@ const CardSwap: React.FC<CardSwapProps> = ({
   );
   const refs = useMemo<CardRef[]>(
     () => childArr.map(() => React.createRef<HTMLDivElement>()),
-    [childArr.length]
+    [childArr]
   );
 
   const order = useRef<number[]>(
@@ -174,7 +174,7 @@ const CardSwap: React.FC<CardSwapProps> = ({
     });
     
     setIsInitialized(true);
-  }, [windowWidth, responsiveValues.cardDistance, responsiveValues.verticalDistance, responsiveValues.skewAmount, refs.length]);
+  }, [windowWidth, responsiveValues.cardDistance, responsiveValues.verticalDistance, responsiveValues.skewAmount, refs]);
 
   // Animation loop
   useEffect(() => {
@@ -307,7 +307,7 @@ const CardSwap: React.FC<CardSwapProps> = ({
         pauseListeners();
       }
     };
-  }, [isInitialized, delay, pauseOnHover, refs.length, responsiveValues.cardDistance, responsiveValues.verticalDistance]);
+  }, [isInitialized, delay, pauseOnHover, refs, responsiveValues.cardDistance, responsiveValues.verticalDistance, config.durDrop, config.durMove, config.durReturn, config.ease, config.promoteOverlap, config.returnDelay]);
   const rendered = childArr.map((child, i) =>
     isValidElement<CardProps>(child)
       ? cloneElement(child, {

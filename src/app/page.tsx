@@ -36,7 +36,7 @@ import CardSwap, { Card } from "./components/reactbits/CardSwap";
 import dynamic from "next/dynamic";
 import { githubProjects } from "@/data/githubProjects";
 
-const Masonry = dynamic(() => import("./components/reactbits/Masonry"), { ssr: false });
+// Removed unused Masonry assignment (was not used directly)
 
 export default function Page() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);

@@ -24,7 +24,9 @@ const useMedia = (
       queries.forEach((q) =>
         matchMedia(q).removeEventListener("change", handler)
       );
-  }, [queries]);
+    // get is defined in this scope, no need to add as dep
+    // values and defaultValue are static
+  }, [queries, values, defaultValue]);
 
   return value;
 };
@@ -41,7 +43,7 @@ const useMeasure = <T extends HTMLElement>() => {
     });
     ro.observe(ref.current);
     return () => ro.disconnect();
-  }, []);
+  }, [ref]);
 
   return [ref, size] as const;
 };
@@ -51,7 +53,7 @@ const preloadImages = async (urls: string[]): Promise<void> => {
     urls.map(
       (src) =>
         new Promise<void>((resolve) => {
-          const img = new Image();
+          const img = new window.Image();
           img.src = src;
           img.onload = img.onerror = () => resolve();
         })
@@ -104,7 +106,7 @@ const Masonry: React.FC<MasonryProps> = ({
   const [containerRef, { width }] = useMeasure<HTMLDivElement>();
   const [imagesReady, setImagesReady] = useState(false);
 
-  const getInitialPosition = (item: any) => {
+  const getInitialPosition = (item: { x: number; y: number; w: number; h: number }) => {
     const containerRect = containerRef.current?.getBoundingClientRect();
     if (!containerRect) return { x: item.x, y: item.y };
 
@@ -155,6 +157,7 @@ const Masonry: React.FC<MasonryProps> = ({
       colHeights[col] += height + gap;
       return { ...child, x, y, w: columnWidth, h: height };
     });
+    // childArr is not used, so not a dep
   }, [columns, items, width]);
 
   const hasMounted = useRef(false);
@@ -198,7 +201,7 @@ const Masonry: React.FC<MasonryProps> = ({
     });
 
     hasMounted.current = true;
-  }, [grid, imagesReady, stagger, animateFrom, blurToFocus, duration, ease]);
+  }, [grid, imagesReady, stagger, animateFrom, blurToFocus, duration, ease, getInitialPosition]);
 
   const handleMouseEnter = (id: string, element: HTMLElement) => {
     if (scaleOnHover) {

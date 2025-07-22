@@ -862,32 +862,62 @@ export default function Page() {
             <>
               {/* Custom Masonry grid for 2/3 columns and row variety */}
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-                {masonryItems.map((item, idx) => (
-                  <div
-                    key={item.id}
-                    className={
-                      `flex flex-col h-full w-full rounded-2xl overflow-visible shadow-xl bg-white border border-gray-200 min-h-[260px] md:min-h-[320px] max-w-full transition-all duration-300` +
-                      (idx % 4 === 0 ? ' md:row-span-2 md:min-h-[400px]' : '')
-                    }
-                  >
-                    <div className="flex-1 flex items-center justify-center p-4">
-                      <img
-                        src={item.img}
-                        alt={item.id}
-                        className="object-cover rounded-2xl w-full h-[120px] md:h-[180px] max-w-[90%] mx-auto border border-gray-100 shadow"
-                        style={{ background: '#f3f3f3', objectFit: 'cover' }}
-                      />
-                    </div>
-                    <div className="px-4 pb-4 pt-2 flex flex-col gap-2 min-h-[60px] justify-center">
-                      <div className="text-base md:text-lg font-semibold text-black break-words line-clamp-2" style={{wordBreak:'break-word'}}>
-                        {item.id}
+                {masonryItems.map((item, idx) => {
+                  // Find the project for this card
+                  const proj = githubProjects.find(p => p.id === item.id);
+                  // Tall card for mobile projects (portrait), else normal
+                  const isMobileProject = proj && proj.techStack.some(t => t.toLowerCase().includes('flutter') || t.toLowerCase().includes('dart'));
+                  const isTall = isMobileProject || (idx % 4 === 0);
+                  return (
+                    <div
+                      key={item.id}
+                      className={
+                        `flex flex-col h-full w-full rounded-2xl overflow-visible shadow-xl bg-white border border-gray-200 max-w-full transition-all duration-300` +
+                        (isTall ? ' md:row-span-2 md:min-h-[420px]' : ' min-h-[260px] md:min-h-[320px]')
+                      }
+                    >
+                      {/* Strict, equal spacing above and below image */}
+                      <div className={
+                        'flex flex-col items-center px-5 pt-6 pb-0'
+                      }>
+                        <div className={
+                          'w-full flex items-center justify-center ' +
+                          (isTall ? 'aspect-[3/4] md:aspect-[3/4] h-[180px] md:h-[260px]' : 'aspect-[4/3] md:aspect-[4/3] h-[120px] md:h-[160px]')
+                        }>
+                          <img
+                            src={item.img}
+                            alt={proj?.name || item.id}
+                            className={
+                              'rounded-2xl border border-gray-100 shadow object-cover w-full h-full bg-gray-100' +
+                              (isTall ? ' object-contain' : ' object-cover')
+                            }
+                            style={{ background: '#f3f3f3' }}
+                          />
+                        </div>
                       </div>
-                      <div className="text-xs md:text-sm text-gray-700 break-words line-clamp-3" style={{wordBreak:'break-word'}}>
-                        {item.content}
+                      {/* Content grows, button sticks to bottom */}
+                      <div className="flex flex-col flex-1 px-5 pt-4 pb-0">
+                        <h3 className="text-base md:text-lg font-bold text-black mb-1 leading-tight line-clamp-2" style={{wordBreak:'break-word'}}>{proj?.name || item.id}</h3>
+                        <p className="text-xs md:text-sm text-gray-700 mb-2 line-clamp-3" style={{wordBreak:'break-word'}}>{proj?.description}</p>
+                        <div className="flex flex-wrap gap-1 mb-2">
+                          {proj?.techStack.map((tech) => (
+                            <span key={tech} className="bg-gray-200 text-gray-800 text-[10px] px-2 py-0.5 rounded-full font-semibold">{tech}</span>
+                          ))}
+                        </div>
+                        {/* Spacer to push button to bottom if content is short */}
+                        <div className="flex-1" />
+                        <a
+                          href={proj?.repo}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="mt-2 mb-4 inline-block px-3 py-1 bg-black text-white text-xs rounded-lg font-semibold shadow hover:bg-gray-800 transition w-fit"
+                        >
+                          View Repo
+                        </a>
                       </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </>
           )}

@@ -2,7 +2,7 @@
 // Kumpulan hooks, icon, dan data yang diekstrak dari page.tsx
 
 import React from "react";
-import { Home, User, Briefcase, Mail } from "lucide-react";
+import { Home, User, Briefcase, Mail, Wrench } from "lucide-react";
 
 // XIcon
 export const XIcon = () => (
@@ -66,8 +66,9 @@ export const InstagramIcon = ({ className }: { className?: string }) => (
 // DATA
 export const DATA = {
   navbar: [
-    { href: "#", icon: Home, label: "Home" },
+    { href: "#top", icon: Home, label: "Home" },
     { href: "#about", icon: User, label: "About" },
+    { href: "#tech-stack", icon: Wrench, label: "Tech Stack" },
     { href: "#projects", icon: Briefcase, label: "Projects" },
     { href: "#contact", icon: Mail, label: "Contact" },
   ],

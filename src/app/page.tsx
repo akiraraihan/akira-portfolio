@@ -56,11 +56,24 @@ export default function Page() {
 
   // Smooth scroll function
   const smoothScrollTo = (elementId: string) => {
+    if (elementId === 'top') {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+      return;
+    }
+    
     const element = document.getElementById(elementId);
     if (element) {
-      element.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
+      // Use getBoundingClientRect for more accurate positioning with complex layouts
+      const rect = element.getBoundingClientRect();
+      const currentScrollY = window.pageYOffset || document.documentElement.scrollTop;
+      const targetPosition = Math.max(0, rect.top + currentScrollY - 120);
+      
+      window.scrollTo({
+        top: targetPosition,
+        behavior: 'smooth'
       });
     }
   };
@@ -182,7 +195,7 @@ export default function Page() {
       </AnimatedContent>
       <AnimatedContent distance={100} direction="vertical" animateOpacity threshold={0.2}>
         {/* hero sec */}
-        <div className="relative flex justify-center mt-2 sm:mt-4 md:mt-8 h-auto min-h-[500px] sm:h-[350px] md:h-[300px]">
+        <div id="about" className="relative flex justify-center mt-2 sm:mt-4 md:mt-8 h-auto min-h-[500px] sm:h-[350px] md:h-[300px]">
           {/* Particles background for hero section */}
           <div className="absolute inset-x-0 top-0 bottom-0 w-full h-full min-h-full pointer-events-none hidden sm:block z-10">
             {/*
@@ -417,7 +430,7 @@ export default function Page() {
       </AnimatedContent>
       <AnimatedContent distance={100} direction="vertical" animateOpacity threshold={0.2}>
         {/* Skills Marquee Section */}
-        <div className="relative mt-2 sm:mt-12 mb-8 overflow-hidden">
+        <div id="tech-stack" className="relative mt-2 sm:mt-12 mb-8 overflow-hidden">
           <div className="text-center mb-8">
             <h2 className="text-2xl sm:text-3xl font-bold text-black mb-2 tracking-tight">Tech Stack & Tools</h2>
             <p className="text-gray-600 text-sm sm:text-base">I work with</p>
@@ -684,8 +697,8 @@ export default function Page() {
         </div>
       </AnimatedContent>
       {/* END Certification Section */}      {/* Journey & Showcase Section */}
-      <section className="w-full max-w-6xl mx-auto mt-12 sm:mt-24 mb-12 px-2 sm:px-4">
-        <div className="flex flex-col md:flex-row gap-6 sm:gap-8 md:gap-12 items-start mb-24 sm:mb-48">
+      <section className="w-full max-w-6xl mx-auto mt-12 sm:mt-24 px-2 sm:px-4">
+        <div className="flex flex-col md:flex-row gap-6 sm:gap-8 md:gap-12 items-start sm:mb-24">
           {/* Kiri: Slider Foto Journey */}
           <div className="w-full md:w-1/2">
             <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 sm:mb-6 tracking-tight text-black text-center md:text-left w-fit mx-auto">Journey Documentations</h2>
@@ -804,7 +817,7 @@ export default function Page() {
         </div>
       </section>
       {/* Masonry Section */}
-      <section className="w-full max-w-6xl mx-auto mb-24 px-2 sm:px-4 min-h-[400px] overflow-visible">
+      <section id="projects" className="w-full max-w-6xl mx-auto px-2 sm:px-4 min-h-[400px] overflow-visible">
         <h2 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-black text-center mb-8">Project Gallery</h2>
         <div className="bg-[#0a0914] rounded-2xl p-4">
           {isClient && (
@@ -895,15 +908,29 @@ export default function Page() {
         >
           <div className="flex flex-col">
             {DATA.navbar.map((item) => (
-              <Link
-                key={item.label}
-                href={item.href}
-                className="flex items-center space-x-3 p-4 hover:bg-gray-100 border-b border-gray-100"
-                onClick={toggleMobileMenu}
-              >
-                <item.icon className="size-5" />
-                <span className="font-medium">{item.label}</span>
-              </Link>
+              item.href.startsWith('#') ? (
+                <button
+                  key={item.label}
+                  onClick={() => {
+                    smoothScrollTo(item.href.substring(1));
+                    toggleMobileMenu();
+                  }}
+                  className="flex items-center space-x-3 p-4 hover:bg-gray-100 border-b border-gray-100 text-left w-full"
+                >
+                  <item.icon className="size-5" />
+                  <span className="font-medium">{item.label}</span>
+                </button>
+              ) : (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  className="flex items-center space-x-3 p-4 hover:bg-gray-100 border-b border-gray-100"
+                  onClick={toggleMobileMenu}
+                >
+                  <item.icon className="size-5" />
+                  <span className="font-medium">{item.label}</span>
+                </Link>
+              )
             ))}
             <div className="p-4">
               <p className="text-sm text-gray-500 mb-2">Connect with me:</p>
@@ -925,6 +952,11 @@ export default function Page() {
             </div>
           </div>
         </div>
+      </div>
+      
+      {/* Footer Section */}
+      <div id="contact">
+        <Footer />
       </div>
     </>
   );

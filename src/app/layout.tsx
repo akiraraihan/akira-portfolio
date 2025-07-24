@@ -19,7 +19,6 @@ export default function RootLayout({
     <html lang="en" className="light" style={{ colorScheme: 'light' }}>
       <body className={`${dmSans.className} bg-white text-black`}>
         {children}
-        <Footer />
       </body>
     </html>
   );

@@ -2,7 +2,7 @@
 // Kumpulan hooks, icon, dan data yang diekstrak dari page.tsx
 
 import React from "react";
-import { Home, User, Briefcase, Mail, Wrench } from "lucide-react";
+import { Briefcase, Mail, Wrench } from "lucide-react";
 
 // XIcon
 export const XIcon = () => (

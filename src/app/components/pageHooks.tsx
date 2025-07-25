@@ -66,8 +66,6 @@ export const InstagramIcon = ({ className }: { className?: string }) => (
 // DATA
 export const DATA = {
   navbar: [
-    { href: "#top", icon: Home, label: "Home" },
-    { href: "#about", icon: User, label: "About" },
     { href: "#tech-stack", icon: Wrench, label: "Tech Stack" },
     { href: "#projects", icon: Briefcase, label: "Projects" },
     { href: "#contact", icon: Mail, label: "Contact" },

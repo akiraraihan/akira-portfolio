@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { ShimmerButton } from "@/components/magicui/shimmer-button";
+import { PulsatingButton } from "@/components/magicui/pulsating-button";
 
 export default function Footer() {
 	const [form, setForm] = useState({ name: "", email: "", message: "" });
@@ -69,13 +69,13 @@ export default function Footer() {
 						required
 						className="border rounded px-3 py-2 text-sm min-h-[80px]"
 					/>
-					<ShimmerButton
+					<PulsatingButton
 						type="submit"
 						disabled={status === "loading"}
 						className="mt-2 w-2/3 mx-auto"
 					>
 						{status === "loading" ? "Sending..." : "Send"}
-					</ShimmerButton>
+					</PulsatingButton>
 					{status === "success" && (
 						<p className="text-green-600 text-xs mt-1">
 							Message sent successfully!

@@ -35,6 +35,16 @@ import JourneyPhotoCarousel from "./components/JourneyPhotoCarousel";
 import CardSwap, { Card } from "./components/reactbits/CardSwap";
 import { githubProjects } from "@/data/githubProjects";
 import Footer from "@/components/Footer";
+import { ShimmerButton } from "@/components/magicui/shimmer-button";
+
+// Helper function to get skill icon by tech name
+const getTechIcon = (techName: string) => {
+  // Exact match only - case insensitive
+  const skill = skills.find(skill => {
+    return skill.label.toLowerCase() === techName.toLowerCase();
+  });
+  return skill;
+};
 
 export default function Page() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -195,7 +205,7 @@ export default function Page() {
       </AnimatedContent>
       <AnimatedContent distance={100} direction="vertical" animateOpacity threshold={0.2}>
         {/* hero sec */}
-        <div id="about" className="relative flex justify-center mt-2 sm:mt-4 md:mt-8 h-auto min-h-[500px] sm:h-[350px] md:h-[300px]">
+        <div id="about" className="relative flex justify-center mt-2 sm:mt-4 md:mt-8 h-auto min-h-[480px] sm:h-[320px] md:h-[280px]">
           {/* Particles background for hero section */}
           <div className="absolute inset-x-0 top-0 bottom-0 w-full h-full min-h-full pointer-events-none hidden sm:block z-10">
             {/*
@@ -346,6 +356,16 @@ export default function Page() {
               </AnimatedContent>
             </div>
           </div>
+        </div>
+        {/* Shimmer Buttons Row - Centered, below hero section */}
+        <div className="flex justify-center items-center gap-6">
+          <a href="https://drive.google.com/file/d/1C1bXqz-QyDVXaEBxuLL82UqExvM2Bz5N/view?usp=sharing" className="block">
+            <ShimmerButton>CV Here</ShimmerButton>
+          </a>
+          <p className="text-xl text-gray-400">|</p>
+          <a href="https://drive.google.com/drive/folders/1TYJYP6Cre_EhiWT8WvqheMTBRSjVt5N_?usp=sharing" className="block">
+            <ShimmerButton>Portfolio Here</ShimmerButton>
+          </a>
         </div>
       </AnimatedContent>
       <AnimatedContent distance={100} direction="vertical" animateOpacity threshold={0.2}>
@@ -819,7 +839,7 @@ export default function Page() {
       {/* Masonry Section */}
       <section id="projects" className="w-full max-w-6xl mx-auto px-2 sm:px-4 min-h-[400px] overflow-visible">
         <h2 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-black text-center mb-8">Project Gallery</h2>
-        <div className="bg-[#0a0914] rounded-2xl p-4">
+        <div className="bg-[#000000] rounded-2xl p-4">
           {isClient && (
             <>
               {/* Custom Masonry grid for 2/3 columns and row variety */}
@@ -838,21 +858,22 @@ export default function Page() {
                         (isTall ? ' md:row-span-2 md:min-h-[420px]' : ' min-h-[260px] md:min-h-[320px]')
                       }
                     >
-                      {/* Strict, equal spacing above and below image */}
+                      {/* Image container - flexible for mobile apps */}
                       <div className={
-                        'flex flex-col items-center px-5 pt-6 pb-0'
+                        'flex flex-col items-center px-5 pt-6 pb-0 ' + 
+                        (isTall ? 'flex-1' : '')
                       }>
                         <div className={
                           'w-full flex items-center justify-center ' +
-                          (isTall ? 'aspect-[3/4] md:aspect-[3/4] h-[180px] md:h-[260px]' : 'aspect-[4/3] md:aspect-[4/3] h-[120px] md:h-[160px]')
+                          (isTall ? 'flex-1 min-h-[200px]' : 'aspect-[4/3] md:aspect-[4/3] h-[120px] md:h-[160px]')
                         }>
                           {/* eslint-disable-next-line @next/next/no-img-element */}
                           <img
                             src={item.img}
                             alt={proj?.name || item.id}
                             className={
-                              'rounded-2xl border border-gray-100 shadow object-cover w-full h-full bg-gray-100' +
-                              (isTall ? ' object-contain' : ' object-cover')
+                              'rounded-2xl border border-gray-100 shadow w-full bg-gray-100 ' +
+                              (isTall ? 'object-contain h-full max-h-full' : 'object-cover h-full')
                             }
                             style={{ background: '#f3f3f3' }}
                           />
@@ -863,9 +884,23 @@ export default function Page() {
                         <h3 className="text-base md:text-lg font-bold text-black mb-1 leading-tight line-clamp-2" style={{wordBreak:'break-word'}}>{proj?.name || item.id}</h3>
                         <p className="text-xs md:text-sm text-gray-700 mb-2 line-clamp-3" style={{wordBreak:'break-word'}}>{proj?.description}</p>
                         <div className="flex flex-wrap gap-1 mb-2">
-                          {proj?.techStack.map((tech) => (
-                            <span key={tech} className="bg-gray-200 text-gray-800 text-[10px] px-2 py-0.5 rounded-full font-semibold">{tech}</span>
-                          ))}
+                          {proj?.techStack.map((tech) => {
+                            const skillIcon = getTechIcon(tech);
+                            return (
+                              <div key={tech} className="flex items-center space-x-1 bg-gray-100 text-gray-800 text-[10px] px-2 py-1 rounded-full font-semibold  border-gray-200">
+                                {skillIcon && (
+                                  <Image 
+                                    src={skillIcon.imgSrc} 
+                                    alt={skillIcon.alt} 
+                                    className="w-3 h-3" 
+                                    width={12} 
+                                    height={12} 
+                                  />
+                                )}
+                                <span>{tech}</span>
+                              </div>
+                            );
+                          })}
                         </div>
                         {/* Spacer to push button to bottom if content is short */}
                         <div className="flex-1" />

@@ -37,4 +37,6 @@ export const skills = [
     alt: "Supabase",
     label: "Supabase"
   },
+  { imgSrc: "https://icon.icepanel.io/Technology/svg/Vite.js.svg", alt: "Vite", label: "Vite" },
+  { imgSrc: "https://svgl.app/library/prisma.svg", alt: "Prisma", label: "Prisma" },
 ];

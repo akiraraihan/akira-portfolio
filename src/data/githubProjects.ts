@@ -5,6 +5,7 @@ export interface GithubProject {
   description: string;
   techStack: string[];
   repo: string;
+  liveUrl?: string; // Optional live demo URL
   img: string;
   height: number;
 }
@@ -34,6 +35,7 @@ export const githubProjects: GithubProject[] = [
     description: "Money Management is a personal finance web application built with Laravel, designed to help users manage their wallets, track income and expenses, and view real-time financial summaries through an intuitive dashboard. The app features wallet and transaction management, personalized user onboarding, and interactive UI elements such as modals and animated statistics. This project also serves as core teaching material for my role as a mentor in the CS Dev program.",
     techStack: ["Laravel", "PHP", "Bootstrap", "MySQL", "Vite"],
     repo: "https://github.com/akiraraihaan/csdev-deploy-MM",
+    liveUrl: "https://csdev-deploy-mm-production.up.railway.app/",
     img: "/images/MM.png",
     height: 250,
   },
@@ -43,6 +45,7 @@ export const githubProjects: GithubProject[] = [
     description: "This project is a college assignment designed to facilitate educational processes through a web-based platform. It integrates various features to support learning activities, such as user management, course materials, and interactive components. The application incorporates a local AI chat feature powered by the free tier of Gemini, which operates smoothly and enhances user interaction by providing intelligent responses and support within the platform.",
     techStack: ["Laravel", "PHP", "CSS", "Tailwind CSS", "JavaScript", "MySQL"],
     repo: "https://github.com/akiraraihaan/EduBridge",
+    liveUrl: "https://edubridge-production.up.railway.app/home",
     img: "/images/edu-bridge (1).png",
     height: 250,
   },
@@ -70,6 +73,7 @@ export const githubProjects: GithubProject[] = [
     description: "This project is a modern Pomodoro timer web application built using React and Vite, styled with Tailwind CSS for a clean and responsive user interface. It allows users to manage their productivity by timing focused work sessions and breaks, following the Pomodoro technique. The application features a visually appealing design, real-time countdown functionality, and interactive controls for starting, pausing, and resetting the timer. This project showcases my ability to build practical, user-friendly productivity tools using the latest web technologies.",
     techStack: ["React", "Vite", "Tailwind CSS", "JavaScript"],
     repo: "https://github.com/akiraraihaan/GG-pomodoro",
+    liveUrl: "https://gg-pomodoro.vercel.app", // Example live URL
     img: "/images/pomodoro.png",
     height: 250,
   },

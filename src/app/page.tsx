@@ -33,12 +33,13 @@ import { Particles } from "@/components/magicui/Particles";
 import JourneyPhotoCarousel from "./components/JourneyPhotoCarousel";
 
 import CardSwap, { Card } from "./components/reactbits/CardSwap";
-import { githubProjects } from "@/data/githubProjects";
+import { githubProjects, GithubProject } from "@/data/githubProjects";
 import Footer from "@/components/Footer";
 import { ShimmerButton } from "@/components/magicui/shimmer-button";
+import ProjectDetailModal from "./components/ProjectDetailModal";
 
 // Helper function to get skill icon by tech name
-const getTechIcon = (techName: string) => {
+export const getTechIcon = (techName: string) => {
   // Exact match only - case insensitive
   const skill = skills.find(skill => {
     return skill.label.toLowerCase() === techName.toLowerCase();
@@ -59,6 +60,10 @@ export default function Page() {
   const [openOrgz, setOpenOrgz] = useState<number | null>(null);
   const [openWork, setOpenWork] = useState<number | null>(null);
   const [openNotable, setOpenNotable] = useState<number | null>(null);
+
+  // Modal state for project details
+  const [selectedProject, setSelectedProject] = useState<GithubProject | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
@@ -86,6 +91,17 @@ export default function Page() {
         behavior: 'smooth'
       });
     }
+  };
+
+  // Modal functions
+  const openProjectModal = (project: GithubProject) => {
+    setSelectedProject(project);
+    setIsModalOpen(true);
+  };
+
+  const closeProjectModal = () => {
+    setIsModalOpen(false);
+    setSelectedProject(null);
   };
 
   // Prevent scrolling when mobile menu is open
@@ -844,7 +860,7 @@ export default function Page() {
             <>
               {/* Custom Masonry grid for 2/3 columns and row variety */}
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-                {masonryItems.map((item, idx) => {
+                {masonryItems.map((item) => {
                   // Find the project for this card
                   const proj = githubProjects.find(p => p.id === item.id);
                   // Tall card only for mobile projects (Flutter/Dart)
@@ -904,14 +920,12 @@ export default function Page() {
                         </div>
                         {/* Spacer to push button to bottom if content is short */}
                         <div className="flex-1" />
-                        <a
-                          href={proj?.repo}
-                          target="_blank"
-                          rel="noopener noreferrer"
+                        <button
+                          onClick={() => proj && openProjectModal(proj)}
                           className="mt-2 mb-4 inline-block px-3 py-1 bg-black text-white text-xs rounded-lg font-semibold shadow hover:bg-gray-800 transition w-fit"
                         >
-                          View Repo
-                        </a>
+                          View Detail
+                        </button>
                       </div>
                     </div>
                   );
@@ -993,6 +1007,13 @@ export default function Page() {
       <div id="contact">
         <Footer />
       </div>
+
+      {/* Project Detail Modal */}
+      <ProjectDetailModal
+        project={selectedProject}
+        isOpen={isModalOpen}
+        onClose={closeProjectModal}
+      />
     </>
   );
 }

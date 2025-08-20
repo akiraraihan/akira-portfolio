@@ -847,9 +847,9 @@ export default function Page() {
                 {masonryItems.map((item, idx) => {
                   // Find the project for this card
                   const proj = githubProjects.find(p => p.id === item.id);
-                  // Tall card for mobile projects (portrait), else normal
+                  // Tall card only for mobile projects (Flutter/Dart)
                   const isMobileProject = proj && proj.techStack.some(t => t.toLowerCase().includes('flutter') || t.toLowerCase().includes('dart'));
-                  const isTall = isMobileProject || (idx % 4 === 0);
+                  const isTall = isMobileProject;
                   return (
                     <div
                       key={item.id}

@@ -47,15 +47,6 @@ export const githubProjects: GithubProject[] = [
     height: 250,
   },
   {
-    id: "kuis-3-kriptografi",
-    name: "Kuis 3 Kriptografi",
-    description: "A cryptography quiz app for learning and testing cryptographic concepts, built for academic purposes.",
-    techStack: ["Python", "Flask", "HTML", "CSS", "JavaScript"],
-    repo: "https://github.com/akiraraihaan/kuis-3-kriptografi",
-    img: "https://picsum.photos/id/1025/600/900?grayscale",
-    height: 500,
-  },
-  {
     id: "scholarship-evaluation-system",
     name: "Scholarship Evaluation System - Universitas Pertamina",
     description: "I contributed to the development and maintenance of a Laravel-based scholarship management system, focusing on implementing new features and fixing bugs. My work involved enhancing modules related to awardee data, scholarships, and user management, as well as improving backend logic and user experience. I collaborated with the team to ensure code quality, scalability, and reliability, supporting the platform's goal of efficiently managing scholarship programs.",

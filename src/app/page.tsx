@@ -37,15 +37,7 @@ import { githubProjects, GithubProject } from "@/data/githubProjects";
 import Footer from "@/components/Footer";
 import { ShimmerButton } from "@/components/magicui/shimmer-button";
 import ProjectDetailModal from "./components/ProjectDetailModal";
-
-// Helper function to get skill icon by tech name
-export const getTechIcon = (techName: string) => {
-  // Exact match only - case insensitive
-  const skill = skills.find(skill => {
-    return skill.label.toLowerCase() === techName.toLowerCase();
-  });
-  return skill;
-};
+import { getTechIcon } from "@/lib/techUtils";
 
 export default function Page() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -264,7 +256,7 @@ export default function Page() {
                     onLetterAnimationComplete={handleAnimationComplete}
                   />
                   <RotatingText
-                    texts={['Guests!', 'Visitors!', 'Friends!', 'Viewers!']}
+                    texts={['Guests!', 'Visitors!', 'Friends!', 'Viewers']}
                     mainClassName="text-2xl sm:text-3xl text-white font-bold tracking-tight px-2 bg-black overflow-hidden py-0.5 justify-center rounded-lg ml-1"
                     staggerFrom={"last"}
                     initial={{ y: "-100%" }}  

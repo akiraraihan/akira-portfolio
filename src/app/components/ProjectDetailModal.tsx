@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import { X as XIcon, ExternalLink, Github } from 'lucide-react';
 import { GithubProject } from '@/data/githubProjects';
-import { getTechIcon } from '../page';
+import { getTechIcon } from '@/lib/techUtils';
 
 interface ProjectDetailModalProps {
   project: GithubProject | null;

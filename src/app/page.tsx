@@ -187,7 +187,7 @@ export default function Page() {
         distance={100}
         direction="vertical"
         animateOpacity
-        threshold={0.2}
+        threshold={0}
       >
         <div className="relative mx-2 my-3">
           {/* header bar */}
@@ -219,7 +219,7 @@ export default function Page() {
           </div>
         </div>
       </AnimatedContent>
-      <AnimatedContent distance={100} direction="vertical" animateOpacity threshold={0.2}>
+      <AnimatedContent distance={100} direction="vertical" animateOpacity threshold={0}>
         {/* hero sec */}
         <div id="about" className="relative flex justify-center mt-2 sm:mt-4 md:mt-8 h-auto min-h-[480px] sm:h-[320px] md:h-[280px]">
           {/* Particles background for hero section */}
@@ -259,7 +259,7 @@ export default function Page() {
                     animationFrom={{ opacity: 0, transform: 'translate3d(0,50px,0)' }}
                     animationTo={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
                     easing="easeOutCubic"
-                    threshold={0.2}
+                    threshold={0}
                     rootMargin="-50px"
                     onLetterAnimationComplete={handleAnimationComplete}
                   />
@@ -286,7 +286,8 @@ export default function Page() {
                 initialOpacity={0.2}
                 animateOpacity
                 scale={1.1}
-                threshold={0.2}
+                threshold={0}
+                delay={0}
               >
                 <Image 
                   src="/images/formal-square-2.png" 
@@ -304,6 +305,7 @@ export default function Page() {
                   delay={150}
                   animateBy="words"
                   direction="top"
+                  threshold={0}
                   onAnimationComplete={handleAnimationComplete2}
                   className="text-sm text-gray-700 text-balance"
                 />
@@ -322,7 +324,7 @@ export default function Page() {
                   animationFrom={{ opacity: 0, transform: 'translate3d(0,50px,0)' }}
                   animationTo={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
                   easing="easeOutCubic"
-                  threshold={0.2}
+                  threshold={0}
                   rootMargin="-50px"
                   onLetterAnimationComplete={handleAnimationComplete}
                 />
@@ -345,6 +347,7 @@ export default function Page() {
                   delay={150}
                   animateBy="words"
                   direction="top"
+                  threshold={0}
                   onAnimationComplete={handleAnimationComplete2}
                   className="text-md mb-8 text-gray-700 text-balance"
                 />
@@ -359,7 +362,8 @@ export default function Page() {
                 initialOpacity={0.2}
                 animateOpacity
                 scale={1.1}
-                threshold={0.2}
+                threshold={0}
+                delay={0}
               >
                 <Image 
                   src="/images/formal-square-2.png" 
@@ -384,7 +388,7 @@ export default function Page() {
           </a>
         </div>
       </AnimatedContent>
-      <AnimatedContent distance={100} direction="vertical" animateOpacity threshold={0.2}>
+      <AnimatedContent distance={100} direction="vertical" animateOpacity threshold={0}>
         {/* Desktop Dock Navigation - hidden on small screens */}
         <div className="sticky top-0 z-20 mt-2 sm:mt-4 md:mt-8 hidden sm:block">
           <AnimatedContent
@@ -395,7 +399,7 @@ export default function Page() {
             initialOpacity={0.2}
             animateOpacity
             scale={1.1}
-            threshold={0.2}
+            threshold={0}
           >        
             <div className="relative flex justify-center">
               <TooltipProvider>

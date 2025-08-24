@@ -44,6 +44,18 @@ const AnimatedContent: React.FC<AnimatedContentProps> = ({
     const element = ref.current;
     if (!element) return;
 
+    // Langsung check apakah element sudah visible (untuk threshold=0 cases)
+    const rect = element.getBoundingClientRect();
+    const isAlreadyVisible = rect.top < window.innerHeight && rect.bottom > 0;
+    
+    if (threshold === 0 && isAlreadyVisible) {
+      // Jika threshold=0 dan sudah visible, langsung trigger
+      setTimeout(() => {
+        setInView(true);
+      }, delay);
+      return;
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {

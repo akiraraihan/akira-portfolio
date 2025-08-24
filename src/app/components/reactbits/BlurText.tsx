@@ -52,16 +52,29 @@ const BlurText: React.FC<BlurTextProps> = ({
 
   useEffect(() => {
     if (!ref.current) return;
+    
+    const element = ref.current;
+    
+    // Langsung check apakah element sudah visible (untuk threshold rendah)
+    const rect = element.getBoundingClientRect();
+    const isAlreadyVisible = rect.top < window.innerHeight && rect.bottom > 0;
+    
+    if ((threshold <= 0.1) && isAlreadyVisible) {
+      // Jika threshold rendah dan sudah visible, langsung trigger
+      setInView(true);
+      return;
+    }
+    
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setInView(true);
-          observer.unobserve(ref.current as Element);
+          observer.unobserve(element);
         }
       },
       { threshold, rootMargin }
     );
-    observer.observe(ref.current);
+    observer.observe(element);
     return () => observer.disconnect();
   }, [threshold, rootMargin]);
 

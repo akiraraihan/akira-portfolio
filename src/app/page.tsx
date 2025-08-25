@@ -372,12 +372,12 @@ export default function Page() {
         </div>
         {/* Shimmer Buttons Row - Centered, below hero section */}
         <div className="flex justify-center items-center gap-6">
-          <a href="https://drive.google.com/file/d/1C1bXqz-QyDVXaEBxuLL82UqExvM2Bz5N/view?usp=sharing" className="block">
-            <ShimmerButton>CV Here</ShimmerButton>
+          <a href="https://drive.google.com/file/d/1aGGzaXFGJz1pvyK4i71oymIMI05UjxXW/view?usp=sharing" className="block" target="_blank" rel="noopener noreferrer">
+            <ShimmerButton>CV/Resume</ShimmerButton>
           </a>
           <p className="text-xl text-gray-400">|</p>
-          <a href="https://drive.google.com/drive/folders/1TYJYP6Cre_EhiWT8WvqheMTBRSjVt5N_?usp=sharing" className="block">
-            <ShimmerButton>Portfolio Here</ShimmerButton>
+          <a href="https://drive.google.com/file/d/1EMtWbfwsr_xrSMfYzUmuaS-yzwopxKE1/view?usp=sharing" className="block" target="_blank" rel="noopener noreferrer">
+            <ShimmerButton>Portfolio</ShimmerButton>
           </a>
         </div>
       </AnimatedContent>

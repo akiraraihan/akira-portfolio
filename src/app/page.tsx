@@ -38,6 +38,7 @@ import Footer from "@/components/Footer";
 import { ShimmerButton } from "@/components/magicui/shimmer-button";
 import ProjectDetailModal from "./components/ProjectDetailModal";
 import { getTechIcon } from "@/lib/techUtils";
+import { InteractiveHoverButton } from "@/components/magicui/InteractiveHoverButton";
 
 export default function Page() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -916,12 +917,11 @@ export default function Page() {
                         </div>
                         {/* Spacer to push button to bottom if content is short */}
                         <div className="flex-1" />
-                        <button
+                        <InteractiveHoverButton
                           onClick={() => proj && openProjectModal(proj)}
-                          className="mt-2 mb-4 inline-block px-3 py-1 bg-black text-white text-xs rounded-lg font-semibold shadow hover:bg-gray-800 transition w-fit"
                         >
                           View Detail
-                        </button>
+                        </InteractiveHoverButton>
                       </div>
                     </div>
                   );

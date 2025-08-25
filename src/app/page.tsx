@@ -885,7 +885,7 @@ export default function Page() {
                             src={item.img}
                             alt={proj?.name || item.id}
                             className={
-                              'rounded-2xl border border-gray-100 shadow w-full bg-gray-100 ' +
+                              'rounded-xl border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-200 w-full bg-gray-100 ' +
                               (isTall ? 'object-contain h-full max-h-full' : 'object-cover h-full')
                             }
                             style={{ background: '#f3f3f3' }}

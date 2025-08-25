@@ -38,7 +38,7 @@ const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 z-10 p-2 rounded-full bg-white/90 hover:bg-white shadow-lg hover:shadow-xl transition-all duration-200"
+          className="absolute top-4 right-4 z-10 p-2 rounded-full bg-white/90 hover:bg-white shadow-lg hover:shadow-xl transition-all duration-200 cursor-pointer"
           aria-label="Close modal"
         >
           <XIcon size={20} />

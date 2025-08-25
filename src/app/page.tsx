@@ -766,7 +766,7 @@ export default function Page() {
               <h2 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-black text-center md:text-left w-fit mx-auto">Featured Projects</h2>
             </div>
             {/* Project Showcase CardSwap Container */}
-            <div className="relative w-full max-w-[400px] h-[280px] sm:h-[320px] bg-gradient-to-br from-gray-900 via-gray-800 to-black rounded-2xl border border-gray-700 overflow-hidden shadow-2xl">
+            <div className="relative w-full max-w-[600px] h-[280px] sm:h-[320px] bg-gradient-to-br from-gray-900 via-gray-800 to-black rounded-2xl border border-gray-700 overflow-hidden shadow-2xl">
               {/* Background Pattern */}
               <div className="absolute inset-0 opacity-10">
                 <div className="absolute top-4 right-4 w-20 h-20 border border-gray-600 rounded-full"></div>
@@ -786,7 +786,7 @@ export default function Page() {
                 verticalDistance={isMobile ? 40 : 60}
                 delay={3000}
                 pauseOnHover={true}
-                width={isMobile ? 340 : 320}
+                width={isMobile ? 340 : 400}
                 height={isMobile ? 240 : 240}
                 easing="elastic"
               >
@@ -796,7 +796,7 @@ export default function Page() {
                     {/* Header */}
                     <div className="absolute top-0 left-0 w-full flex items-center gap-2 px-4 py-2 border-b border-[#222] bg-[#111114] rounded-t-2xl z-10">
                       <span className="w-2 h-2 bg-[#fff] rounded-full border border-[#444] mr-2"></span>
-                      <span className="text-xs text-white font-semibold tracking-wide">Reliable</span>
+                      <span className="text-xs text-white font-semibold tracking-wide">EduBridge</span>
                     </div>
                     {/* Image Full Card */}
                     <Image
@@ -814,7 +814,7 @@ export default function Page() {
                     {/* Header */}
                     <div className="absolute top-0 left-0 w-full flex items-center gap-2 px-4 py-2 border-b border-[#222] bg-[#111114] rounded-t-2xl z-10">
                       <span className="w-2 h-2 bg-[#fff] rounded-full border border-[#444] mr-2"></span>
-                      <span className="text-xs text-white font-semibold tracking-wide">Customizable</span>
+                      <span className="text-xs text-white font-semibold tracking-wide">IO Web</span>
                     </div>
                     <Image
                       src="/images/io-1.png"
@@ -831,7 +831,7 @@ export default function Page() {
                     {/* Header */}
                     <div className="absolute top-0 left-0 w-full flex items-center gap-2 px-4 py-2 border-b border-[#222] bg-[#111114] rounded-t-2xl z-10">
                       <span className="w-2 h-2 bg-[#fff] rounded-full border border-[#444] mr-2"></span>
-                      <span className="text-xs text-white font-semibold tracking-wide">Smooth</span>
+                      <span className="text-xs text-white font-semibold tracking-wide">SEB Web</span>
                     </div>
                     <Image
                       src="/images/seb-2.png"

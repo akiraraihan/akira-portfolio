@@ -24,7 +24,7 @@ export default function CertificatesPage() {
           >
             All Licenses & Certifications
           </ScrollFloat>
-          <PulsatingButton href="/#licenses" className="mt-2 text-sm font-medium">
+          <PulsatingButton href="/" className="mt-2 text-sm font-medium">
             ← Back to Home
           </PulsatingButton>
         </div>

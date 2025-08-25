@@ -196,7 +196,7 @@ export default function Page() {
                 onLoad={() => setHeaderLoaded(true)}
               />
               <ShinyText 
-                text="Akira Raihan's Property" 
+                text="AR Property" 
                 disabled={false}
                 speed={5}
               />
@@ -731,6 +731,7 @@ export default function Page() {
       </AnimatedContent>
       {/* END Certification Section */}      {/* Journey & Showcase Section */}
       <section className="w-full max-w-6xl mx-auto mt-12 sm:mt-24 px-2 sm:px-4">
+        <AnimatedContent distance={100} direction="vertical" animateOpacity threshold={0.2}> {}
         <div className="flex flex-col md:flex-row gap-6 sm:gap-8 md:gap-12 items-start sm:mb-24">
           {/* Kiri: Slider Foto Journey */}
           <div className="w-full md:w-1/2">
@@ -848,9 +849,11 @@ export default function Page() {
             </div>
           </div>
         </div>
+        </AnimatedContent>
       </section>
       {/* Masonry Section */}
       <section id="projects" className="w-full max-w-6xl mx-auto px-2 sm:px-4 min-h-[400px] overflow-visible">
+        <AnimatedContent distance={100} direction="vertical" animateOpacity threshold={0.2}>{}
         <h2 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-black text-center mb-8">Project Gallery</h2>
         <div className="bg-[#000000] rounded-2xl p-4">
           {isClient && (
@@ -930,6 +933,7 @@ export default function Page() {
             </>
           )}
         </div>
+        </AnimatedContent>
       </section>
       {/* Mobile Menu Button - visible only on small screens */}
       <div className="fixed bottom-4 right-4 z-50 sm:hidden">

@@ -22,7 +22,7 @@ export const githubProjects: GithubProject[] = [
   },
   {
     id: "gg-blogs-nextjs",
-    name: "GG Blogs (Next.js)",
+    name: "GG Blogs",
     description: "A modern blog platform built with Next.js, TypeScript, and Prisma, featuring a clean admin dashboard for managing posts, categories, and tags. The application supports user authentication via NextAuth, allowing secure access to admin features. It includes a rich text editor for post creation, newsletter subscription functionality, and dynamic content sections such as featured and latest posts.",
     techStack: ["Next.js", "TypeScript", "Prisma", "React", "Tailwind CSS", "PostgreSQL"],
     repo: "https://github.com/akiraraihaan/GG-blogs-nextjs",

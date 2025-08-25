@@ -556,7 +556,7 @@ export default function Page() {
                                         <span className="text-[#67AEFF] text-xs font-medium">{exp.org}</span>
                                       </div>
                                       <span className={`ml-2 transition-transform duration-300 ${openOrgz === idx ? 'rotate-90' : ''}`}>
-                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="inline align-middle">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="inline align-middle cursor-pointer">
                                           <polyline points="9 18 15 12 9 6" />
                                         </svg>
                                       </span>
@@ -606,7 +606,7 @@ export default function Page() {
                                         <span className="text-[#67AEFF] text-xs font-medium">{exp.org}</span>
                                       </div>
                                       <span className={`ml-2 transition-transform duration-300 ${openWork === idx ? 'rotate-90' : ''}`}>
-                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="inline align-middle">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="inline align-middle cursor-pointer">
                                           <polyline points="9 18 15 12 9 6" />
                                         </svg>
                                       </span>
@@ -655,7 +655,7 @@ export default function Page() {
                                         <span className="text-base font-bold text-[#83DDCB]">{exp.title}</span>
                                       </div>
                                       <span className={`ml-2 transition-transform duration-300 ${openNotable === idx ? 'rotate-90' : ''}`}>
-                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="inline align-middle">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="inline align-middle cursor-pointer">
                                           <polyline points="9 18 15 12 9 6" />
                                         </svg>
                                       </span>

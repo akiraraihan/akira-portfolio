@@ -68,6 +68,16 @@ export const githubProjects: GithubProject[] = [
     height: 250,
   },
   {
+    id: "financial-monitor-pertamc",
+    name: "Financial Monitor - PertaMC",
+    description: "On going",
+    techStack: ["Tailwind CSS", "Node.js"],
+    repo: "",
+    liveUrl: "/", // Example live URL
+    img: "/images/screencapture-localhost-5173-2025-09-22-07_52_53.png",
+    height: 250,
+  },
+  {
     id: "gg-pomodoro",
     name: "Pomodoro Timer",
     description: "This project is a modern Pomodoro timer web application built using React and Vite, styled with Tailwind CSS for a clean and responsive user interface. It allows users to manage their productivity by timing focused work sessions and breaks, following the Pomodoro technique. The application features a visually appealing design, real-time countdown functionality, and interactive controls for starting, pausing, and resetting the timer. This project showcases my ability to build practical, user-friendly productivity tools using the latest web technologies.",

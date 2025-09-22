@@ -463,7 +463,7 @@ export default function Page() {
       </AnimatedContent>
       <AnimatedContent distance={100} direction="vertical" animateOpacity threshold={0.2}>
         {/* Skills Marquee Section */}
-        <div id="tech-stack" className="relative mt-2 sm:mt-12 mb-8 overflow-hidden">
+        <div id="tech-stack" className="relative mt-4 sm:mt-16 mb-8 overflow-hidden">
           <div className="text-center mb-8">
             <h2 className="text-2xl sm:text-3xl font-bold text-black mb-2 tracking-tight">Tech Stack & Tools</h2>
             <p className="text-gray-600 text-sm sm:text-base">I work with</p>
@@ -739,6 +739,7 @@ export default function Page() {
             <JourneyPhotoCarousel
               images={[
                 "/images/IMG_0992.JPEG.jpg",
+                "/images/IMG_4723.JPG",
                 "/images/rpl.jpg",
                 "/images/IMG_7687.JPG",
                 "/images/all-2.jpg",

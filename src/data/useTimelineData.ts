@@ -79,6 +79,15 @@ export function useTimelineData() {
 
   const workExperiences: WorkExperience[] = [
     {
+      date: "Sep 2025 - Present",
+      title: "Software Engineer/IT Intern",
+      org: "PT. Pertamina Maintenance and Construction",
+      color: "from-[#67AEFF] to-[#97FFA4]",
+      titleColor: "text-[#67AEFF]",
+      orgColor: "text-[#97AEFF]",
+      desc: "Developing and maintaining software solutions."
+    },
+    {
       date: "Jul 2024 - Present",
       title: "Intern Junior Developer",
       org: "Academic Information System, Universitas Pertamina",

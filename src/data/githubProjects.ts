@@ -71,7 +71,7 @@ export const githubProjects: GithubProject[] = [
     id: "financial-monitor-pertamc",
     name: "Financial Monitor - PertaMC",
     description: "On going",
-    techStack: ["Tailwind CSS", "Node.js"],
+    techStack: ["Tailwind CSS", "Node.js", "Svelte", "D3.js"],
     repo: "",
     liveUrl: "/", // Example live URL
     img: "/images/screencapture-localhost-5173-2025-09-22-07_52_53.png",
